@@ -1,0 +1,2646 @@
+@String{ETNA = {Electronic Transactions on Numerical Analysis}}
+@String{nlaa = {Numerical Linear Algebra with Applications}}
+@String{laa = {Linear Algebra and its Applications}}
+%@String{laa = {Linear Algebra Appl.}}
+@String{SINUM = {SIAM J. Numer. Anal.}}
+@String{SIMAX = {SIAM J. Matrix Anal. Appl.}}
+@String{SISC = {SIAM J. Sci. Comput.}}
+@String{SICOMP = {SIAM J. Comput.}}
+@String{SIOPT = {SIAM J. Optim.}}
+@String{MATHCOMP = {Math. Comp.}}
+@String{IJNumMethEngg = {Int. J. Numer. Meth. Engng}}
+@String{msi = {Minnesota Supercomputer Institute}}
+@String{ComputMAME = {Comput. Methods Appl. Mech. Engrg.}}
+@String{ConstrApp = {Constr. Approx.}} % Constructive Approximation
+@String{NumerMath = {Numer. Math.}}
+
+
+@TechReport{damhaug97:SparseSolutionImplementation,
+  author =	 {Arne Christian Damhaug},
+  title =	 {Sparse Solution of Finite-Element Equations, {P}art
+                  2 {I}mplementation},
+  institution =	 {Det Norske Veritas AS},
+  year =	 1997,
+  number =	 {97-2010},
+  address =	 {Høvik, Norway}
+}
+
+
+@TechReport{damhaug97:SparseSolutApp,
+  author = 	 {Arne Christian Damhaug},
+  title = 	 {Sparse Solution of Finite-Element Equations, {P}art 2 {I}mplementation-{A}ppendices},
+  institution =  {Det Norske Veritas AS},
+  year = 	 1997,
+  number =	 {97-2010},
+  address =	 {Høvik, Norway}
+}
+
+
+@TechReport{damhaug97:SparseSolutionTheory,
+  author = 	 {Arne Christian Damhaug},
+  title = 	 {Sparse Solution of Finite-Element Equations Part 1, Theory},
+  institution =  {Det Norske Veritas AS},
+  year = 	 1997,
+  number =	 {97-2009},
+  address =	 {Høvik, Norway}
+}
+
+@Article{chapman97:DeflateAugment,
+  author =	 {Andrew Chapman and Yousef Saad},
+  title =	 {Deflated and Augmented {K}rylov Subspace Techniques},
+  journal =	 {nlaa},
+  year =	 1997,
+  key =		 {deflated GMRES, inner-iteration GMRES, block GMRES,
+                  augmented Krylov subspace, flexible GMRES},
+  volume =	 4,
+  number =	 1,
+  pages =	 {43--66}
+}
+
+@Article{fisher01:cheby-krylov,
+  author =	 {Bernd Fisher and Franz Peherstorfer},
+  title =	 {Chebyshev approximation via polynomial mappings and
+                  the convergence behaviour of {K}rylov subspace
+                  methods},
+  journal =	 ETNA,
+  year =	 2001,
+  key =		 {Chebychev plynomial, optimal polynomial, extremal
+                  signature, {K}rylov subspace method, convergence
+                  rate},
+  volume =	 12,
+  pages =	 {205--215}
+}
+
+@Article{stewart01:krylov-schur,
+  author = 	 {Gilbert W. Stewart},
+  title = 	 {A {K}rylov-{S}chur algorithm for large eigenproblems},
+  journal = 	 SIMAX,
+  year = 	 2001,
+  volume =	 23,
+  number =	 3,
+  pages =	 {601--614}
+}
+
+@Article{stewart02:adden-ae-krylov-schur,
+  author =	 {Gilbert W. Stewart},
+  title =	 {Addendum to "A {K}rylov-{S}chur algorithm for large
+                  eigenproblems"},
+  journal =	 SIMAX,
+  year =	 2002,
+  key =		 {large eigenproblem, Krylov sequence, Arnoldi
+                  algorithm, Krylov decomposition, restarting,
+                  deflation},
+  volume =	 24,
+  number =	 2,
+  pages =	 {599--601}
+}
+
+@Article{wu00:thick-lancz,
+  author =	 {Kesheng Wu and Horst Simon},
+  title =	 {Thick-restart {L}anczos method for large symmetric
+                  eigenvalue problems},
+  journal =	 SIMAX,
+  year =	 2000,
+  volume =	 22,
+  number =	 2,
+  pages =	 {602--616}
+}
+
+@Article{sorensen92:implic-arnol,
+  author =	 {D. C. Sorensen},
+  title =	 {Implicit application of polynomial filters in a
+                  k-step {A}rnoldi method},
+  journal =	 SIMAX,
+  year =	 1992,
+  volume =	 13,
+  number =	 1,
+  pages =	 {357--285},
+  month =	 {January}
+}
+
+@article{Chapman-Saad1995,
+  title =	 {Deflated and augmented {Krylov} subspace techniques},
+  author =	 {A. Chapman and Y. Saad},
+  journal =	 nlaa,
+  volume =	 4,
+  pages =	 {43-66},
+  year =	 1997
+}
+@techreport{Chapman-Saad-TR,
+  title =	 {Deflated and augmented {Krylov} subspace techniques},
+  author =	 {A. Chapman and Y. Saad},
+  Institution =	 msi,
+  Number =	 "umsi-95-181",
+  Year =	 "1995"
+}
+
+@Article{meerbergen98:arnol-lancz,
+  author =	 {Karl Meerbergen},
+  title =	 {A theoretical comparison between inner products in
+                  the shift-inver {Arnoldi} method and the spectral
+                  transformation {Lanczos} method},
+  journal =	 ETNA,
+  year =	 1998,
+  key =		 {Lanczos method, Arnoldi's method, generalized
+                  eigenvalue problem, shift-invert},
+  volume =	 7,
+  pages =	 {90-102},
+  note =	 {ISSN 1068-9613}
+}
+
+@misc{ wu99evaluation,
+  author =	 "K. Wu and H. Simon",
+  title =	 "An evaluation of parallel shift-and-invert {Lanczos}
+                  method",
+  text =	 "Kesheng Wu and Horst Simon. An evaluation of
+                  parallel shift-and-invert lanczos method. In
+                  Proceedings of The 1999 International Conference on
+                  Parallel and Distributed Processing Techniques and
+                  Applications, Las Vegas, Nevada, June 28 - July 1,
+                  1999, pages 2913--19, 1999.",
+  year =	 "1999"
+}
+
+@article{oliveira99:convergence,
+  author =	 "S. Oliveira",
+  title =	 "On the Convergence Rate of a Preconditioned Subspace
+                  Eigensolver",
+  journal =	 "Computing",
+  volume =	 63,
+  number =	 3,
+  pages =	 "219--231",
+  year =	 1999
+}
+
+@Article{ashcraft98:accur-symmet-indef-linear-equat-solver,
+  author =	 {Cleve Ashcraft and Grimes, Roger G. and Lewis, John
+                  G.},
+  title =	 {Accurate Symmetric Indefinite Linear Equation
+                  Solvers},
+  journal =	 SIMAX,
+  year =	 1998,
+  volume =	 20,
+  number =	 2,
+  pages =	 {513--561}
+}
+
+@article{DuffEtAlSparseBlas02,
+  author =	 {Iain S. Duff and Michael A. Heroux and Roldan Pozo},
+  title =	 {An overview of the sparse basic linear algebra
+                  subprograms: The new standard from the BLAS
+                  technical forum},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 28,
+  number =	 2,
+  year =	 2002,
+  issn =	 {0098-3500},
+  pages =	 {239--267},
+  doi =		 {http://doi.acm.org/10.1145/567806.567810},
+  publisher =	 {ACM Press},
+}
+
+@article{BoisvertDongarra02,
+  author =	 {Ronald F. Boisvert and Jack J. Dongarra},
+  title =	 {Preface to the special issue on the basic linear
+                  algebra subprograms (BLAS)},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 28,
+  number =	 2,
+  year =	 2002,
+  issn =	 {0098-3500},
+  pages =	 {133--134},
+  doi =		 {http://doi.acm.org/10.1145/567806.567812},
+  publisher =	 {ACM Press},
+}
+
+
+@article{LiEtAlMixedBlas02,
+  author =	 {Xiaoye S. Li and James W. Demmel and David H. Bailey
+                  and Greg Henry and Yozo Hida and Jimmy Iskandar and
+                  William Kahan and Suh Y. Kang and Anil Kapur and
+                  Michael C. Martin and Brandon J. Thompson and Teresa
+                  Tung and Daniel J. Yoo},
+  title =	 {Design, implementation and testing of extended and
+                  mixed precision BLAS},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 28,
+  number =	 2,
+  year =	 2002,
+  issn =	 {0098-3500},
+  pages =	 {152--205},
+  doi =		 {http://doi.acm.org/10.1145/567806.567808},
+  publisher =	 {ACM Press},
+}
+
+
+
+@article{DuffVomel02,
+  author =	 {Iain S. Duff and Christof Vömel},
+  title =	 {Algorithm 818: A reference model implementation of
+                  the sparse BLAS in fortran 95},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 28,
+  number =	 2,
+  year =	 2002,
+  issn =	 {0098-3500},
+  pages =	 {268--283},
+  doi =		 {http://doi.acm.org/10.1145/567806.567811},
+  publisher =	 {ACM Press},
+}
+
+
+@article{liu86,
+  author =	 {Joseph W. H. Liu},
+  title =	 {On the storage requirement in the out-of-core
+                  multifrontal method for sparse factorization},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 12,
+  number =	 3,
+  year =	 1986,
+  issn =	 {0098-3500},
+  pages =	 {249--264},
+  doi =		 {http://doi.acm.org/10.1145/7921.11325},
+  publisher =	 {ACM Press},
+}
+
+@article{Schreiber82,
+  author =	 {Robert Schreiber},
+  title =	 {A New Implementation of Sparse {Gaussian} Elimination},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 8,
+  number =	 3,
+  year =	 1982,
+  issn =	 {0098-3500},
+  pages =	 {256--276},
+  doi =		 {http://doi.acm.org/10.1145/356004.356006},
+  publisher =	 {ACM Press},
+}
+
+@Article{golub02:KrylovEigenvalue,
+  author =	 {Gene H. Golub and Qiang Ye},
+  title =	 {An inverse free preconditioned {K}rylov subspace
+                  method for symmetric generalized eigenvalue
+                  problems},
+  journal =	 SISC,
+  year =	 2002,
+  key =		 {Krylov subspace, preconditioning, eigenvalue
+                  problems},
+  volume =	 24,
+  number =	 1,
+  pages =	 {312--334}
+}
+
+@Article{stewart02:adjus-rayleig-lanzos,
+  author =	 {Gilbert W. Stewart},
+  title =	 {Adjusting the {R}ayleigh quotient in semiorthogonal
+                  {L}anzos methods},
+  journal =	 SISC,
+  year =	 2002,
+  key =		 {eigenproblems, Lanczos method, partial
+                  reorthogonalization, symmetric matrix, adjusted
+                  Rayleigh quotient},
+  volume =	 24,
+  number =	 1,
+  pages =	 {201--207}
+}
+
+@article{DuffScott96,
+  author =	 {I. S. Duff and J. A. Scott},
+  title =	 {The design of a new frontal code for solving sparse,
+                  unsymmetric systems},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 22,
+  number =	 1,
+  year =	 1996,
+  issn =	 {0098-3500},
+  pages =	 {30--45},
+  doi =		 {http://doi.acm.org/10.1145/225545.225550},
+  publisher =	 {ACM Press},
+}
+
+@article{DuffReid83,
+ author = {I. S. Duff and J. K. Reid},
+ title = {The Multifrontal Solution of Indefinite Sparse Symmetric Linear},
+ journal = {ACM Transactions on Mathematical Software (TOMS)},
+ volume = {9},
+ number = {3},
+ year = {1983},
+ issn = {0098-3500},
+ pages = {302--325},
+ doi = {http://doi.acm.org/10.1145/356044.356047},
+ publisher = {ACM Press},
+ }
+
+@article{Liu89,
+  author =	 {Joseph W. H. Liu},
+  title =	 {The multifrontal method and paging in sparse
+                  {Cholesky} factorization},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 {15},
+  number =	 {4},
+  year =	 {1989},
+  issn =	 {0098-3500},
+  pages =	 {310--325},
+  doi =		 {http://doi.acm.org/10.1145/76909.76911},
+  publisher =	 {ACM Press},
+}
+
+@article{AshcraftGrimes89,
+ author = {Cleve Ashcraft and Roger Grimes},
+ title = {The influence of relaxed supernode partitions on the multifrontal method},
+ journal = {ACM Transactions on Mathematical Software (TOMS)},
+ volume = {15},
+ number = {4},
+ year = {1989},
+ issn = {0098-3500},
+ pages = {291--309},
+ doi = {http://doi.acm.org/10.1145/76909.76910},
+ publisher = {ACM Press},
+ }
+
+@article{DuffScott99,
+ author = {Iain S. Duff and Jennifer A. Scott},
+ title = {A frontal code for the solution of sparse positive-definite symmetric systems arising from finite-element applications},
+ journal = {ACM Transactions on Mathematical Software (TOMS)},
+ volume = {25},
+ number = {4},
+ year = {1999},
+ issn = {0098-3500},
+ pages = {404--424},
+ doi = {http://doi.acm.org/10.1145/332242.332243},
+ publisher = {ACM Press},
+ }
+
+@article{Liu87,
+ author = {Joseph W. H. Liu},
+ title = {On threshold pivoting in the multifrontal method for sparse indefinite systems},
+ journal = {ACM Transactions on Mathematical Software (TOMS)},
+ volume = {13},
+ number = {3},
+ year = {1987},
+ issn = {0098-3500},
+ pages = {250--261},
+ doi = {http://doi.acm.org/10.1145/29380.31331},
+ publisher = {ACM Press},
+ }
+
+@article{DuffReid96,
+ author = {I. S. Duff and J. K. Reid},
+ title = {The design of MA48: a code for the direct solution of sparse unsymmetric linear systems of equations},
+ journal = {ACM Transactions on Mathematical Software (TOMS)},
+ volume = {22},
+ number = {2},
+ year = {1996},
+ issn = {0098-3500},
+ pages = {187--226},
+ doi = {http://doi.acm.org/10.1145/229473.229476},
+ publisher = {ACM Press},
+ }
+
+@article{Liu91,
+ author = {Joseph W. H. Liu},
+ title = {A generalized envelope method for sparse factorization by rows},
+ journal = {ACM Transactions on Mathematical Software (TOMS)},
+ volume = {17},
+ number = {1},
+ year = {1991},
+ issn = {0098-3500},
+ pages = {112--129},
+ doi = {http://doi.acm.org/10.1145/103147.103159},
+ publisher = {ACM Press},
+ }
+
+@article{liu86:choles,
+  author =	 {Joseph W. Liu},
+  title =	 {A compact row storage scheme for {Cholesky} factors
+                  using elimination trees},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 12,
+  number =	 2,
+  year =	 1986,
+  issn =	 {0098-3500},
+  pages =	 {127--148},
+  doi =		 {http://doi.acm.org/10.1145/6497.6499},
+  publisher =	 {ACM Press},
+}
+
+
+@TechReport{strakos02:error-estim-conjug-gradien-method,
+  author =	 {Z. Strakos and P. Tichy},
+  title =	 {On Error Estimation in the Conjugate Gradient Method
+                  and Why It Works In Finite Precision Computations},
+  institution =	 {Academy of Sciences of the Czech Republic, Institute
+                  of Computer Science, Department of Computational
+                  Methods},
+  year =	 2002,
+  annote =	 {Accepted for publication in ETNA}
+}
+
+@Article{Duff:1991:FSS,
+  author =	 "Iain S. Duff and N. I. M. Gould and J. K. Reid and
+                  J. A. Scott and K. Turner",
+  title =	 "The factorization of sparse symmetric indefinite
+                  matrices",
+  journal =	 "IMA Journal of Numerical Analysis",
+  volume =	 11,
+  number =	 2,
+  pages =	 "181--204",
+  year =	 1991,
+  coden =	 "IJNADH",
+  ISSN =	 "0272-4979 (print), 1464-3642 (electronic)",
+  mrclass =	 "65F50",
+  mrnumber =	 "92a:65143",
+  bibdate =	 "Sat Dec 23 17:06:35 MST 2000",
+  acknowledgement =ack-nhfb,
+  kwds =	 "sparse, augms",
+}
+
+@Article{Blackford:2002:USB,
+  author =	 "L. Susan Blackford and James Demmel and Jack
+                  Dongarra and Iain S. Duff and Sven Hammarling and
+                  Greg Henry and Michael Heroux and Linda Kaufman and
+                  Andrew Lumsdaine and Antoine Petitet and Roldan Pozo
+                  and Karin Remington and R. Clint Whaley",
+  title =	 "An Updated Set of Basic Linear Algebra Subprograms
+                  ({BLAS})",
+  journal =	 "{ACM} Transactions on Mathematical Software",
+  volume =	 "28",
+  number =	 "2",
+  month =	 jun,
+  year =	 "2002",
+  pages =	 "135--151",
+  abstract =	 "This paper expands the specification of a set of
+                  kernel routines for linear algebra, historically
+                  called the Basic Linear Algebra Subprograms and
+                  commonly known as the BLAS. Numerical linear
+                  algebra, particularly the solution of linear systems
+                  of equations, linear least squares problems,
+                  eigenvalue problems and singular value problems, is
+                  fundamental to most calculations in scientific
+                  computing, and is often the computationally intense
+                  part of such calculations. Designers of computer
+                  programs involving linear algebraic operations have
+                  frequently chosen to implement certain low level
+                  operations, such as the dot product or the matrix
+                  vector product, as separate subprograms. This may be
+                  observed both in many published codes and in codes
+                  written for specific applications at many computer
+                  installations. A major aim of the standards defined
+                  in this paper is to enable linear algebra libraries
+                  (both public domain and commercial) to interoperate
+                  efficiently, reliably and easily.",
+  URL =		 "http://doi.acm.org/10.1145/567806.567807",
+}
+
+@article{amestoy01:mumps,
+  author =	 {Patrick R. Amestoy and Iain S. Duff abd Jean-Yves
+                  L'excellent and Xiaoye S. Li},
+  title =	 {Analysis and comparison of two general sparse
+                  solvers for distributed memory computers},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 27,
+  number =	 4,
+  year =	 2001,
+  issn =	 {0098-3500},
+  pages =	 {388--421},
+  doi =		 {http://doi.acm.org/10.1145/504210.504212},
+  publisher =	 {ACM Press},
+}
+
+@article{gunnels01:Flame,
+  author =	 {John A. Gunnels and Fred G. Gustavson and Greg
+                  M. Henry and Robert A. van de Geijn},
+  title =	 {FLAME: Formal Linear Algebra Methods Environment},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 27,
+  number =	 4,
+  year =	 2001,
+  issn =	 {0098-3500},
+  pages =	 {422--455},
+  doi =		 {http://doi.acm.org/10.1145/504210.504213},
+  publisher =	 {ACM Press},
+}
+
+@InProceedings{damhaug02:towar-compon-based-analy-softw,
+  author =	 {Arne Christian Damhaug and Torgeir Rusten and Geir
+                  Skeie},
+  title =	 {Towards Component Based Analysis Software for
+                  Strength Assessment in Ship Design},
+  booktitle =	 {Proceedings of the 15th Nordic Seminar on
+                  Computational Mechanics},
+  pages =	 {271--278},
+  year =	 2002,
+  editor =	 {Erik Lund and Niels Olhoff and Jan Stegmann}
+}
+
+
+@InProceedings{damhaug99:SeamlessIntegration,
+  author =	 {Arne Christian Damhaug and Elling Rishoff and Are
+                  Føllesdal Tjønn},
+  title =	 {Seamless Integration of Strength Assessment into a
+                  CAD environment},
+  booktitle =	 {10th International Conference on Computer
+                  Applications in Shipbuilding},
+  year =	 1999,
+  volume =	 2
+}
+
+@InProceedings{bergan00:LargeScaleComputShipsOffscStruc,
+  author =	 {Pål G. Bergan and Arne Christian Damhaug and Arne
+                  Nestegård and Sverre Valsgård},
+  title =	 {Large Scale and Complex Computations of Ships and
+                  Offschore Structures},
+  booktitle =	 {Proceedings ECCOMAS 2000},
+  year =	 2000
+}
+
+
+@Article{randolph00:new-parad-paral-adapt-meshin-algor,
+  author =	 {Randolph E. Bank, Michael Holst},
+  title =	 {A New Paradigm for Parallel Adaptive Meshing
+                  Algorithms},
+  journal =	 SISC,
+  year =	 2000,
+  key =		 {adaptivity, finite element methods, a posteriori
+                  error estimation, parallel computing},
+  volume =	 22,
+  number =	 4,
+  pages =	 {1411--1443}
+}
+
+@Article{eva02:adapt-eigen-comput-using-method-grass-manif,
+  author =	 {Eva Lundström, Lars Eldén},
+  title =	 {Adaptive Eigenvalue Computations Using Newton's
+                  Method on the Grassmann Manifold},
+  journal =	 SIMAX,
+  year =	 2002,
+  key =		 {conjugate gradient method, differential geometry,
+                  eigenvalue, eigenvector, Grassmann manifold,
+                  Newton's method, preconditioner, signal subspace
+                  problem, singular values and vectors, sparse matrix,
+                  Toeplitz matrix },
+  volume =	 23,
+  number =	 3,
+  pages =	 {819--839}
+}
+
+@Article{larson00:A-PosterAndAPriorError,
+  author =	 {Mats G. Larson},
+  title =	 {A Posteriori and a Priori Error Analysis for Finite
+                  Element Approximations of Self-Adjoint Elliptic
+                  Eigenvalue Problems},
+  journal =	 SINUM,
+  year =	 2000,
+  key =		 {eigenvalue problem, finite element method, a priori
+                  and a posteriori error estimates, stability analysis
+                  },
+  volume =	 38,
+  number =	 2,
+  pages =	 {608--625}
+}
+
+@InProceedings{brenner01:NewLookFeti,
+  author =	 {Susanne C. Brenner},
+  title =	 {A New Look at {FETI}},
+  booktitle =	 {Proceedings, Thirteenth International Conference on
+                  Domain Decomposition methods},
+  year =	 2001,
+  editor =	 {N. Debit and M. Garbey and R. Hoppe and J. P\`{e}riaux and
+                  D. Keys and Y. Kuznetsov}
+}
+
+
+@InProceedings{braess01:MortarNorms,
+  author =	 {D. Braess and W. Dahmen},
+  title =	 {The Mortar element methods revisited-What are the
+                  right norms?},
+  booktitle =	 {Proceedings, Thirteenth International Conference on
+                  Domain Decomposition methods},
+  year =	 2001,
+  editor =	 {N. Debit and M. Garbey and R. Hoppe and J. P\`{e}riaux and
+                  D. Keys and Y. Kuznetsov}
+}
+
+
+
+@Article{neymeyr01,
+  author =	 {Klaus Neymeyr},
+  title =	 {A posteriori error estimates for elliptic
+                  eigenproblems},
+  journal =	 {Numerical Linear Algebra With Applications},
+  year =	 2001,
+  key =		 {Symmetric eigenvalue problem; preconditioning;
+                  multigrid; A posteriori error estimation},
+  volume =	 {xx},
+  number =	 {xx},
+  pages =	 {xx}
+}
+
+@Article{weiler85:edge,
+  author =	 {Kevin Weiler},
+  title =	 {Edge based data structures for solid modelling in
+                  curved-surface environments },
+  journal =	 {IEEE Computer Graphics and Applications},
+  year =	 1985,
+  volume =	 5,
+  number =	 1,
+  pages =	 {21--40}
+}
+
+@Article{lienhardt91:topol,
+  author =	 {Pascal Lienhardt},
+  title =	 {Topological models for boundary representations: A
+                  comparison with n-dimensional generalized maps},
+  journal =	 {Computer-Aided Design},
+  year =	 1991,
+  volume =	 23,
+  number =	 1,
+  pages =	 {59--82}
+}
+
+@TechReport{meerbergen00:BlockRationalLancz,
+  author =	 {Karl Meerbergen and Jennifer Scott},
+  title =	 {The design of a block rational {L}anczos code with
+                  partial reorthogonalization and implicit restarting},
+  institution =	 {Computer Science and Engineering Department,
+                  Rutherford Appleton Laboratory},
+  year =	 2000,
+  key =		 {eigenvalue problem, real symmetric, generalized,
+                  large-scale, software, Lanczos method, rational
+                  Lanczos method},
+  number =	 {RAL-TR-2000-011},
+  address =	 {Oxon OX11 0QX},
+  month =	 {April}
+}
+
+@Article{strakos02:conjugError,
+  author =	 {Zden\v{e}k Strako\v{s} and Petr Tich\'{y}},
+  title =	 {On error estimation in the {C}onjugate gradient
+                  method and why it works in finite precision
+                  computations},
+  journal =	 ETNA,
+  year =	 2002,
+  key =		 {conjugate gradient method, {G}auss quadrature,
+                  evaluation of convergence, error bounds, finite
+                  precision arithmetic, rounding errors, loss of
+                  orthogonality},
+  volume =	 13,
+  pages =	 {56--80}
+}
+
+@Article{tallec98:neuman,
+  author =	 {Patrick Le Tallec and Mandel,Jan and Marina
+                  Vidrascu},
+  title =	 {A {Neumann}--{Neumann} Domain Decomposition Algorithm
+                  for Solving Plate and Shell Problems},
+  journal =	 {SIAM Journal on Numerical Analysis},
+  year =	 1998,
+  key =		 {iterative methods, preconditioning, domain
+                  decomposition, substructuring, coarse problem,
+                  balancing, plates, shells, parametric variational
+                  principles},
+  volume =	 35,
+  number =	 2,
+  pages =	 {836--867}
+}
+
+@article{BarwellGeorge76:SymmetIndef,
+  author =	 {Victor Barwell and Alan George},
+  title =	 {A Comparison of Algorithms for Solving Symmetric
+                  Indefinite Systems of Linear Equations},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 2,
+  number =	 3,
+  year =	 1976,
+  issn =	 {0098-3500},
+  pages =	 {242--251},
+  doi =		 {http://doi.acm.org/10.1145/355694.355697},
+  publisher =	 {ACM Press},
+}
+
+@article{gupta02:SparseUnsymmetric,
+  author =	 {Anshul Gupta},
+  title =	 {Recent advances in direct methods for solving
+                  unsymmetric sparse systems of linear equations},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 28,
+  number =	 3,
+  year =	 2002,
+  issn =	 {0098-3500},
+  pages =	 {301--324},
+  doi =		 {http://doi.acm.org/10.1145/569147.569149},
+  publisher =	 {ACM Press},
+}
+
+
+@article{212092,
+  author =	 {Linda Kaufman},
+  title =	 {Computing the {MDMT} decomposition},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 21,
+  number =	 4,
+  year =	 1995,
+  issn =	 {0098-3500},
+  pages =	 {476--489},
+  doi =		 {http://doi.acm.org/10.1145/212066.212092},
+  publisher =	 {ACM Press},
+}
+
+@article{319413,
+  author =	 {Jack J. Dongarra and Stanley C. Eisenstat},
+  title =	 {Squeezing the most out of an algorithm in {CRAY}
+                  {FORTRAN}},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 10,
+  number =	 3,
+  year =	 1984,
+  issn =	 {0098-3500},
+  pages =	 {219--230},
+  doi =		 {http://doi.acm.org/10.1145/1271.319413},
+  publisher =	 {ACM Press},
+}
+
+
+@Article{bunch74:PartialPivoting,
+  author =	 {James R. Bunch},
+  title =	 {Partial pivoting strategies for symmetrix matrices},
+  journal =	 SINUM,
+  year =	 1974,
+  key =		 {indefinite factorization},
+  volume =	 11,
+  number =	 3,
+  pages =	 {521--528}
+}
+
+@article{aasen:71,
+   author = "Jan Ole Aasen",
+   year = "1971",
+   title = "On the Reduction of a Symmetric Matrix to Tridiagonal Form",
+   journal = "BIT",
+   volume = "11",
+   pages = "233-242",
+   kwds = "nla, symmetric matrix, tridiagonal matrix"
+}
+
+
+@Article{BunK77,
+  author =       "J. R. Bunch and K. Kaufman",
+  year =         "1977",
+  title =        "Some Stable Methods for Calculating Inertia and
+                 Solving Symmetric Linear Systems",
+  journal =      MathComp,
+  volume =       "31",
+  pages =        "162--179",
+}
+
+@Article{demmeletal95,
+  author =	 {James W. Demmel and Dhillon, Inderjit and Huan Ren},
+  title =	 {On the correctness of some bisection-like parallel
+                  eigenvalue algorithms in floating point arithmetic},
+  journal =	 ETNA,
+  year =	 1995,
+  key =		 {symmetric eigenvalue problem, parallel algorithms,
+                  monotonicity, correctness, floating point},
+  volume =	 3,
+  pages =	 {116--149},
+  month =	 {December}
+}
+
+@Article{gilbert03,
+  author =	 {John R. Gilbert and Laura Grigori},
+  title =	 {A note on the columns elimination tree},
+  journal =	 SIMAX,
+  year =	 2003,
+  key =		 {column elimination tree, sparse partial pivoting,
+                  structure prediction},
+  volume =	 25,
+  number =	 1,
+  pages =	 {143--151}
+}
+
+@TechReport{lehoucq97:krylov,
+  author =	 {Richard B. Lehoucq and Karl Meerbergen},
+  title =	 {The inexact rational {K}rylov sequence method},
+  institution =	 {Argonne National Laboratory, Argonne, IL},
+  year =	 1997,
+  type =	 {Technical Report},
+  number =	 {MCS-P612-1096}
+}
+
+@Article{ruhe98:ration-krylov,
+  author =	 {Axel Ruhe},
+  title =	 {Rational Krylov: A practical algorithm for large
+                  sparse nonsymmetric matrix pencils},
+  journal =	 SISC,
+  year =	 1998,
+  key =		 {eigenvalue, sparse, nonsymmetric, Krylov, Lanzcos,
+                  Arnoldi, Jocobi-Davidson},
+  volume =	 19,
+  number =	 5,
+  pages =	 {1535--1551}
+}
+
+@Article{Baglama:2003:AIM,
+  author =	 "J. Baglama and D. Calvetti and L. Reichel",
+  title =	 "Algorithm 827: irbleigs: A {MATLAB} Program for
+                  Computing a Few Eigenpairs of a Large Sparse
+                  {Hermitian} Matrix",
+  journal =	 "{ACM} Transactions on Mathematical Software",
+  volume =	 29,
+  number =	 3,
+  pages =	 "337--348",
+  month =	 sep,
+  year =	 2003,
+  URL =		 "http://doi.acm.org/10.1145/838250.838257",
+  abstract =	 "irbleigs is a MATLAB program for computing a few
+                  eigenvalues and associated eigenvectors of a sparse
+                  Hermitian matrix of large order $n$. The matrix is
+                  accessed only through the evaluation of
+                  matrix-vector products. Working space of only a few
+                  $n$-vectors is required. The program implements a
+                  restarted block-Lanczos method. Judicious choices of
+                  acceleration polynomials make it possible to compute
+                  approximations of a few of the largest eigenvalues,
+                  a few of the smallest eigenvalues, or a few
+                  eigenvalues in the vicinity of a user-specified
+                  point on the real axis. irbleigs also can be applied
+                  to certain large generalized eigenproblems as well
+                  as to the computation of a few nearby singular
+                  values and associated right and left singular
+                  vectors of a large general matrix.",
+}
+
+@article{scott95:arnol,
+  author =	 {Jennifer A. Scott},
+  title =	 {An {Arnoldi} code for computing selected eigenvalues
+                  of sparse, real, unsymmetric matrices},
+  journal =	 {ACM Transactions on Mathematical Software (TOMS)},
+  volume =	 21,
+  number =	 4,
+  year =	 1995,
+  issn =	 {0098-3500},
+  pages =	 {432--475},
+  doi =		 {http://doi.acm.org/10.1145/212066.212091},
+  publisher =	 {ACM Press},
+}
+
+
+@TechReport{bientinesi02,
+  author =	 {Pablo Bientinesi and Gunnels, John A. and Myers,
+                  Margareth E. and Quintana-Ort\,{i}, Enrique S. and
+                  Robert A. van de Geijn},
+  title =	 {The science of deriving dense linear algebra
+                  algorithms},
+  institution =	 {University of Texas},
+  year =	 2002,
+  type =	 {{FLAME} working note},
+  number =	 8,
+  note =	 {Submittet to TOMS}
+}
+
+@TechReport{geijn03:FLAMEApi,
+  author =	 {Robert A. van de Geijn},
+  title =	 {Representing linear algebra in code: The {FLAME
+                  API}},
+  institution =	 {University of Texas},
+  year =	 2003,
+  type =	 {{FLAME} working note},
+  number =	 10,
+  note =	 {Submittet to TOMS}
+}
+
+@Article{baglama03:irbl,
+  author =	 {J. Baglama and Calvetti, D. and L. Reichel},
+  title =	 {{IRBL}: An Implicitly Restarted Block-{L}anczos Method
+                  for Large-Scale {H}ermitian Eigenproblems},
+  journal =	 SISC,
+  year =	 2003,
+  volume =	 24,
+  number =	 5,
+  pages =	 {1650--1677},
+  annote =	 {block-Lanczos method, eigenvalue computation,
+                  singular value computation, polynomial acceleration}
+}
+
+@TechReport{WuSimon98:ThickRestart,
+  author =	 {Kesheng Wu and Horst Simon},
+  title =	 {Thick-Restart {Lanczos} Method for Symmetric
+                  Eigenvalue Problems},
+  institution =	 {Lawrence Berkeley National Laboratory},
+  year =	 1998,
+  type =	 {Technical Report},
+  number =	 41412,
+  address =	 {Berkeley, CA 94720},
+  annote =	 {Thick-Restart, Lanczos, reorthogonalization, large
+                  eigenvalue problem}
+}
+
+
+
+
+@Article{EricRuhe1980,
+  author =	 {Thomas Ericsson and Axel Ruhe},
+  title =	 {The Spectral Transformation {Lanczos} Method for the
+                  Numerical Solution of Large Sparse Generalized
+                  Symmetric Eigenvalue Problems},
+  journal =	 MATHCOMP,
+  year =	 1980,
+  volume =	 35,
+  number =	 152,
+  pages =	 {1251--1268},
+  annote =	 {Spectral transformation, Lanczos, symmetric
+                  eigenvalue problem}
+}
+@Article{higham97:DiagonalPivoting,
+  author = 	 {Nicholas J. Higham},
+  title = 	 {Stability of the diagonal pivoting method with partial pivoting},
+  journal = 	 SIMAX,
+  year = 	 1997,
+  volume =	 18,
+  number =	 1,
+  pages =	 {52--65},
+  annote =	 {symmetric indefinite matrix, diagonal pivoting method, partial pivoting}
+}
+
+
+@InCollection{grimes86:eigen,
+  author =	 {Roger. G. Grimes and John G. Lewis and Horst
+                  D. Simon},
+  title =	 {Eigenvalue problems and algorithms in structural
+                  engineering},
+  booktitle =	 {Large Scale Eigenvalue Problems},
+  pages =	 {81--93},
+  publisher =	 {Elsevier Science Publishers (North-Holland)},
+  address = 	 {Amsterdam},
+  year =	 1986,
+  editor =	 {Jane K. Cullum and R. A. Willoughby}
+}
+
+@Article{ hauser96handling,
+  author =	 {John R. Hauser},
+  title =	 {Handling Floating-Point Exceptions in Numeric Programs},
+  journal =	 {ACM Transactions on Programming Languages and Systems},
+  volume =	 18,
+  number =	 2,
+  month =	 {March},
+  publisher =	 {ACM Press},
+  pages =	 {139--174},
+  year =	 1996,
+  url =		 {citeseer.nj.nec.com/hauser96handling.html}
+}
+
+@Article{ goldberg91what,
+  author =	 {David Goldberg},
+  title =	 {What Every Computer Scientist Should Know About Floating-Point
+                  Arithmetic},
+  journal =	 {ACM Computing Surveys},
+  volume =	 23,
+  number =	 1,
+  pages =	 {5--48},
+  year =	 1991,
+  url =		 {citeseer.nj.nec.com/goldberg91what.html}
+}
+
+@Article{conca97:added,
+  author =	 {C. Conca and Osses, A. and J. Planchard},
+  title =	 {Added mass and damping in fluid-structure
+                  interaction},
+  journal =	 {Comput. Methods Appl. Mech. Engrg.},
+  year =	 1997,
+  volume =	 146,
+  pages =	 {387--405}
+}
+
+@Article{rixen98,
+  author =	 {Daniel Rixen and Farhat, Charbel and Michel
+                  G\`{e}radin},
+  title =	 {A two-step, two-field hybrid method for the static
+                  and dynamic analysis of substructure problems with
+                  conforming and non-conforming interfaces},
+  journal =	 {Comput. Methods Appl. Mech. Engrg.},
+  year =	 1998,
+  volume =	 154,
+  pages =	 {229--264}
+}
+
+
+
+@Article{belytxchko96:meshl-method,
+  author =	 {Ted Belytxchko and Y. Krongauz and D. Organ and
+                  M. Flemming},
+  title =	 {Meshless Methods: An overview and recent
+                  developments},
+  journal =	 {Comput. Methods in Appl. Mech. Engrg},
+  year =	 1996,
+  volume =	 139,
+  pages =	 {3--47}
+}
+
+@Article{wohlmuth00,
+  author =	 {Barbara I. Wohlmuth},
+  title =	 {A multigrid method for saddle point problems arising
+                  from mortar finite element discretizations},
+  journal =	 {Electronic Transactions on Numerical Analysis},
+  year =	 2000,
+  volume =	 11,
+  pages =	 {43--54}
+}
+
+@InProceedings{bjørstad01:effic-schwar,
+  author =	 {P. E. Bjørstad and Drya, M. and Rahman T.},
+  title =	 {Efficient {Schwartz} methods for elliptic mortar
+                  finite element problems},
+  booktitle =	 {Thirteen International Conference on Domain
+                  Decomposition Methods},
+  pages =	 {303--310},
+  year =	 2001,
+  editor =	 {N. Debit and Garbey, M. and Hoppe, R. and
+                  P\'{e}riaux and Kuznetsov, Y.}
+}
+
+@article{ stefanica02numerical,
+  author =	 "Dan Stefanica",
+  title =	 "A Numerical Study of {FETI} Algorithms for Mortar
+                  Finite Element Methods",
+  journal =	 "SIAM Journal on Scientific Computing",
+  volume =	 23,
+  number =	 4,
+  pages =	 "1135--1160",
+  year =	 2002,
+  url =		 "citeseer.nj.nec.com/387197.html"
+}
+
+
+@article{ cheng98modified,
+  author =	 "Sheung Hun Cheng and Nicholas J. Higham",
+  title =	 "A Modified {Cholesky} Algorithm Based on a Symmetric
+                  Indefinite Factorization",
+  journal =	 "SIAM Journal on Matrix Analysis and Applications",
+  volume =	 19,
+  number =	 4,
+  pages =	 "1097--1110",
+  year =	 1998,
+  url =		 "citeseer.nj.nec.com/article/cheng98modified.html"
+}
+
+@TechReport{strazdins99:symm-indef,
+  author =	 {Peter E. Strazdins},
+  title =	 {A Dense complex symmetric indefinite solver for the
+                  {Fujitsu AP3000}},
+  institution =	 {The {Australian National University}},
+  year =	 1999,
+  type =	 {Technical report},
+  number =	 {TR-CS-99-01}
+}
+
+
+
+@Article{schnabel99:revis-modif-choles,
+  author =	 {Robert B. Schnabel and Elizabeth Eskow},
+  title =	 {A Revised Modified {Cholesky} Factorization Algorithm},
+  journal =	 {SIAM Journal on Optimization},
+  year =	 1999,
+  volume =	 9,
+  number =	 4,
+  pages =	 {1135-1148}
+}
+
+
+@Unpublished{gustavson99:recur-symmet-indef,
+  author =	 {Fred Gustavson and Karaivanov, Alexander and Jerzy
+                  Wasniewski, Jerzy and Plamen Y. Yalamov},
+  title =	 {Recursive Formulation of Algorithms for Symmetric
+                  Indefinite Linear Systems},
+  note =	 {LAWRA},
+  year =	 1999,
+  annote =	 {http://lawra.uni-c.dk/lawra}
+}
+
+@TechReport{greenbaum89:sym-tridiag-eigen-exper,
+  author =	 {Ann Greenbaum and Jack Dongarra},
+  title =	 {Experiments with QR/QL Methods for the Symmetric
+                  Tridiagonal Eigenproblem},
+  institution =	 {University of Tennessee},
+  year =	 1989,
+  type =	 {Technical Reports},
+  number =	 {UT-CS-89-92},
+  address =	 {\url{http://www.cs.utk.edu/~library/tech\_reports.php}},
+  url =		 {http://www.cs.utk.edu/~library/tech\_reports.php}
+}
+
+@Article{PerssonStrang:matlabMesh,
+  author =	 {Per-Olof Persson and Gilbert Strang},
+  title =	 {A simple mesh generator in {MATLAB}},
+  journal =	 {{SIAM} Review},
+  year =	 2004,
+  volume =	 46,
+  number =	 2,
+  pages =	 {329--345},
+  annote =	 {Delaunay triangulation, mesh generation, distance
+                  functions}
+}
+
+@Article{BankSmith97:mesh,
+  author =	 {Randolph E. Bank and Kent Smith},
+  title =	 {Mesh smooting using a posteriori error estimates},
+  journal =	 SINUM,
+  year =	 1997,
+  volume =	 34,
+  number =	 3,
+  pages =	 {979--997},
+  annote =	 {moving finite elements, adaptive refinement, a
+                  posteriori error estimates}
+}
+
+
+@Article{Knupp01:AlgebraMesh,
+  author =	 {Patric M. Knupp},
+  title =	 {Algebraic mesh quality metrics},
+  journal =	 SISC,
+  year =	 2001,
+  volume =	 23,
+  number =	 1,
+  pages =	 {193--218},
+  annote =	 {unstructured mesh generation, mesh quality metrics,
+                  condition number, shape}
+}
+
+@Article{MitchellVavasis00:QMeshGen,
+  author =	 {Scott A. Mitchell and Stephen A. Vavasis},
+  title =	 {Quality mesh generation in higher dimensions},
+  journal =	 SICOMP,
+  year =	 2000,
+  volume =	 29,
+  number =	 4,
+  pages =	 {1334--1370},
+  annote =	 {triangulation, aspect ratio, tetrahedra, mesh
+                  generation, polyhedron}
+}
+
+@inproceedings{shewchuk96a,
+  author =	 {Jonathan Richard Shewchuk},
+  title =	 {Robust Adaptive Floating-Point Geometric Predicates},
+  booktitle =	 {Proceedings of the Twelfth Annual Symposium on
+                  Computational Geometry},
+  publisher =	 {Association for Computing Machinery},
+  pages =	 {141--150},
+  month =	 may,
+  year =	 1996
+}
+
+@article{shewchuk97a,
+  author =	 {Jonathan Richard Shewchuk},
+  title =	 {Adaptive Precision Floating-Point Arithmetic and
+                  Fast Robust Geometric Predicates},
+  journal =	 {Discrete \& Computational Geometry},
+  volume =	 18,
+  number =	 3,
+  pages =	 {305--363},
+  month =	 oct,
+  year =	 1997
+}
+
+@Article{knupp00:optim-surface,
+  author =	 {Patric M. Knupp},
+  title =	 {Achieving finite elment mesh quality via optimization
+                  of the {J}acobian matrix norm and associated
+                  quantities. Part~{I}---a framework for surface mesh
+                  optimization},
+  journal =	 IJNumMethEngg,
+  year =	 2000,
+  volume =	 48,
+  pages =	 {401--420},
+  annote =	 {unstructured grid generation, finite element mesh,
+                  mesh optimization, mesh smoothing}
+}
+
+
+
+@Article{knupp00:optim-volume,
+  author =	 {Patric M. Knupp},
+  title =	 {Achieving finite elment mesh quality via
+                  optimization of the {J}acobian matrix norm and
+                  associated quantities. Part~{II}---a framework
+                  for volume mesh optimization and the condition
+                  number of the Jacobian matrix},
+  journal =	 IJNumMethEngg,
+  year =	 2000,
+  volume =	 48,
+  pages =	 {1165--1185},
+  annote =	 {unstructured grid generation, finite element mesh,
+                  mesh optimization, mesh smoothing, condition number}
+}
+
+@Article{mandelshtam97:harmon,
+  author =	 {Vladimir A. Mandelshtam and Howard S. Taylor},
+  title =	 {Harmonic inversion of time signals and its
+                  applications},
+  journal =	 {J. Chem. Phys.},
+  year =	 1997,
+  volume =	 107,
+  number =	 17,
+  pages =	 {6756--6769}
+}
+
+
+@Article{mandelshtam98:errat-harmon,
+  author =	 {Vladimir A. Mandelshtam and Howard S. Taylor},
+  title =	 {Erratum "Harmonic inversion of time signals and its
+                  applications"},
+  journal =	 {J. Chem. Phys.},
+  year =	 1998,
+  volume =	 109,
+  number =	 10,
+  pages =	 4128
+}
+
+@InCollection{BernEppstein92:mesh,
+  author =	 {Marshall Bern and David Eppstein},
+  title =	 {Mesh generation and optimal triangulation},
+  booktitle =	 {Computing in {Euclidean} geometry},
+  pages =	 {23--90},
+  publisher =	 {World Scientific},
+  year =	 1992,
+  editor =	 {Ding-Zhu Du and Frank Hwang},
+  volume =	 1,
+  series =	 {Lecture note series on computing},
+  address =	 {Singapore}
+}
+
+
+
+@TechReport{brakhage00:cagd-tools,
+  author =	 {Karl-Heinz Brakhage and Philipp Lamby},
+  title =	 {{CAGD} {T}ools for high quality grid generation and
+                  sparse representation},
+  institution =	 {Institute of Geometry and Applied Mathematics,
+                  {RWTH} Aachen},
+  year =	 {200?}
+}
+
+
+@InProceedings{samareh98:geomet-model-grid-gener-desig-optim,
+  author =	 {Jamshid A. Samareh},
+  title =	 {Geometry Modeling and Grid Generation for Design and
+                  Optimization},
+  booktitle =	 { ICASE/LaRC/NSF/ARO Workshop on Computational
+                  Aerosciences in the 21st Century},
+  year =	 1998,
+  address =	 {Hampton, Virginia},
+  month =	 {April}
+}
+
+@Article{dwyer86:delaun,
+  author =	 {Rex A. Dwyer},
+  title =	 {A simple divide-and-conquer algorithm for
+                  contructing {Delaunay} triangulations in ${O}(n
+                  \log\log n)$ expected time},
+  journal =	 {ACM},
+  year =	 1986,
+  pages =	 {276-284}
+}
+
+@Article{teng00:unstr,
+  author =	 {Shang-Hua Teng and Chi Wai Wong},
+  title =	 {Unstructured mesh generation: Theory, practice, and
+                  perspectives},
+  journal =	 {Int. J. Comp. Geom. \& Appl.},
+  year =	 2000,
+  volume =	 10,
+  number =	 3,
+  pages =	 {227-266}
+}
+
+@Article{bern00:quadr-meshin-circl-packin,
+  author =	 {Marshall Bern and David Eppstein},
+  title =	 {Quadrilateral Meshing by Circle Packing},
+  journal =	 {Int. J. Comp. Geom. \& Appl.},
+  year =	 2000,
+  volume =	 10,
+  number =	 4,
+  pages =	 {347--360}
+}
+
+@inproceedings{shewchuk03:ConstraindedDelaunay,
+  author =	 {Jonathan Richard Shewchuk},
+  title =	 {Updating and constructing constrained {Delaunay} and
+                  constrained regular triangulations by flips},
+  booktitle =	 {Proceedings of the nineteenth annual symposium on
+                  Computational geometry},
+  year =	 2003,
+  isbn =	 {1-58113-663-3},
+  pages =	 {181--190},
+  location =	 {San Diego, California, USA},
+  doi =		 {http://doi.acm.org/10.1145/777792.777821},
+  publisher =	 {ACM Press},
+}
+
+@inproceedings{chew87:const-delaun,
+  author =	 {L. P. Chew},
+  title =	 {Constrained {Delaunay} triangulations},
+  booktitle =	 {Proceedings of the third annual symposium on
+                  Computational geometry},
+  year =	 1987,
+  isbn =	 {0-89791-231-4},
+  pages =	 {215--222},
+  location =	 {Waterloo, Ontario, Canada},
+  doi =		 {http://doi.acm.org/10.1145/41958.41981},
+  publisher =	 {ACM Press},
+}
+
+@inproceedings{miller04:delaun,
+  author =	 {Gary L. Miller},
+  title =	 {A time efficient {Delaunay} refinement algorithm},
+  booktitle =	 {Proceedings of the fifteenth annual ACM-SIAM
+                  symposium on Discrete algorithms},
+  year =	 2004,
+  isbn =	 {0-89871-XXX-X},
+  pages =	 {400--409},
+  location =	 {New Orleans, Louisiana},
+  publisher =	 {Society for Industrial and Applied Mathematics},
+}
+
+@Article{knupp00:framew-variat-grid-gener,
+  author =	 {Patrick M. Knupp and Nicolas Robidoux},
+  title =	 {A Framework for Variational Grid Generation:
+                  Conditioning the Jacobian Matrix with Matrix Norms },
+  journal =	 SISC,
+  year =	 2000,
+  volume =	 21,
+  number =	 6,
+  pages =	 {2029--2047}
+}
+
+@Article{ph.02:hamil,
+  author =	 {Ph. Hoch and M. Rascle},
+  title =	 {{Hamilton}--{Jacobi} Equations on a Manifold and
+                  Applications to Grid Generation or Refinement },
+  journal =	 SISC,
+  year =	 2002,
+  volume =	 23,
+  number =	 6,
+  pages =	 {2055--2073}
+}
+
+@Article{gupta02:symbNumFact,
+  author =	 {Anshul Gupta},
+  title =	 {Improved symbolic and numerical factorization
+                  algorithms for unsymmetric sparse matrices},
+  journal =	 {SIMAX},
+  year =	 2002,
+  volume =	 24,
+  number =	 2,
+  pages =	 {529--552}
+}
+
+@InProceedings{paoletti03:polyh,
+  author =	 {Stefano Paoletti},
+  title =	 {Polyhedral mesh optimization using the interpolation
+                  tensor},
+  booktitle =	 {12th International meshing roundtable},
+  year =	 2003
+}
+
+@Article{shewchuk02:delaun-refin-algor-trian-mesh-gener,
+  author =	 {Jonathan Richard Shewchuk},
+  title =	 {Delaunay Refinement Algorithms for Triangular Mesh
+                  Generation},
+  journal =	 {Computational Geometry: Theory and Applications},
+  year =	 2002,
+  volume =	 22,
+  number =	 {1--3},
+  pages =	 {21--74},
+  month =	 {May}
+}
+
+@InProceedings{shewchuk96:triangle,
+  author =	 {Jonathan Richard Shewchuk},
+  title =	 {Triangle: Engineering a {2D} quality mesh generator
+                  and {D}elaunay Triangulator},
+  booktitle =	 {First Workshop on Applied Computational Geometry
+                  (Philadelphia, Pennsylvania)},
+  pages =	 {124--133},
+  year =	 1996,
+  month =	 {May},
+  publisher =	 { Association for Computing Machinery}
+}
+
+@Misc{triangleHome,
+author = {Jonathan Richard Shewchuk},
+  title =	 {Triangle home page},
+  year =	 2000,
+  howpublished = {\url{http://www-2.cs.cmu.edu/~quake/triangle.html}},
+  other-sources ={\url{http://www-2.cs.cmu.edu/~quake/triangle.html}},
+  URL =		 {http://www-2.cs.cmu.edu/~quake/triangle.html}
+}
+
+
+@Misc{EasyMeshHome,
+  author =	 {Bojan Niceno},
+  title =	 {EasyMesh home page},
+  howpublished = {\url{http://www-dinma.univ.trieste.it/nirftc/research/easymesh/Default.htm}},
+  year =	 1995
+}
+
+@InProceedings{knupp98:winsl-smoot-two-dimen-unstr-meshes,
+  author =	 {Patrick M. Knupp},
+  title =	 {Winslow Smoothing On Two-Dimensional Unstructured
+                  Meshes},
+  booktitle =	 {Proceedings, 7th International Meshing Roundtable},
+  pages =	 {449--457},
+  year =	 1998,
+  publisher =	 {Sandia National Lab},
+  annote =	 {Also in Engineering With Computers Volume 15, Issue
+                  3}
+}
+
+@InProceedings{lee03:cad-cae-proc,
+  author =	 {K. Y. Lee and M. A. Price and C. G. Armstrong and
+                  M. Larson and K. Samuelsson},
+  title =	 {{CAD-to-CAE} integration through automated model
+                  simplification and adaptive modelling},
+  booktitle =	 {Proc. International Conference on Adaptive Modeling
+                  and Simulation, ADMOS 2003},
+  pages =	 {??},
+  year =	 2003
+}
+
+@TechReport{lee03:cad-cae,
+  author = 	 {K. Y. Lee and M. A. Price and C. G. Armstrong and
+                  M. Larson and K. Samuelsson},
+  title = 	 {{CAD-to-CAE} integration through automated model
+                  simplification and adaptive modelling},
+  institution =  {Chalmers Finite Element Center, Chalmers University of Technology},
+  year = 	 2003,
+  type =	 {Preprint},
+  number =	 {2003-18},
+  address =	 {SE-412 96 Gøteborg Sweden},
+  month =	 {October}
+}
+
+@TechReport{larson04:VarMultiscale,
+  author =	 {Mats G. Larson and Axel Målqvist},
+  title =	 {Adaptive variational multiscale methods based on a
+                  posteriori error estimation},
+  institution =	 {Chalmers Finite Element Center, Chalmers University
+                  of Technology},
+  year =	 2004,
+  type =	 {Preprint},
+  number =	 {2004-11},
+  address =	 {SE-412 96 Gøteborg Sweden},
+  month =	 {April}
+}
+
+@TechReport{larson04:VarMultiscaleDual,
+  author =	 {Mats G. Larson and Axel Målqvist},
+  title =	 {Adaptive variational multiscale methods based on a
+                  posteriori error estimation: Duality techniques for
+                  elliptic problems},
+  institution =	 {Chalmers Finite Element Center, Chalmers University
+                  of Technology},
+  year =	 2004,
+  type =	 {Preprint},
+  number =	 {2004-16},
+  address =	 {SE-412 96 Gøteborg Sweden},
+  month =	 {May}
+}
+
+@TechReport{larson04:VarMultiscaleEnergy,
+  author =	 {Mats G. Larson and Axel Målqvist},
+  title =	 {Adaptive variational multiscale methods based on a
+                  posteriori error estimation: Energy norm estimates
+                  for elliptic problems},
+  institution =	 {Chalmers Finite Element Center, Chalmers University
+                  of Technology},
+  year =	 2004,
+  type =	 {Preprint},
+  number =	 {2004-18},
+  address =	 {SE-412 96 Gøteborg Sweden},
+  month =	 {October 2004}
+}
+
+@Article{guo04:quadraticEigen,
+  author = 	 {Chun-Hua Guo},
+  title = 	 {Numerical solution of a quadratic eigenvalue problem},
+  journal = 	 laa,
+  year = 	 2004,
+  volume =	 385,
+  pages =	 {391--406}
+}
+
+@Article{watkins04:hamil-lancz,
+  author = 	 {David S. Watkins},
+  title = 	 {On {H}amiltonian and symplectic {L}anczos processes},
+  journal = 	 laa,
+  year = 	 2004,
+  volume =	 385,
+  pages =	 {23--45}
+}
+
+@Article{castillo02:perfor-discon-galer-method-ellip-pdes,
+  author =	 {Paul Castillo},
+  title =	 {Performance of Discontinuous {G}alerkin Methods for
+                  Elliptic {PDE}s },
+  journal =	 SISC,
+  year =	 2002,
+  volume =	 24,
+  number =	 2,
+  pages =	 {524--547},
+  annote =	 {finite element, discontinuous Galerkin methods,
+                  conditioning of stiffness matrix }
+}
+
+@Article{aksoylu02:LocalRefinementBPX,
+  author = 	 {Burak Aksoylu and Michael Holst},
+  title = 	 {An odyssey into local refinement and multilevel preconditioning {I}: Optimality of the {BPX} preconditioner},
+  journal = 	 {Submitted: SINUM},
+  year = 	 2002,
+  volume =	 {??},
+  number =	 {??},
+  pages =	 {??}
+}
+
+@Article{aksoylu02:LocalRefinementHierarchical,
+  author =	 {Burak Aksoylu and Michael Holst},
+  title =	 {An odyssey into local refinement and multilevel
+                  preconditioning {II}: Stabilizing hierarchical basis
+                  methods},
+  journal =	 {Submitted: SINUM},
+  year =	 2002,
+  volume =	 {??},
+  number =	 {??},
+  pages =	 {??}
+}
+
+@Article{aksoylu03:LocalRefinementImplementation,
+  author =	 {Burak Aksoylu and Bond, Stephen and Michael Holst},
+  title =	 {An odyssey into local refinement and multilevel
+                  preconditioning {III}: Implementation and numerical
+                  experiments},
+  journal =	 SISC,
+  year =	 2003,
+  volume =	 25,
+  number =	 2,
+  pages =	 {478--498},
+  annote =	 {finite element methods, local mesh refinement,
+                  multilevel precondidtioning, BPX, read and red-green
+                  refinement, data structures}
+}
+
+@Article{hughes98:VarMultiscale,
+  author =	 {Thomas J.R. Hughes and Feij\'{o}o, Gonzalo R. and
+                  Mazzei, Luca and Jean-Baptiste Quincy},
+  title =	 {The variational multiscale method---a paradigm for
+                  computational mechanics},
+  journal =	 ComputMAME,
+  year =	 1998,
+  volume =	 166,
+  pages =	 {3--24}
+}
+
+@Article{hughes95:multiscale,
+  author =	 {Thomas J.R. Hughes},
+  title =	 {Multiscale phenomena: {G}reen's functions, the
+                  {D}irichlet-to-{N}eumann formulation, subgrid scale
+                  models, bubbles and the origins of stabilized
+                  methods},
+  journal =	 ComputMAME,
+  year =	 1995,
+  volume =	 127,
+  pages =	 {387--401}
+}
+
+@Article{carstensen04:h-lstableL-2proj,
+  author =	 {Carsten Carstensen},
+  title =	 {An adaptive mesh-refining algorithm allowing for an
+                  ${H}^1$ stable ${L}^2$ projection onto {C}ourant finite
+                  element spaces},
+  journal =	 ConstrApp,
+  year =	 2004,
+  volume =	 20,
+  pages =	 {549--564}
+}
+
+@Article{sleijpen00:jacob-david,
+  author =	 {Gerard L. G. Sleijpen and Henk A. Van der Vorst},
+  title =	 {A {J}acobi-{D}avidson iteration method for linear
+                  eigenvalue problems},
+  journal =	 {SIAM Review},
+  year =	 2000,
+  volume =	 42,
+  number =	 2,
+  pages =	 {267--293}
+}
+
+@Article{arnold97:precon-reiss-mindl,
+  author =	 {Douglas N. Arnold and Richard Falk and Ragnar
+                  Winther},
+  title =	 {Preconditioning discrete approximations of the
+                  {R}eissner-{M}indlin plate model},
+  journal =	 {Math. Modelling Numer. Anal.},
+  year =	 1997,
+  volume =	 31,
+  number =	 4,
+  pages =	 {517--557}
+}
+
+@article{ bramble98negativenorm,
+  author =	 "James H. Bramble and Tong Sun",
+  title =	 "A negative-norm least squares method for
+                  {Reissner-Mindlin} plates",
+  journal =	 "Mathematics of Computation",
+  volume =	 "67",
+  number =	 "223",
+  pages =	 "901--916",
+  year =	 "1998",
+  url =		 "citeseer.ist.psu.edu/bramble97negativenorm.html"
+}
+
+@Article{pitkaranta96:desig,
+  author =	 {Juhani Pitkaranta and Manil Suri},
+  title =	 {Design principles and error analysis for
+                  reduced-shear platebending finite elements},
+  journal =	 NumerMath,
+  year =	 1996,
+  volume =	 75,
+  pages =	 {223--266},
+  url =		 "citeseer.ist.psu.edu/pitkaranta96design.html"
+}
+
+@TechReport{lovandinaStenberg04:energ,
+  author =	 {Carlo Lovandina and Rolf Stenberg},
+  title =	 {Energy norm a posteriori error estimates for mixed
+                  finite element methods},
+  institution =	 {Helsinki University of Thechnology, Institute of
+                  Mathematics},
+  year =	 2004,
+  type =	 {Research Reports},
+  number =	 {A473},
+  month =	 {October}
+}
+
+@Article{arnold90:mixed,
+  author =	 {Douglas N. Arnold},
+  title =	 {Mixed finite element methods for elliptic problems},
+  journal =	 {Comput. Methods Appl. Mech. Engrg.},
+  year =	 1990,
+  volume =	 82,
+  pages =	 {281--300}
+}
+
+@Article{arnold04:galer-reiss-mindl,
+  author =	 {Douglas N. Arnold and Franco Brezzi and Donatella
+                  Marini},
+  title =	 {A family of discontinuous Galerkin finite elements
+                  for the Reissner-Mindlin plate},
+  journal =	 {Journal of Scientific Computing},
+  year =	 2004
+}
+
+@Article{arnold04:mixed-finit-elemen-elast-stres-displ-formul,
+  author =	 {Douglas N. Arnold and Ragnar Winther},
+  title =	 {Mixed Finite Elements for Elasticity in the
+                  Stress-Displacement Formulation },
+  journal =	 {Contemporary Mathematics},
+  year =	 2004
+}
+
+@article{ leinen95:data,
+  author =	 "P. Leinen",
+  title =	 "Data Structures and Concepts for Adaptive Finite
+                  Element Methods",
+  journal =	 "Computing",
+  volume =	 55,
+  number =	 4,
+  pages =	 "325--354",
+  year =	 1995,
+  url =		 "citeseer.ist.psu.edu/leinen95data.html"
+}
+
+@TechReport{stewart04:gram-schmid,
+  author =	 {Gilbert W. Stewart},
+  title =	 {The {Gram-Schmidt} algorithm and its variations},
+  institution =	 {University of Maryland, Institute for Advanced
+                  Computer Studies, Department of Computer Science},
+  year =	 2004,
+  number =	 {TR-2004-84},
+  url =		 {ftp://thales.cs.umd.edu/pub/reports/gsaiv.ps}
+}
+
+@Article{veiga04:finit-elemen-method-modif-reiss,
+  author =	 {L. Beirao da Veiga},
+  title =	 {Finite Element Methods for a Modified
+                  Reissner--Mindlin Free Plate Model},
+  journal =	 {SINUM},
+  year =	 2004,
+  volume =	 42,
+  number =	 4,
+  pages =	 {1572--1591}
+}
+
+@Article{arnold02:unified-galer,
+  author =	 {Douglas N. Arnold and Franco Brezzi and Bernando
+                  Cockburn and L. Donatella Marini},
+  title =	 {Unified analysis of discontinuous {G}alerkin methods
+                  for elliptic problems},
+  journal =	 SINUM,
+  year =	 2002,
+  volume =	 39,
+  number =	 5,
+  pages =	 {1749--1779}
+}
+
+@Article{castillo00:galer,
+  author =	 {Paul Castillo and Bernando Cockburn and Ilaria
+                  Perugia and Dominik Sch\"otzau},
+  title =	 {An a priori error analysis of the local
+                  discontinuous {G}alerkin method for elliptic
+                  problems},
+  journal =	 SINUM,
+  year =	 2000,
+  volume =	 38,
+  number =	 5,
+  pages =	 {1667--1706}
+}
+
+@InProceedings{brewer03:mesquit,
+  author =	 {Michael Brewer and Lori Freitag Diachin and Patric
+                  Knupp and Thomas Leurent and Darryl Melander},
+  title =	 {The {Mesquite} mesh quality improvement toolkit},
+  booktitle =	 {Proceedings, 12th International Meshing Roundtable},
+  year =	 2003,
+  address =	 {\url{http://www.imr.sandia.gov/papers/imr12/brewer03.pdf}},
+  url =		 {http://www.imr.sandia.gov/papers/imr12/brewer03.pdf}
+}
+
+@InProceedings{zhang04:adapt-quality,
+  author =	 {Yongjie Zhang and Chandrajit Bajaj},
+  title =	 {Adaptive and Quality Quadrilateral/Hexahedral
+                  Meshing from Volumetric Data},
+  booktitle =	 {Proceedings of 13th International Meshing},
+  pages =	 {365-376},
+  year =	 2004,
+  address =      {\url{http://www.ices.utexas.edu/~jessica/paper/quadhex}},
+  url =		 {http://www.ices.utexas.edu/~jessica/paper/quadhex}
+}
+
+@Article{d'azevedo00:bilin-vs-linear,
+  author =	 {Ed F. D'Azevedo},
+  title =	 {Are Bilinear Quadrilaterals Better Than Linear
+                  Triangles?},
+  journal =	 SISC,
+  year =	 2000,
+  volume =	 22,
+  number =	 1,
+  pages =	 {198--217}
+}
+ 
+@InProceedings{radek04:feti-based-contact-friction,
+  author =	 {Radek K\v{u}cera1 and Jaroslav Haslinger and
+                  Zden\v{e}k Dost\'{a}l},
+  title =	 {The {FETI} Based Domain Decomposition Method for
+                  Solving 3D-Multibody Contact Problems with {C}oulomb
+                  Friction},
+  booktitle =	 {Proceedings of the 15th International Conference on
+                  Domain Decomposition Methods in Berlin, Germany},
+  pages =	 {369--376},
+  year =	 2004,
+  editor =	 {R. Kornhuber and Hoppe, R. and Périaux, J. and Pironneau,
+                  O. and  Widlund, O. and Xu, J},
+  volume =	 40,
+  series =	 {Lecture Notes in Computational Science and
+                  Engineering},
+  publisher =	 {Springer}
+}
+
+@Article{haslinger02:SplittingAlg,
+  author =	 {Jaroslav Haslinger and Zden\v{e}k Dost\'{a}l and
+                  Radek Ku\v{c}era},
+  title =	 {On a splitting typ algorithm for the numerical
+                  realization of contact problems with {C}oulomb
+                  friction},
+  journal =	 {Comput. Methods Appl. Mech. Engrg},
+  year =	 2002,
+  volume =	 191,
+  pages =	 {2261--2281}
+}
+
+@Article{haslinger04:3dContact,
+  author =	 {Jaroslav Haslinger and Radek Ku\v{c}era and
+                  Zden\v{e}k Dost\'{a}l},
+  title =	 {An algorithm for the numerical realization of {3D}
+                  contact problems with {C}oulomb friction},
+  journal =	 {Journal of Computational and Applied Mathematics},
+  year =	 2004,
+  volume =	 {164--165},
+  pages =	 {387--408}
+}
+
+@Article{dostal97:boxConstrainedQuadratic,
+  author =	 {Zden\v{e}k Dost\'{a}l},
+  title =	 {Box constrained quadratic programming with
+                  proportioning and projections},
+  journal =	 SIOPT,
+  year =	 1997,
+  volume =	 7,
+  number =	 3,
+  pages =	 {871--887},
+  month =	 {August}
+}
+
+@misc{shewchuk-what,
+  author =	 {Jonathan Richard Shewchuk},
+  title =	 {What Is a Good Linear Finite Element? -
+                  Interpolation, Conditioning, Anisotropy, and Quality
+                  Measures},
+  howpublished = {\url{http://citeseer.ist.psu.edu/shewchuk02what.html}},
+  url =		 {citeseer.ist.psu.edu/shewchuk02what.html}
+}
+
+@InProceedings{shewchuk02:what-good-linear-elemen,
+  author =	 {Jonathan Richard Shewchuk},
+  title =	 {What is a Good Linear Element? Interpolation,
+                  Conditioning, and Quality Measures},
+  booktitle =	 {Proceedings, 11th International Meshing Roundtable},
+  pages =	 {115--126},
+  year =	 2002,
+  month =	 {September},
+  organization = {Sandia National Laboratories}
+}
+
+@InProceedings{branets03,
+  author =	 {Larisa Branets and Graham F. Carey},
+  title =	 {A local cell quality metric and variational grid
+                  smooting algorithm},
+  booktitle =	 {Proceedings, 12th International Meshing Roundtable},
+  year =	 2003,
+  month =	 {September},
+  organization = {Sandia National Laboratories}
+}
+
+@InProceedings{timothy03:topol,
+  author =	 {Timothy J. Tautgesa1, Sarah E. Knoopb},
+  title =	 {Topology modification of hexahedral meshes using
+                  atomic dual-based operations},
+  booktitle =	 {Proceedings, 12th International Meshing Roundtable},
+  year =	 2003,
+  month =	 {September},
+  organization = {Sandia National Laboratories}
+}
+
+@InProceedings{knupp99:matrix,
+  author =	 {Patrick M. Knupp},
+  title =	 {Matrix norms \& the condition number},
+  booktitle =	 {Proceedings, 8th International Meshing Roundtable},
+  year =	 1999,
+  month =	 {October},
+  organization = {Sandia National Laboratories}
+}
+
+@Article{haslinger82:approx-signor,
+  author =	 {Jaroslav Haslinger and Ivan Hlav\'{a}\v{c}ek},
+  title =	 {Approximation of the {S}ignorini problem with
+                  friction by a mixed finite element method},
+  journal =	 {J. Math. Anal. Appl.},
+  year =	 1982,
+  volume =	 86,
+  pages =	 {99--122},
+  OPTnote = 	 {Journal of Mathematical Analysis and Applications}
+}
+
+@TechReport{pebay02:some,
+  author =	 {Philippe P. P\'ebay},
+  title =	 {Some results about the quality of planar mesh
+                  elements},
+  institution =	 {INRIA},
+  year =	 2002,
+  type =	 {Rapport de recherche},
+  number =	 {RR-4436},
+  month =	 {April},
+  annote =	 {Triangular meshing, quadrilateral meshing, mesh
+                  quality}
+}
+
+@Article{pebay04:planar,
+  author =	 {Philippe P. P\'ebay},
+  title =	 {Planar quadrilateral quality measures},
+  journal =	 {Engineering with Computers},
+  year =	 2004,
+  volume =	 20,
+  pages =	 {157--173},
+  annote =	 {Mesh quality, quadrilateral, quadrilateral meshing}
+}
+
+@InProceedings{pebay02:planar,
+  author =	 {Philippe P. P\'ebay},
+  title =	 {Planar quadrangle quality measures: Is there really
+                  a choice},
+  booktitle =	 {Proceedings, 11th International Meshing Roundtable},
+  pages =	 {53--62},
+  year =	 2002,
+  month =	 {September},
+  organization = {Sandia National Laboratories}
+}
+
+@Article{ainsworth05,
+  author =	 {Mark Ainsworth},
+  title =	 {A posteriori error estimation for non-conforming
+                  quadrilateral finite elements},
+  journal =	 {International Journal of Numerical Analysis and
+                  Modeling},
+  year =	 2005,
+  volume =	 2,
+  number =	 1,
+  pages =	 {1-18}
+}
+
+@Article{zhang04:polyn,
+  author =	 {Zhimin Zhang},
+  title =	 {Polynomial preserving gradient recovery and a
+                  posteriori estimate for bilinear element on
+                  irregular quadrilaterals},
+  journal =	 {International Journal of Numerical Analysis and
+                  Modeling},
+  year =	 2004,
+  volume =	 1,
+  number =	 1,
+  pages =	 {1--24}
+}
+
+@Article{ciarlet05:anoth,
+  author =	 {Philippe G. Ciarlet and Patric Ciarlet},
+  title =	 {Another approach to linearized elasticity and a new
+                  proof of {K}orn's inequality},
+  journal =	 {Mathematical Models and Methods in Applied Sciences},
+  year =	 2005,
+  volume =	 15,
+  number =	 2,
+  pages =	 {259--271}
+}
+
+@inproceedings{RuSt01a,
+  title =	 {Using Graphics Cards for Quantized FEM Computations},
+  author =	 { Strzodka, R. and Rumpf, M. },
+  booktitle =	 { Proceedings VIIP Conference on Visualization and
+                  Image Processing},
+  year =	 2001,
+  html =         {http://numerik.math.uni-duisburg.de/people/strzodka/projects/PPDE/}
+}
+
+@InProceedings{klawonn05:selec-const-dual-primal-feti,
+  author =	 {Axel Klawonn and Olof B. Widlund},
+  title =	 {Selecting Constraints in {Dual-Primal} {FETI}
+                  Methods for Elasticity in Three Dimensions},
+  booktitle =	 {Domain Decomposition methods in {S}cience and
+                  {E}ngineering},
+  pages =	 {67--81},
+  year =	 2005,
+  editor =	 {R. Kornhuber and Hoppe, R.H.W and Keyes, D.E. and
+                  P\'eriaux, J. and O. Pironneau},
+  series =	 {Lecture Notes in Computational Science and
+                  Engineering},
+  publisher =	 {Springer-Verlag}
+}
+
+@Article{klawonn01:feti-neuman-neuman,
+  author =	 {Axel Klawonn and Olof B. Widlund},
+  title =	 {{FETI} and {N}eumann-{N}eumann iterative
+                  substructuring methods: Connections and new results},
+  journal =	 {Comm. Pure Appl Math.},
+  year =	 2001,
+  volume =	 54,
+  pages =	 {57--90}
+}
+
+@Article{Xin:2005:IHB,
+  author =	 "Jianguo Xin and Katia Pinchedez and Joseph
+                  E. Flaherty",
+  title =	 "Implementation of Hierarchical Bases in {Femlab} for
+                  Simplicial Elements",
+  journal =	 "{ACM} Transactions on Mathematical Software",
+  volume =	 "31",
+  number =	 "2",
+  month =	 jun,
+  year =	 "2005",
+  pages =	 "187--200",
+  URL =		 " http://doi.acm.org/10.1145/1067967.1067968",
+  abstract =	 "We present the implementation of a well-conditioned
+                  hierarchical bases for one-dimensional, triangular
+                  and tetrahedral elements in finite element Femlab
+                  software. Using the domain mesh information provided
+                  by Femlab, we found an easy way to maintain the
+                  continuity of solutions across the inter-element
+                  boundaries. The conditionings of the global
+                  stiffness matrices of several standard problems are
+                  compared with Lagrange bases and are smaller for all
+                  cases.",
+}
+
+@Article{Money:2005:AEM,
+  author =	 "James H. Money and Qiang Ye",
+  title =	 "Algorithm 845: {EIGIFP}: A {MATLAB} Program for
+                  Solving Large Symmetric Generalized Eigenvalue
+                  Problems",
+  journal =	 "{ACM} Transactions on Mathematical Software",
+  volume =	 "31",
+  number =	 "2",
+  month =	 jun,
+  year =	 "2005",
+  pages =	 "270--279",
+  URL =		 " http://doi.acm.org/10.1145/1067967.1067973",
+  abstract =	 "eigifp is a MATLAB program for computing a few
+                  extreme eigenvalues and eigenvectors of the large
+                  symmetric generalized eigenvalue problem Ax =
+                  \lambda¸Bx. It is a black-box implementation of an
+                  inverse free preconditioned Krylov subspace
+                  projection method developed by Golub and Ye
+                  (2002). It has some important features that allow it
+                  to solve some difficult problems without any input
+                  from users. It is particularly suitable for problems
+                  where preconditioning by the standard
+                  shift-and-invert transformation is not feasible.",
+}
+
+@Article{nour-omid87:how-spect-ttran,
+  author =	 {Bahram Nour-Omid and Beresford N. Parlett and Thomas
+                  Ericsson and Paul S. Jensen},
+  title =	 {How to implement the {S}pectral {T}transformation},
+  journal =	 MATHCOMP,
+  year =	 1987,
+  volume =	 48,
+  number =	 178,
+  pages =	 {663--673}
+}
+
+@Article{richard98:using-gener-cayley-trans-inexac,
+  author =	 {Richard B. Lehoucq, Karl Meerbergen },
+  title =	 {Using Generalized {C}ayley Transformations within an
+                  Inexact Rational {K}rylov Sequence Method},
+  journal =	 SIMAX,
+  year =	 1998,
+  volume =	 20,
+  number =	 1,
+  pages =	 {131-148}
+}
+
+@Article{arbenz05:compar-eigen-large-modal-analy,
+  author =	 {Peter Arbenz and Ulrich L. Hetmaniuk and Richard
+                  B. Lehoucq and Raymond S. Tuminaro},
+  title =	 {A Comparison of Eigensolvers for Large-scale 3{D}
+                  Modal Analysis using {AMG}-Preconditioned Iterative
+                  Methods},
+  journal =	 {Int. J. Numer. Meth. Engng 2003},
+  year =	 2005,
+  volume =	 64,
+  number =	 2,
+  pages =	 {204--236}
+}
+
+@Article{ruhe84:ration-krylov,
+  author =	 {Axel Ruhe},
+  title =	 {Rational {K}rylov sequence methods for eigenvalue
+                  computations},
+  journal =	 laa,
+  year =	 1984,
+  volume =	 58,
+  pages =	 {391--405}
+}
+
+@InCollection{ruhe94:ration-krylov,
+  author =	 {Axel Ruhe},
+  title =	 {Rational {K}rylov algorithms for nonsymmetric
+                  eigenvalue problems},
+  booktitle =	 {Recent advances in Iterative methods},
+  pages =	 {149--164},
+  publisher =	 {Springer-Verlag New York},
+  year =	 1994,
+  editor =	 {Gene Golub and Ann Greenbaum and Mitchell Luskin},
+  volume =	 60,
+  series =	 {IMA Vol. Math. Appl.}
+}
+
+@Article{ruhe94:ration-krylov-ii,
+  author =	 {Axel Ruhe},
+  title =	 {Rational {K}rylov algorithms for nonsymmetric
+                  eigenvalue problems, {II}: Matrix pairs},
+  journal =	 {Linear Algebra Appl.},
+  year =	 1994,
+  volume =	 {197/198},
+  pages =	 {283--295}
+}
+
+@Article{ruhe94:ration-krylov-iii,
+  author =	 {Axel Ruhe},
+  title =	 {Rational {K}rylov algorithms for nonsymmetric
+                  eigenvalue problems, {III}: Complex shifts for real
+                  matrices},
+  journal =	 {BIT},
+  year =	 1994,
+  volume =	 34,
+  pages =	 {165--176}
+}
+
+@article{meerbergen97:implic-arnol,
+  author =	 {Karl Meerbergen and Alastair Spence},
+  title =	 {Implicitly restarted {Arnoldi} with purification for
+                  the shift-invert transformation},
+  journal =	 MATHCOMP,
+  volume =	 66,
+  number =	 218,
+  pages =	 {667--689},
+  year =	 1997,
+  url =		 {citeseer.ist.psu.edu/meerbergen95implicitly.html}
+}
+ sleijpen96jacobidavidson
+@article{sleijpen96:jacob-david-linear-eigen,
+  author =	 {Gerard L. G. Sleijpen and Henk A. {Van der Vorst}},
+  title =	 {A {Jacobi-Davidson} Iteration Method for Linear
+                  Eigenvalue Problems},
+  journal =	 SIMAX,
+  volume =	 17,
+  number =	 2,
+  pages =	 {401--425},
+  year =	 1996,
+  url =		 {citeseer.ist.psu.edu/sleijpen00jacobidavidson.html}
+}
+
+@InProceedings{edwards02:mathem-abstr-sierr-comput-mechan-framew,
+  author =	 {H. Carter Edwards and James R. Stewart and John
+                  D. Zepper},
+  title =	 {Mathematical Abstractions of the {SIERRA}
+                  Computational Mechanics Framework},
+  booktitle =	 {Fifth World Congress on Computational Mechanics},
+  year =	 2002,
+  editor =	 {H. A. Mang and F. G. Rammerstorfer and
+                  J. Eberhardsteiner},
+  month =	 {July}
+}
+
+@Article{bank90:SaddlePointIt,
+  author =	 {Randolph E. Bank and Bruno D. Welfert and Harry
+                  Yserentant},
+  title =	 {A Class of iterative methods for solving saddle
+                  point problems},
+  journal =	 NumerMath,
+  year =	 1990,
+  volume =	 56,
+  pages =	 {645--666}
+}
+
+@Article{racheva02:superConvEig,
+  author =	 {Milena R. Racheva and Andrey B. Andreev},
+  title =	 {Superconvergence postprocessing for eigenvalues},
+  journal =	 {Computational methods in applied mathematics},
+  year =	 2002,
+  volume =	 2,
+  number =	 2,
+  pages =	 {171--185}
+}
+
+@Article{carstensen02:elast-finit-elemen-matlab,
+  author =	 {Carsten Carstensen and R. Klose},
+  title =	 {Elastoviscoplastic Finite Element analysis in 100
+                  lines of {M}atlab},
+  journal =	 {J. Numer. Math.},
+  year =	 2002,
+  volume =	 10,
+  number =	 3,
+  pages =	 {157--192}
+}
+
+@Article{pian69:basis-finit-elemen,
+  author =	 {Theodore H. H. Pian and Pin Tong},
+  title =	 {Basis of {F}inite {E}lement methods for solid
+                  continua},
+  journal =	 IJNumMethEngg,
+  year =	 1969,
+  volume =	 1,
+  pages =	 {3--28}
+}
+
+@Article{murphy00:PrecIndefSystem,
+  author =	 {Malcom F. Murphy and Gene H. Golub and Andrew
+                  J. Wathen},
+  title =	 {A note on preconditioning of indefinite linear
+                  systems},
+  journal =	 SISC,
+  year =	 2000,
+  volume =	 21,
+  number =	 6,
+  pages =	 {1969--1972}
+}
+
+@Article{li98:relativePerturbationEigenvalue,
+  author =	 {Ren-Chang Li},
+  title =	 {Relative perturbation theory: {I}. Eigenvalue and
+                  Singular value variations},
+  journal =	 SIMAX,
+  year =	 1998,
+  volume =	 19,
+  number =	 4,
+  pages =	 {956--982}
+}
+
+@Article{voss03:ration-spect-fluid,
+  author =	 {Heinrich Voss},
+  title =	 {A Rational Spectral problem in Fluid-solid
+                  vibrations},
+  journal =	 ETNA,
+  year =	 2003,
+  volume =	 16,
+  pages =	 {94--106}
+}
+@Article{brenner03:analy-feti-dp-schwarz,
+  author =	 {Susanne C. Brenner},
+  title =	 {Analysis of two-dimensional {FETI}-{DP}
+                  preconditioners by the standard additive {S}chwarz
+                  framework},
+  journal =	 ETNA,
+  year =	 2003,
+  volume =	 16,
+  pages =	 {165--285}
+}
+
+@InProceedings{braess01:mortar-what,
+  author =	 {Dietrich Braess and Wolfgang Dahmen},
+  title =	 {The {M}ortar element method revisited - What are
+                  the right norms?},
+  booktitle =	 {Proc. Thirteenth International Conference on Domain
+                  Decomposition methods},
+  year =	 2001,
+  editor =	 {N. Debit and M. Garbey and R. Hoppe and J. P\'{e}riaux
+                  and D. Keyes and Y. Kuznetsov}
+}
+
+@Article{becker03:finit-elemen-domain-decom-non-match,
+  author =	 {Roland Becker and Peter Hansbo and Rolf Stenberg},
+  title =	 {A Finite Element mathod for Domain Decomposition
+                  with Non-Matchin grids},
+  journal =	 {Mathematical Modelling and Numerical Analysis},
+  year =	 2003,
+  volume =	 37,
+  number =	 2,
+  pages =	 {209--225}
+}
+
+@Article{ipsen01:note-precon-nonsy-matric,
+  author =	 {Ilse C. F. Ipsen},
+  title =	 {A Note on Preconditioning Nonsymmetric Matrices},
+  journal =	 SISC,
+  year =	 2001,
+  volume =	 23,
+  number =	 3,
+  pages =	 {1050--1051}
+}
+
+@INPROCEEDINGS{GoeddekeStrzodkaTurek2005:FemGpu,
+  author =	 {G{\"o}ddeke, Dominik and Strzodka, Robert and Turek,
+                  Stefan},
+  title =	 {Accelerating Double Precision {FEM} Simulations with
+                  {GPU}s},
+  booktitle =	 {(Accepted to be published in the conference)
+                  Proceedings of ASIM 2005 - 18th Symposium on
+                  Simulation Technique, Erlangen, Germany},
+  year =	 2005,
+  month =	 {sep},
+}
+
+@InProceedings{galoppo05:lu-gpu,
+  author =	 {Nico Galoppo and Naga K. Govindaraju and Michael
+                  Henson and Dinesh Manocha },
+  title =	 {{LU-GPU}: Efficient Algorithms for Solving Dense
+                  Linear Systems on Graphics Hardware},
+  booktitle =	 {Proceedings of the ACM/IEEE SC|05 Conference},
+  year =	 2005
+}
+
+@Article{brenner04:discr-sobol-and-poinc,
+  author =	 {Susanne C. Brenner},
+  title =	 {Discrete {S}obolev AND {P}oincar\'{e} inequalities for
+                  piecewise polynomial functions},
+  journal =	 ETNA,
+  year =	 2004,
+  volume =	 18,
+  pages =	 {42--48}
+}
+
+@Article{duff05:symmetricIndefFact,
+  author =	 {Iain S. Duff and St\'{e}phane Pralet},
+  title =	 {Strategies for scaling and pivoting for sparse
+                  symmetric indefinite problems},
+  journal =	 SIMAX,
+  year =	 2005,
+  volume =	 27,
+  number =	 2,
+  pages =	 {313--340}
+}
+@Article{wheeler05:poster-error-estim-mortar-mixed,
+  author =	 {Mary F. Wheeler and Ivan Yotov},
+  title =	 {A Posteriori Error Estimates for the Mortar Mixed
+                  Finite Element Method},
+  journal =	 SINUM,
+  year =	 2005,
+  volume =	 43,
+  number =	 3,
+  pages =	 {1021--1042}
+}
+
+
+@Article{james99:async-supernode-spars-gauss,
+  author =	 {James W. Demmel, John R. Gilbert, Xiaoye S. Li},
+  title =	 {An Asynchronous Parallel Supernodal Algorithm for
+                  Sparse Gaussian Elimination},
+  journal =	 SIMAX,
+  year =	 1999,
+  volume =	 20,
+  number =	 4,
+  pages =	 {915--952}
+}
+
+@Article{daniel76:reort-stabl-algor-updat-gram,
+  author =	 {J. W. Daniel and W. B. Gragg and L. Kaufman and
+                  G. W. Stewart},
+  title =	 {Reorthogonalization and Stable Algorithms for
+                  Updateing the {Gram-Schmidt} QR Factorization},
+  journal =	 MATHCOMP,
+  year =	 1976,
+  volume =	 30,
+  number =	 136,
+  pages =	 {772--795}
+}
+
+@TechReport{klawonnWidlund04:dual-primal-feti,
+  author =	 {Axel Klawonn and Olof B. Widlund},
+  title =	 {{Dual-Primal} {FETI} methods for linear elasticity},
+  institution =	 {Courant Institute of Mathematical Sciences, New York
+                  University},
+  year =	 2004,
+  number =	 {{TR2004}-855}
+}
+
+
+@TechReport{klawonnWidlundBlock04:feti-dp-bddc-block-coles-method,
+  author =	 {Axel Klawonn and Olof B. Widlund},
+  title =	 {{FETI-DP}, {BDDC} and Block {C}olesky Methods},
+  institution =	 {Courant Institute of Mathematical Sciences, New York
+                  University},
+  year =	 2004,
+  number =	 {{TR2004}-857}
+}
+
+@Article{rega05:dimen-reduc-dynam-system,
+  author =	 {Rega, Giuseppe and Troger, Hans},
+  title =	 {Dimension Reduction of Dynamical Systems: Methods,
+                  Models, Applications},
+  journal =	 {Nonlinear Dynamics},
+  year =	 2005,
+  volume =	 41,
+  number =	 {1--3},
+  pages =	 {1--15}
+}
+
+@Article{li05:smart-Zienkiewicz-Shu,
+  author =	 {Shaofan Li and Xiaohu Liu and Anurag Gupta},
+  title =	 {Smart element method I. The Zienkiewicz-Zhu
+                  feedback},
+  journal =	 {Int. J. Numer. Meth. Engng.},
+  year =	 2005,
+  volume =	 62,
+  pages =	 {1264--1294}
+}
+
+@Article{scheenk06:on-fast-factor-pivot-method,
+  author =	 {Olaf Scheenk and Klaus G\"{a}rtner},
+  title =	 {On fast factorization Pivoting Methods for Sparse
+                  Symmetric Indefinite Systems},
+  journal =	 ETNA,
+  year =	 2006,
+  volume =	 23,
+  pages =	 {158--179},
+  note =	 {direct solver, pivoting, sparse matrices, graph
+                  algorithms, symmetric indefinite matrix, interior
+                  point optimization}
+}
+
+@article{hetmaniuk:927,
+  author =	 {U. L. Hetmaniuk and R. B. Lehoucq},
+  title =	 {Uniform accuracy of eigenpairs from a shift-invert
+                  {L}anczos method},
+  publisher =	 {SIAM},
+  year =	 2006,
+  journal =	 {SIAM Journal on Matrix Analysis and Applications},
+  volume =	 28,
+  number =	 4,
+  pages =	 {927-948},
+  keywords =	 {shift-invert Lanczos decomposition; symmetric
+                  generalized eigenvalue problem; inner product},
+  url =		 {http://link.aip.org/link/?SML/28/927/1},
+  doi =		 {10.1137/050629288}
+}
+
+@article{knyazev:15,
+  author =	 {Andrew V. Knyazev and Merico E. Argentati},
+  title =	 {Majorization for Changes in Angles Between
+                  Subspaces, {R}itz Values, and Graph {L}aplacian Spectra},
+  publisher =	 {SIAM},
+  year =	 {2006},
+  journal =	 {SIAM Journal on Matrix Analysis and Applications},
+  volume =	 {29},
+  number =	 {1},
+  pages =	 {15-32},
+  url =		 {http://link.aip.org/link/?SML/29/15/1},
+  doi =		 {10.1137/060649070}
+}
+
+@InCollection{floater02:param-trian-unorg-point,
+  author =	 {Michael S. Floater and Kai Hormann},
+  title =	 {Parameterization of Triangulations and Unorganized
+                  Points},
+  booktitle =	 {Tutorials on Multiresolution in Geometric Modelling},
+  pages =	 {287--316},
+  publisher =	 {Springer},
+  year =	 2002,
+  editor =	 {Armin Iske and Evald Quad and Michael S. Floater},
+  series =	 {Mathematics and Visualization}
+}
+
+@InCollection{floater05:surfac-param,
+  author =	 {Michael S. Floater and Kai Hormann},
+  title =	 {Surface Parameterization: a Tutorial and Survey},
+  booktitle =	 {Advances in Multiresolution for Geometric Modelling},
+  pages =	 {157--186},
+  publisher =	 {Springer-Verlag, Heidelberg},
+  year =	 2005,
+  editor =	 {Neil A. Dodgson and Michael S. Floater and Malcom
+                  A. Sabin}
+}
+
+@article{hollig:web-splineDirichlet,
+  author =	 {Klaus H\"{o}llig and Ulrich Reif and Joachim Wipper},
+  collaboration ={},
+  title =	 {Weighted Extended B-Spline Approximation of
+                  Dirichlet Problems},
+  publisher =	 {SIAM},
+  year =	 2001,
+  journal =	 {SIAM Journal on Numerical Analysis},
+  volume =	 39,
+  number =	 2,
+  pages =	 {442--462},
+  keywords =	 {finite element method; meshless method; Dirichlet
+                  problem; B-spline; distance function; regular grid;
+                  smooth approximation},
+  url =		 {http://link.aip.org/link/?SNA/39/442/1},
+  doi =		 {10.1137/S0036142900373208}
+}
+
+@article{lee:634,
+  author =	 {Young-Ju Lee and Jinbiao Wu and Jinchao Xu and
+                  Ludmil Zikatanov},
+  collaboration ={},
+  title =	 {On the Convergence of Iterative Methods for
+                  Semidefinite Linear Systems},
+  publisher =	 {SIAM},
+  year =	 2006,
+  journal =	 {SIAM Journal on Matrix Analysis and Applications},
+  volume =	 28,
+  number =	 3,
+  pages =	 {634-641},
+  keywords =	 {iterative methods; matrix splittings; P-regularity;
+                  weak regularity; energy norm convergence},
+  url =		 {http://link.aip.org/link/?SML/28/634/1},
+  doi =		 {10.1137/050644197}
+}
+
+@Article{alla06:mesh-param-method-applic,
+  author =	 {Alla Sheffer and Emil Praun and Kenneth Rose},
+  title =	 {Mesh Parameterization Methods and their
+                  Applications},
+  journal =	 {Foundations and Trends in Computer Graphics and
+                  Vision},
+  year =	 2006,
+  volume =	 2,
+  number =	 2
+}
+
+@Article{pinkall93:comput,
+  author =	 {Ulrich Pinkall and Kondrad Polthier},
+  title =	 {Computing discrete minimal surfaces an their
+                  conjugates},
+  journal =	 {Experimental Mathematics},
+  year =	 1993,
+  volume =	 2,
+  number =	 1,
+  pages =	 {15--36},
+  url =          {citeseer.ist.psu.edu/article/pinkall93computing.html}
+}
+@Article{liesen08,
+  author =	 {J\"{o}rg Liesen and Beresford N. Parlett},
+  title =	 {On nonsymmetric saddle point matrices that allow
+                  conjucate gradient iteration},
+  journal =	 NumerMath,
+  year =	 2008,
+  volume =	 108,
+  number =	 4,
+  pages =	 {605--624}
+}
+
+@TechReport{stoll07:combin,
+  author =	 {Martin Stoll and Andy Wathen},
+  title =	 {Combination of preconditioning and self-adjointness
+                  in non-standard inner products with applications to
+                  saddle point problems},
+  institution =	 {{Oxford University Computing Laboratory}},
+  year =	 2007,
+  number =	 {07/11}
+}
+
+@TechReport{stoll07:bramb-pasciak,
+  author =	 {Martin Stoll and Andy Wathen},
+  title =	 {The Bramble-Pasciak$^+$ preconditioner for saddle
+                  point problems},
+  institution =	 {{Oxford University Computing Laboratory}},
+  year =	 2007,
+  number =	 {07/13}
+}
+@inproceedings{Chen.L2006a,
+  Author =	 {Long Chen},
+  Booktitle =	 {Recent Advances in Computational Sciences --
+                  Selected Papers from the International Workship on
+                  Computational Sciences and Its Education},
+  Editor =	 {Palle Jorgensen and Xiaoping Shen and Chi-Wang Shu
+                  and Ningning Yan},
+  Pages =	 {318 -- 332},
+  Title =	 {Short implementation of bisection in {MATLAB}},
+  Year =	 2008
+}
+@article{Chen.L2008c,
+  Author =	 {Long Chen},
+  Journal =	 {In Preparation},
+  Title =	 {{$i$FEM}: an innovative finite element methods
+                  package in {MATLAB}},
+  Year =	 2008
+}
+
+
+@article{zee08:scalab-flame,
+  author =	 {Field G. Van Zee and Paolo Bientinesi and Tze Meng
+                  Low and Robert A. van de Geijn},
+  title =	 {Scalable parallelization of {FLAME} code via the
+                  workqueuing model},
+  journal =	 {ACM Trans. Math. Softw.},
+  volume =	 34,
+  number =	 2,
+  year =	 2008,
+  issn =	 {0098-3500},
+  pages =	 {1--29},
+  doi =		 {http://doi.acm.org/10.1145/1326548.1326552},
+  publisher =	 {ACM},
+  address =	 {New York, NY, USA},
+}
+
+@article{sala08:pytril,
+  author =	 {Marzio Sala and W. F. Spotz and M. A. Heroux},
+  title =	 {{PyTrilinos}: High-performance distributed-memory
+                  solvers for {Python}},
+  journal =	 {ACM Trans. Math. Softw.},
+  volume =	 34,
+  number =	 2,
+  year =	 2008,
+  issn =	 {0098-3500},
+  pages =	 {1--33},
+  doi =		 {http://doi.acm.org/10.1145/1326548.1326549},
+  publisher =	 {ACM},
+  address =	 {New York, NY, USA},
+}
+
+@article{avron08:paral-lu,
+  author =	 {Haim Avron and Gil Shklarski and Sivan Toledo},
+  title =	 {Parallel unsymmetric-pattern multifrontal sparse {LU}
+                  with column preordering},
+  journal =	 {ACM Trans. Math. Softw.},
+  volume =	 34,
+  number =	 2,
+  year =	 2008,
+  issn =	 {0098-3500},
+  pages =	 {1--31},
+  doi =		 {http://doi.acm.org/10.1145/1326548.1326550},
+  publisher =	 {ACM},
+  address =	 {New York, NY, USA},
+}
+
+@article{sala08,
+  author =	 {Marzio Sala and Kendall S. Stanley and Michael
+                  A. Heroux},
+  title =	 {On the design of interfaces to sparse direct
+                  solvers},
+  journal =	 {ACM Trans. Math. Softw.},
+  volume =	 34,
+  number =	 2,
+  year =	 2008,
+  issn =	 {0098-3500},
+  pages =	 {1--22},
+  doi =		 {http://doi.acm.org/10.1145/1326548.1326551},
+  publisher =	 {ACM},
+  address =	 {New York, NY, USA},
+}
+

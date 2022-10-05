@@ -1,0 +1,1524 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{braket}
+
+\usepackage{fancyhdr}
+\headheight 18pt
+\pagestyle{fancy}
+\lhead{Contact and friction}
+\chead{}
+\rhead{\thepage}
+%\lfoot{\footnotesize DNV Software}
+%\cfoot{\footnotesize \today}
+%\rfoot{\footnotesize MSD TR 2004--XX}
+
+% Equation numbering
+\numberwithin{equation}{section}
+\numberwithin{table}{section}
+\numberwithin{figure}{section}
+
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\Rd}{\ensuremath{\R^d}}
+\newcommand{\Rm}{\ensuremath{\R^m}}
+\newcommand{\W}{\ensuremath{\mathcal{W}}}
+%\newcommand{\V}{{\mathcal{V}}}
+\newcommand{\J}{\ensuremath{\mathcal{J}}}
+\newcommand{\Jh}{\ensuremath{\J_h}}
+
+\newcommand{\half}{\ensuremath{\frac{1}{2}}}
+
+\newcommand{\dOmega}{{\partial\Omega}}
+\newcommand{\OT}{\Omega\times[0,\tau]}
+
+\newcommand{\pd}[1]{\ensuremath{\partial_{#1}}}
+\newcommand{\dt}{\pd{t}}
+\newcommand{\di}{\pd{i}}
+\renewcommand{\dj}{\pd{j}}
+\newcommand{\dl}{\pd{l}}
+\newcommand{\dk}{\pd{k}}
+\newcommand{\dij}{\pd{ij}}
+\newcommand{\dkk}{\pd{kk}}
+\newcommand{\pdx}{\pd{1}}
+\newcommand{\pdy}{\pd{2}}
+\newcommand{\pdz}{\pd{3}}
+\newcommand{\pdxx}{\pd{11}}
+\newcommand{\pdyy}{\pd{22}}
+\newcommand{\pdzz}{\pd{33}}
+\newcommand{\pdxy}{\pd{12}}
+\newcommand{\pdyz}{\pd{23}}
+\newcommand{\pdxz}{\pd{13}}
+\newcommand{\D}{\partial}
+\newcommand{\dn}{\partial_n}
+\newcommand{\grad}{\nabla}
+\renewcommand{\div}{\nabla\!\cdot\!}
+\newcommand{\tin}{\ \text{in}\ }
+\newcommand{\ton}{\ \text{on}\ }
+% Function spaces
+\newcommand{\Lto}{L^2(\Omega)}
+\newcommand{\Ltog}{L^2(\Gamma)}
+\newcommand{\Lton}{L^2_0(\Omega)}
+\newcommand{\Hen}{H^1}
+\newcommand{\HenO}{H^1(\Omega)}
+\newcommand{\HenOne}{H^1(\Omega_1)}
+\newcommand{\HenTwo}{H^1(\Omega_2)}
+\newcommand{\Henn}{H^1_0(\Omega)}
+\newcommand{\Henh}{H^1(\Omega_h)}
+\newcommand{\HenOh}{H^1(\Omega_h)}
+\newcommand{\Hennh}{H^1_0(\Omega_h)}
+% Discrete function spaces
+\newcommand{\V}{\ensuremath{\mathcal{V}}}
+\newcommand{\K}{\ensuremath{\mathcal{K}}}
+\newcommand{\Dcomp}{\ensuremath{\mathcal{D}}}
+\newcommand{\vPhi}{\ensuremath{\vPhi}}
+\newcommand{\Kh}{\ensuremath{\K_h}}
+\newcommand{\Vh}{{\mathcal V}_h}
+\newcommand{\Wh}{{\mathcal W}_h}
+
+\renewcommand{\L}{{\mathcal L}}
+\newcommand{\E}{{\mathcal E}}
+\newcommand{\N}{{\mathcal N}}
+\newcommand{\Th}{\ensuremath{{\mathcal T}_h}}
+\newcommand{\Eh}{{\mathcal E}_h}
+\newcommand{\Ehi}{{\mathcal E}_{h,i}}
+\newcommand{\Ehone}{{\mathcal E}_{h,1}}
+\newcommand{\Ehtwo}{{\mathcal E}_{h,2}}
+\newcommand{\Ehthree}{{\mathcal E}_{h,3}}
+\newcommand{\Nh}{{\mathcal N}_h}
+\newcommand{\F}{\ensuremath{{\mathcal F}}}
+\newcommand{\G}{\ensuremath{{\mathcal G}}}
+
+\newcommand{\Lagrange}{\ensuremath{\mathcal L}}
+
+\newcommand{\Ttilde}{\widetilde{T}}
+\newcommand{\dT}{\partial T}
+
+\newcommand{\intO}{\int_\Omega\!\!}
+\newcommand{\intdO}{\int_{\partial\Omega}\!\!}
+\newcommand{\intT}{\int_T\!\!}
+\newcommand{\intG}[1][0]{\int_{\Gamma_{#1}}\!\!}
+\newcommand{\intGc}{\intG[c]}
+\newcommand{\intdT}{\int_{\partial T}\!\!}
+\newcommand{\intE}{\int_E}
+\newcommand{\intt}{\int_{-t/2}^{t/2}}
+\newcommand{\intb}{\int_{-b/2}^{b/2}}
+\newcommand{\sumTinTh}{\sum_{T\in\Th}}
+\newcommand{\sumEinEh}{\sum_{E\in\Eh}}
+\newcommand{\sumEinEhi}{\sum_{E\in\Ehi}}
+\newcommand{\sumEinEhone}{\sum_{E\in\Ehone}}
+\newcommand{\sumjm}{\sum_{j=1}^m}
+
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+
+\newcommand{\strain}[1][]{\ensuremath{\epsilon_{#1}}}
+\newcommand{\epsij}{\strain[ij]}
+\newcommand{\epskk}{\strain[kk]}
+\newcommand{\epskl}{\strain[kl]}
+\newcommand{\epsji}{\strain[ji]}
+
+\newcommand{\stress}[1][]{\ensuremath{\sigma_{#1}}}
+\newcommand{\sigij}{\stress[ij]}
+\newcommand{\sigkl}{\stress[kl]}
+\newcommand{\sigji}{\stress[ji]}
+\newcommand{\djstress}[1][]{\ensuremath{\sigma_{#1,j}}}
+\newcommand{\djsigij}{\djstress[ij]}
+
+\newcommand{\momentum}[1][]{\ensuremath{M_{#1}}}
+\newcommand{\momij}{\momentum[ij]}
+
+\providecommand{\abs}[1]{\lvert #1 \rvert}
+\providecommand{\babs}[1]{\bigl\lvert #1 \bigr\rvert}
+\providecommand{\norm}[1]{\lVert #1 \rVert}
+%\newcommand{\norm}[1]{\| #1\|}
+\providecommand{\dualp}[2]{\langle #1, #2 \rangle}
+
+\newcommand{\infvinV}{\ensuremath{\inf_{v\in \V}}}
+\newcommand{\supvinV}{\ensuremath{\sup_{v\in \V}}}
+\newcommand{\supwinW}{\ensuremath{\sup_{w\in \W}}}
+\newcommand{\supvsinVs}{\ensuremath{\sup_{v^*\in \V^*}}}
+\newcommand{\supwsinWs}{\ensuremath{\sup_{w^*\in \W^*}}}
+
+\newcommand{\Kinv}{\ensuremath{K^{-1}}}
+
+\newcommand{\dx}{{\,dx}}
+\newcommand{\ds}{{\,ds}}
+
+\newcommand{\uh}{\ensuremath{U}}
+\newcommand{\uph}{\ensuremath{U^*}}
+\newcommand{\ulambda}{\ensuremath{u(\lambda)}}
+\newcommand{\ulambdah}{\ensuremath{u(\lambda+h)}}
+\newcommand{\ulh}{\ensuremath{u(h)}}
+\renewcommand{\forall}{\text{for all }}
+\newcommand{\qforall}{\quad\text{for all }}
+
+\title{Numerical solution of a contact problem with {Coulomb} friction}
+
+\author{Torgeir Rusten}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:introduction}
+
+The present report discuss the numerical solution of contact problems
+with Coulomb friction. The small displacement assumption is used, i.e.\
+the displacements are sufficiently small to neglect the differences in
+the body before and after deformation.  First the formulation of a
+contact problem with friction is recalled, then a finite element
+methods is introduced.  Finally som methods for the solution of the
+resulting algebraic problem using methods from mathematical
+programming is discussed.  Contact and friction problems in elasticity
+are discussed in~\cite{kikuchi88:contac-elast}.
+
+
+\section{Linearized elasticity}
+
+The body of interest occupies the domain $\Omega\subset\mathbb{R}^d$ with boundary $\dOmega$ and outward pointing unit normal vector $\nu = (\nu_1, \ldots, \nu_d)$. In practice the
+dimension $d$ is two or three.  The \emph{displacement} of the body is denoted
+$u=(u_1,\ldots,u_d)$ and the components of the \emph{small strain tensor} is defined by
+\begin{equation}
+\epsij(u) = \frac{1}{2} (u_{i,j} + u_{j,i}),
+\end{equation}
+for $i,j=1\ldots,d$.  Furthermore, the symmetric \emph{Cauchy stress tensor} is denoted
+\sigij, for $i,j=1\ldots,d$.
+
+We assume that the material is linear and homogeneous
+\begin{equation}\label{hook}
+\sigij(u) = C_{ijkl}\epskl(u)
+\end{equation}
+for $i,j=1\ldots,d$. The tensor $C_{ijkl}$ posess the follows symmetry conditions
+\[ C_{ijkl} = C_{jikl}\quad C_{ijkl}=C_{ijlk}\quad\text{and}\quad
+C_{ijkl} = C_{klij}.\]
+Furthermore, there exist a positive constant $c$ such that
+\begin{equation}
+\label{eq:HookPositive}
+C_{ijkl}\tau_{ij}\tau_{kl} \ge c \tau_{ij}\tau_{kl}
+\end{equation}
+for all symmetric tensors $\tau_{ij}$ and for almost all $x$ in $\Omega$.
+
+For an isotropic material only two of the 21 parameters are independent constants.
+Using the Lam\'{e} coefficients $\lambda$ and $\mu$ we have
+\begin{equation}
+  \label{eq:isotropStressStrain}
+  \sigij(u) = 2\mu\, \epsij(u) 
+  + \lambda\, \delta_{ij}\, \epskk(u).
+\end{equation}
+
+On the boundary $\dOmega$ the normal stress $\stress^\nu$ is given by
+\[ \stress^\nu = \sigij \nu_in_j \]
+and the tangential stress $\stress^\tau$ is given by
+\[ \stress[i]^\tau = \sigij n_j - \stress^n n_i, \]
+for $i=1,\ldots,d$.  In a similar way, let the normal displacement be
+\[ u^n = u_i n_i \]
+and the tangential displacement be
+\[ u^\tau_i = u_i - u^n n_i, \]
+for $i=1,\ldots,d$.
+
+The boundary $\dOmega$ consist of two disjoint parts $\Gamma_0$ and $\Gamma_1$.  On $\Gamma_0$ the displacement vanish and on $\Gamma_1$ the stress vector is $g$ is prescribed.
+
+In order to give a precise mathematical formulation the space
+\begin{equation}
+\V = \{ v\in (\HenO)^d \colon v = 0 \ton\Gamma_0\}.
+\end{equation}
+is used.  On $(\HenO)^d$ introduce the bilinear form
+\begin{equation}
+\label{eq:Aelasticity}
+A(u,\phi) = \intO C_{ijkl}\epskl(u)\epsij(\phi)\dx,
+\end{equation}
+and the linear functional
+\begin{align}
+\label{eq:Felasticity}
+F(\phi) = & \intO f_i\phi_i\dx
+        + \intG[1] g_i \phi_i\ds. \notag
+\end{align}
+
+For any displacement $\phi$, satisfying the displacement boundary
+condition, the \emph{total strain energy} is
+\begin{equation}
+  \label{eq:strainEnergy}
+  \frac{1}{2}A(\phi,\phi)
+\end{equation}
+and the potential energy of the external loads is
+\begin{equation}
+  \label{eq:potentialEnergyLoads}
+  \intO f_i\phi_i\dx +
+  \intG[1] g_i \phi_i\ds.
+\end{equation}
+The functional
+\begin{equation}
+        J(\phi) = \frac{1}{2}A(\phi,\phi) - F(\phi).
+\end{equation}
+represent the total \emph{potential energy} of the body subject to the
+displacement $\phi$.  The problem of linearized elasticity is to find
+the displacement $u$ minimizing the potential energy functional $J$,
+i.e.,
+\begin{equation}
+  \label{eq:UnconstrainedMin}
+  \min_{\phi\in\V} J(\phi).
+\end{equation}
+It is well known that this has a unique solution. Furthermore, the unique minimizer $u\in\V$ satisfies
+\begin{equation}
+  A(u, \phi) = F(\phi)\quad\text{for all $\phi$ in $\V$}
+\end{equation}
+
+
+\section{Constriant minimization}
+
+In unilateral contact the displacement of the body is restricted by a rigid boundary, e.g.\ a elastic body is resting on a rigid foundation, i.e.\ the elastic body can not penetrate into the rigid foundation. In general multibody contact one elastic body can not penetrate into another elastic body. This impose a kinematic constraint on the displacement. Below we show that this amount to introduce a closed convex subspace $\K$\ of $\V$\ and minimize the potenetial energy over $\K$:
+\begin{equation}
+  \label{ineq:potential_convex}
+  \min_{\phi\in\K} \frac{1}{2}A(\phi,\phi) - F(\phi)
+\end{equation}
+It is shown below that for contact analysis the convex space $\K$ is also a cone.
+
+It can be shown that the above constratint minimization problem has a unique solution, see e.g.\ Glowinski \cite{Glowinski1984:NonlinearVariational}. Moreover, the solution $u \in K$ also satisfies the variational inequality
+\begin{equation}
+  \label{ineq:varIneq}
+  A(u,\phi-u) \ge F(\phi-u) \quad\text{for all $\phi$ in $\K$.}
+\end{equation}
+
+Since \K\ is a cone, $\phi = 0$ and $\phi = 2 u$ is in \K\ and it follows that
+\begin{equation}
+  \label{eq:varIneqSol}
+  A(u,u) = F(u)
+\end{equation}
+and
+\begin{equation}
+  \label{ineq:varIneqSol}
+  A(u,\phi) \ge F(\phi) \quad\text{for all $\phi$ in \K}
+\end{equation}
+For further discussion cf.\ Glowinski 1984 \cite{Glowinski1984:NonlinearVariational}, Lemma 4.1.
+
+\section{Unilateral contact}
+
+In unilateral contact the displacement of the body is restricted by a rigid boundary, e.g.\ a elastic body is resting on a rigid foundation.  In this case the boundary of the domain $\Omega$ consists of three disjoint parts, $\Gamma_0$, $\Gamma_1$ and $\Gamma_c$. Here $\Gamma_3$ represent the part that may be in contact with the rigid foundation. In particular the the normal component of the displacement must be less or equal to zero, otherwise the body will penetrate the rigid foundation, so
+\begin{equation}
+  u^n \le 0 \quad\text{on $\Gamma_c$}
+\end{equation}
+
+Introduce
+\begin{equation}
+  \label{eq:contactSubspace}
+  \K = \{ \phi\in \V \colon \phi^n \le 0 \text{ a.e.\ on $\Gamma_c$}\}
+\end{equation}
+Clearly \K\ is a convex subspace of $\V$, and also a cone with vertex zero.
+We consider linearized elasticity together with the convex subspace \eqref{eq:contactSubspace}, i.e.\ the constriant minimization problem \eqref{ineq:potential_convex}
+
+Now, the inequality \eqref{ineq:varIneqSol} and equaltiy \eqref{eq:varIneqSol} is used to characterize the solution of the contact problem.
+
+Let $\V_0$ be the subset of $\V$ of functions vanishing normal trace on $\Gamma_c$ in addition to $\Gamma_0$. Clearly $\V_0$ is a subset of $\K$ and also a linear space, i.e.\
+\begin{equation}
+  A(u,\phi) = F(\phi) \quad\text{for all $\phi\in\V_0$}
+\end{equation}
+
+Using Green's theorems
+\begin{equation}
+  A(u,\phi) = \intO -\djsigij \phi_i \dx
+  + \intG[1] \nu_j \sigij \phi_i \ds + \intG[c] \sigij^\tau \phi^\tau_i \ds
+\end{equation}
+where we have used that the normal component vanish on the contact boundary. Inside the domain $\Omega$ the equilibrium condition holds
+\begin{equation}
+  -\djsigij = f \quad\text{in $\Omega$}
+\end{equation}
+and on $\Gamma_1$ the stress vector $\nu_j \sigij$ equals $g_i$. Furthermore, on the contact boundary the tangential stress $\sigij^\tau$ vanish.  Consequently
+\begin{equation}
+  \intG[c] \sigma^\nu \phi^\nu \ds \ge 0 \quad\text{forall $\phi$ such that $\phi^\nu \le 0$}
+\end{equation}
+and it is clear that the normal stress on the contact boundary must be less or equal to zero. Furthermore, for the solution
+\begin{equation}
+  \intG[c] \sigma^\nu u^\nu \ds = 0
+\end{equation}
+hence on a point on $\Gamma_c$ either $\sigma^\nu = 0$ or $u^\nu = 0$.
+
+To sum up, on the contact boundary either the normal displacement is zero or the normal stress is zero. At a point on the contact boundary where the normal displacement is zero the body is in contact with the rigid foundation. At a point where the normal displacement is negative it is not contact and the boundar is free.  Inside $\Omega$ the elastic body is in equilibrium and the on $\Gamma_1$ the stress is equal to the given traction.
+
+Since the constraint is only on the contact boundary in make sense to introduce the function $h : \V \mapsto H^{1/2}(\Gamma_c)$ as the normal trace function
+\begin{equation}
+  h(\phi) = \nu_i\cdot\phi_i = \phi^\nu \quad \text{on $\Gamma_c$}
+\end{equation}
+and introduce the space
+\begin{equation}
+  K = \set{\lambda \in H^\half(\Gamma_c) | \lambda \le 0}
+\end{equation}
+We now consider the minimization problem 
+\begin{equation}
+  \begin{split}
+    &\min_{v\in\V} J(v) \\
+    &\text{subject to $h(v) \in K$}
+  \end{split}
+\end{equation}
+
+
+
+\section{A mathematical model of a contact problem with Coulomb friction}
+\label{sec:math-model-cont}
+
+Let $\Omega$ be a body in \Rd with boundary $\dOmega$ and unit outward normal vector
+$\nu$.  The boundary is split into three disjoint parts, $\Gamma_0$, $\Gamma_1$ and
+$\Gamma_c$, such that $\dOmega = \overline{\Gamma}_0 \cup \overline{\Gamma}_1 \cup
+\overline{\Gamma}_c$.  The normal component of a vector function $v$ at the boundary is
+$v^\nu = v\cdot\nu$ and the tangential component is $v^\tau = v - v^\nu \nu$.  The
+traction at the boundary is $\sigij\nu_j$, with normal component $\sigma^\nu =
+\sigij\nu_j\nu_i$ and tangential component $\sigma_i^\tau = \sigij\nu_j - \sigma^\nu \nu$.
+The body is fixed on $\Gamma_0$, the traction is given on $\Gamma_1$ and $\Gamma_c$ is the
+friction and contact boundary.
+
+In unilateral contact one assume that the body can not penetrate
+through $\Gamma_c$, i.e.\ in the normal direction the displacement can
+be negative but not positive, i.e.\
+\begin{equation}
+  u^\nu \le 0
+\end{equation}
+In general one can allow for an initial distance to a barrier. Let $l$
+be the distance function, i.e.\ for the point $x$ on $\Gamma_c$ the
+distance to the barrier is $l(x)$.  In this case the kinematic contact
+condition takes the form $u^\nu \le l$.
+
+The unilateral contact conditions are
+\begin{equation}
+  \label{eq:contact}
+  u^\nu \le l \quad\text{and}\quad \sigma^\nu = \sigij(u)\nu_i \nu_j \le 0
+  \quad\text{on }\Gamma_c
+\end{equation}
+Note that at points of $\Gamma$ where the bodies are in contact, $u_\nu=$l, while at
+points where there is no contact the normal stress vanish, $\sigma_\nu = 0$.
+Consequently
+\begin{equation}
+  \label{eq:7}
+  (u^\nu - l) \;\sigma^\nu = 0 \quad\text{on }\Gamma_c.
+\end{equation}
+
+In order to present Coulomb's law of friction, let $\beta>0$ be the coefficient of Coulomb
+friction and consider a point $x$ on the boundary $\Gamma_c$.  If
+\begin{equation}
+  \label{eq:9}
+  \abs{\sigma^\tau(x)} < -\beta \sigma^\nu(x) \quad\text{then}\quad
+  u^\tau(x) = 0
+\end{equation}
+and if
+\begin{equation}
+  \label{eq:10}
+  \abs{\sigma^\tau(x)} = -\beta \sigma^\nu(x)
+\end{equation}
+then there exist $\lambda(x)>0$ such that
+\begin{equation}
+  u^\tau(x) = -\lambda(x) \sigma^\tau(x)
+\end{equation}
+
+The space of \emph{virtual displacements} are
+\begin{equation}
+  \label{eq:VirtualDisplacementsUni}
+  \V = \{v\in(\HenO)^d \colon v = 0 \text{ on }\Gamma_0 \}
+\end{equation}
+and the set of \emph{kinematically admissible} displacements are
+\begin{equation}
+  \label{eq:KinematicallyAdmisible}
+  \K = \{v\in \V \colon v^\nu \le 0 \quad\text{on }\Gamma_c \}
+\end{equation}
+The set \K\ is a closed and convex subset of \V. It is also a cone
+with vertex at zero.  Let $u_l$ be the extension of $l$ into $\V$ such
+that $u_l^\nu = l$ on $\Gamma_c$.  Note that if $v-u_l\in K$ we have
+$v^\nu-u_l^\nu \le 0$ on $\Gamma_c$, i.e.\ $v^\nu \le l$ on
+$\Gamma_c$.
+
+In general the contact condition can be between two bodies, i.e.\ $\Omega =
+\Omega_1\cup\Omega_2$, with a common boundary denoted by $\Gamma_c$, i.e.\ $\Gamma_c =
+\bar{\Omega}_1\cap\bar{\Omega}_2$.  We choose the unit normal on $\Gamma_c$ pointing from
+$\Omega_1$ to $\Omega_2$ as the unit normal on the common boundary.  Note that in general
+it may be an initial gap between the two bodies, in this case it will not be a common
+boundary, however whenever the normals have the same direction it makes sense to consider
+$\Gamma_c$ on $\Omega_1$ the common boundary.  In this case the space of \emph{virtual
+  displacements} is 
+\begin{equation}
+  \label{eq:VirtualDisplacements}
+  \V = \{v\in(\HenOne)^d+(\HenTwo)^d \colon v = 0 \text{ on }\Gamma_0 \}
+\end{equation}
+
+In the two body case the contact condition is
+\begin{equation}
+  u_1^\nu \le u_2^\nu + l \quad \text{on $\Gamma_c$}
+\end{equation}
+where $l$ is the gap measured along the unit normal vector $\nu$.  In this case the
+\emph{kinematically admissible} displacements are
+\begin{equation}
+  \label{eq:KinematicallyAdmisibleGap}
+  \K = \{v\in \V \colon [v]^\nu \le 0 \quad\text{on }\Gamma_c \}
+\end{equation}
+where $[v]^\nu = (v_1 - v_2)\cdot \nu$ on $\Gamma_c$.  Let $u_l$ be an extension of $l$ into
+\V\ such that $[u_l] = l$ on $\Gamma_c$.  Then if $v-u_l \in \K$ we have
+$[v^\nu]-[u_l^\nu] \le 0$ on $\Gamma_c$, i.e.\ $v_1^\nu \le v_2^\nu + l$ on $\Gamma_c$.
+
+Recall that $v^\nu = \nu\cdot v$, we use $\nu\cdot$ to represent the normal trace operator
+of a function in \V, i.e.\ $\nu\cdot : \V \mapsto H^{\half}(\Gamma_c)$.
+
+The \emph{potential energy} functional is given by
+\begin{equation}
+  \label{eq:PotentialEnergy}
+  J(v) = \half A(v,v) - F(v) + j(v).
+\end{equation}
+Here $A$ represent the internal strain energy, $F$ the work of applied forces and $j$ the
+work of the friction energy.
+
+The bilinear form modelling the internal energy is given by
+\begin{equation}
+  \label{eq:InternalEnergy}
+  A(v,\phi) = \intO \sigij(v) \epsij(\phi)\dx
+\end{equation}
+Here $\sigma$ is the stress tensor and $\epsilon$ is the symmetric part of the
+displacement gradient.  In the sequel we assume that
+\begin{equation}
+  \label{eq:29}
+  \sigij(v) = C_{ijkl}\epskl(v)
+\end{equation}
+The linear functional $F$ is given by
+\begin{equation}
+  \label{eq:30}
+  F(v) = \intO f_i v_i \dx + \intG[1] t_i v_i \ds
+\end{equation}
+where $f_i$ are body forces and $t_i$ are given traction forces.
+
+If the normal contact stress $\sigma^\nu\le 0$ is known a priori, the slip bound
+$g=-\beta \sigma^\nu$ can be evaluated.  The nondifferentiable function representing the
+work of the friction force are then
+\begin{equation}
+  \label{eq:FrictionWork}
+  j(v) = \intGc g \norm{v_\tau} \ds
+\end{equation}
+where $\norm{\cdot}$ is a vector norm.
+
+The \emph{primal variational formulation} is: Find $u-u_l\in\K$ such that
+\begin{equation}
+  \label{eq:PrimalVar}
+  J(u) \le J(v) \quad\forall v-u_l\in \K.
+\end{equation}
+
+Note that for a given $g$ this minimization problem has a unique solution $u=u(g)$.  Thus,
+for every $g\in L^\infty(\Gamma_c)$, $g\ge 0$, the normal contact stress is
+$-\beta\sigma^\nu(u(g))$.  Note that if the a priori choice of the normal contact stress
+was correct,
+\begin{equation}
+  \label{eq:12}
+  g = \Phi(g) = -\beta\sigma^\nu(u(g))
+\end{equation}
+Consequently the contact problem with Coulomb friction can be solved using a fixed point
+iteration with the operator $\Phi(g)$ defined above.  In each fixed point step the contact
+problem~(\ref{eq:PrimalVar}) with given friction must be solved.
+
+Note that the formulation of the contact problem is a minimization problem of the
+form~(\ref{eq:PrimalVar}) with the potential energy function given by
+\begin{equation}
+  \label{eq:PotentialEnergyContact}
+  J(v) = \half A(v,v) - F(v)
+\end{equation}
+and $v-u_l\in\K$.  This is equivalent to the variational inequality:
+Find $u-u_l\in\K$ such that
+\begin{equation}
+  \label{eq:PrimalVarIneq}
+  A(u,v-u) \ge F(v-u) \qforall v - u_l\in \K
+\end{equation}
+
+With $w=u-u_l\in \K$ and $\phi=v-u_l \in \K$ the variational inequality problem becomes
+\begin{equation}
+  A(w, \phi-w) \ge F(\phi-w) - A(u_l, \phi-w) \quad\text{for all $\phi\in\K$}
+\end{equation}
+An alternative formulation is
+\begin{equation}
+  \begin{split}
+    &\min_{v\in\V} J(v) \\
+    &\text{subject to $g(v) \in K$}
+  \end{split}
+\end{equation}
+where $g(v) = \nu\cdot v - l$ and $K$ the closed convex cone defined by
+\begin{equation}
+  K = \set{\lambda \in H^\half(\Gamma_c) | \lambda \le 0}
+\end{equation}
+It can be shown that there exists a function $u\in\V$ and a Lagrange multiplier
+$\lambda^* \in \bigl(H^{\half}(\Gamma_c)\bigr)^*$ such that
+\begin{align}
+  &\dualp{J^\prime(u) + \lambda^* \nu\cdot}{v} = 0 \quad\text{for all $v\in \V$} \\
+  &\dualp{\lambda^*}{\lambda}_{\Gamma_c} \le 0 \quad\text{for all $\lambda\in K$} \\
+  &\dualp{\lambda^*}{\nu\cdot u - l}_{\Gamma_c} = 0
+\end{align}
+Or, equivalently
+\begin{align}
+  & A(u,v) - F(v) + \dualp{\lambda^*}{\nu\cdot v}_{\Gamma_c} = 0
+  \quad\text{for all $v\in \V$} \\
+  &\dualp{\lambda^*}{\nu\cdot v - l}_{\Gamma_c} \le 0 \quad\text{for all $v-u_l\in \K$} \\
+  &\dualp{\lambda^*}{\nu\cdot u - l}_{\Gamma_c} = 0
+\end{align}
+
+Introduce the space
+\begin{equation}
+  \W = \set{\mu \in (L^2(\Omega))^{d,d} | \mu_{ij} = \mu_{ji}
+    \text{ for } i\ne j } 
+\end{equation}
+Here we can identify $\W^*$, the dual space of $W$, by $W$.  Let $\strain \in \L(\V,\W)$
+be given by
+\begin{equation}
+  \epsij(v) = \half (v_{i,j} + v_{j,i})
+\end{equation}
+The dual operator
+$\strain^*$ in $\L(\W,\V^*)$ is defined by
+\begin{equation}
+  \dualp{\strain^*(\mu)}{v} = \intO \mu_{ij} \epsij(v) \dx
+\end{equation}
+where $\dualp{\cdot}{\cdot}$ is the duality pairing between $\V^*$ and
+$\V$.  
+
+Define the functional $F$ on \V\ and $G$ on \W\ by
+\begin{equation}
+  \F(v) =
+  \begin{cases}
+    -F(v) & \text{if } v-u_l \in \K \\
+    \infty & \text{else;}
+  \end{cases}
+\end{equation}
+and
+\begin{equation}
+  \G(\mu) = \half \intO \mu_{ij} C_{ijkl} \mu_{kl} \dx
+\end{equation}
+Then
+\begin{equation}
+  \infvinV \F(v) + \G(\strain(v))
+\end{equation}
+is equivalent to~(\ref{eq:PrimalVar}).
+
+We introduced the functional
+\begin{equation}
+\varPhi(v,\mu) = \F(v) + \G(\epsilon(v) + \mu)
+\end{equation}
+We call~(\ref{eq:PrimalVar}) the primal problem and
+\begin{equation}
+  \sup_{\mu\in \W} -\varPhi^*(0,\mu)
+\end{equation}
+is called the dual problem with respect to $\varPhi$.  Here
+\begin{equation}
+  \varPhi^*(v^*,\mu) = \F^*(v^*-\epsilon^*(\mu)) + \G^*(\mu)
+\end{equation}
+where $\F^*$ and $\G^*$ are the conjugate functionals of $\F$ and $\G$.  Consequently
+\begin{equation}
+  \sup_{\mu\in \W} -\varPhi^*(0,\mu)
+  = \sup_{\mu\in \W} -\F^*(-\epsilon^*(\mu)) - \G^*(\mu)
+\end{equation}
+
+It is known that
+\begin{equation}
+  \label{eq:PrimalDual}
+  \infvinV \F(v) + \G(\strain(v))
+  = \sup_{\mu\in \W} \{ - \F^*(-\strain^* \mu) - \G^*(\mu) \}
+\end{equation}
+The solution to the primal problem is denoted $u$, as above, and the solution of the dual
+problem is denoted $\sigma$.  Recall that $u-u_l\in \K$. 
+
+By definition
+\begin{equation}
+  \F^*(-\strain^* \mu) = \supvinV \{\dualp{-\strain^* \mu}{v} - \F(v) \}
+\end{equation}
+Note that the supremum must be over $v$ such that $v-u_l \in \K$,
+otherwise $-\F(v) = -\infty$.  If $v-u_l\in \K$ consider $\mu$ such that
+\begin{equation}
+  -\intO \mu_{ij} \epsij(v) \dx + \intO f_i v_i \dx
+  + \intG[1] t_i v_i \ds = 0 \quad\text{for all }v\in \V (v-u_l\in \V \text{??})
+\end{equation}
+If the above do not hold, there is a function $v$ such that it is
+positive and $cv$ for $c\in\R$ can make the expression as
+large as we wish, thus $-\F(v)$ is $\infty$.  Using Greens theorem
+\begin{multline}
+  \intO \dj \mu_{ij} v_i \dx - \intG[1] \nu_j \mu_{ij} v_i \ds
+  - \intG[c] \nu_j \mu_{ij} v_i \ds  \\
+  + \intO f_i v_i \dx
+  + \intG[1] t_i v_i \ds = 0 \quad\text{for all } v\in \V 
+\end{multline}
+Using this it is straightforward to see that
+\begin{equation}
+  \label{eq:stressEquilibrium}
+  \begin{split}
+    -\dj \mu_{ij} &= f_i,\quad\text{in }\Omega \\
+    \nu_j \mu_{ij} &= t_i,\quad\text{on }\Gamma_1 \\
+    (\nu_j \mu_{ij})^\tau_i &= 0,\quad\text{on }\Gamma_c
+  \end{split}
+\end{equation}
+for $i=1,\ldots,d$.  Whenever $\mu^\nu \le 0$ on $\Gamma_c$ holds it follows that
+\begin{equation}
+  \intG[c] \mu^\nu \;v^\nu \ds
+  \le \intG[c] \mu^\nu \;l \ds
+\end{equation}
+Note that in general $v^\nu \in H^\half(\Gamma_c)$ and $\mu^\nu \in
+\bigl(H^\half(\Gamma_c)\bigr)$, thus the above inequality can be written
+\begin{equation}
+  \dualp{\mu^\nu}{v^\nu}_{\Gamma_c} \le \dualp{\mu^\nu}{l}_{\Gamma_c}
+\end{equation}
+
+The conjugate of $\G$ is
+\begin{equation}
+  \G^*(\eta) = \sup_{\mu\in \W} \{ \intO \eta_{ij} \mu_{ij} \dx
+  - \half \intO \mu_{ij} C_{ijkl} \mu_{kl} \dx \}
+\end{equation}
+Since the functional on the right hand side is differentiable the
+supremum is attained whenever
+\begin{equation}
+  \label{eq:epsopt}
+  \intO \eta_{ij} \mu_{ij} \dx =  \intO \mu_{ij} C_{ijkl} \mu_{kl} \dx
+  \quad \text{for all $\mu$ in \W}
+\end{equation}
+i.e.
+\begin{equation}
+  \eta_{ij} = C_{ijkl} \mu_{kl}  \quad\text{or}\quad
+  \mu_{kl} = C^{-1}_{ijkl} \eta_{ij}
+\end{equation}
+Consequently
+\begin{equation}
+  \G^*(\eta) = \half\intO \eta_{ij} C^{-1}_{ijkl} \eta_{kl} \dx
+\end{equation}
+
+The right hand side of~(\ref{eq:PrimalDual}) the becomes
+\begin{equation}
+  \label{eq:dual_mu}
+  \sup_{\substack{
+      \mu\in \W\\
+      \mu^\nu \le 0 \text{ on }\Gamma_c\\
+      (\ref{eq:stressEquilibrium})\text{ is satisfied}
+    }}
+    -\half\intO \mu_{ij} C^{-1}_{ijkl} \mu_{kl} \dx
+  + \dualp{\mu^\nu}{l}_{\Gamma_c}
+\end{equation}
+
+Since $\G$ is differentiable the subdifferential of $\G$ at
+$\epskl(u)$ is given by $C_{ijkl} \epskl(u)$ and since $\sigma\in
+\partial \G(\strain(u))$
+\begin{equation}
+  \label{eq:stressStrainOptimal}
+  \sigij(u) = C_{ijkl} \epskl(u)
+\end{equation}
+Note that by (\ref{eq:dual_mu}) the normal stress $\sigma^\nu$ on $\Gamma_c$ is negative.
+ 
+
+The optimality condition $-\strain^*(\sigma) \in \partial \F(u)$
+is, by definition,
+\begin{equation}
+  \F(v) - \F(u) \ge \dualp{-\epsilon^* \sigma}{v-u} \quad\text{for all $v\in \V$}
+\end{equation}
+If $v-u_l\in \K$
+\begin{equation}
+  \int_{\Omega}\!\! \sigij \epsij(v-u) \dx - F(v-u) \ge 0
+\end{equation}
+i.e.\
+\begin{equation}
+  A(u, v-u) \ge F(v-u) \quad\text{for all $v-u_l\in \K$}
+\end{equation}
+
+Since the relation (\ref{eq:stressStrainOptimal}) is satisfied for the optimal solution,
+it makes sense to look for $\mu\in\W$ satisfying this relation.  Let $\lambda \in
+\bigl(H^\half(\Gamma_c)\bigr)^*$ and consider $v \in \V$ satisfying
+\begin{equation}
+  \label{eq:varNormalStress}
+  A(v_\lambda, v) = F(v) - \dualp{\lambda}{v^\nu}_{\Gamma_c}
+\end{equation}
+Here $\lambda = -\sigma^\nu(v_\lambda)$.  Using this the dual problem can be written
+\begin{equation}
+  \min_{\substack{
+      \lambda\in ( H^\half(\Gamma_c) )^* \\
+      \lambda \ge 0}
+  } \half A(v_\lambda, v_\lambda) + \dualp{\lambda}{l}_{\Gamma_c}
+\end{equation}
+Note that if $\lambda$ minimization the above functional is known, the corresponding
+$u_\lambda$ is the solution of the primal minimization problem.  Thus if the normal stress
+$\sigma^\nu$ is known, the solution $u$ of the contact problem
+satisfies~(\ref{eq:varNormalStress}).
+
+
+\subsection{Alternative method}
+
+Since \K\ is a convex cone with vertex at zero, it can be shown that $w\in \K$
+satisfies
+\begin{align}
+  &A(w,\phi) \ge F(\phi) - A(u_l,\phi) \quad\forall{\phi\in \K} \\
+  &A(u,u-u_l)  = F(u-u_l)
+\end{align}
+where $w=u-u_l$ and $\phi=v-u_l$.
+
+Let $\V_0 = \set{v\in \V | v^\nu = 0 \text{ on }\Gamma_c}$. Clearly
+\begin{equation}
+  A(w,\phi) = F(\phi) - A(u_l, \phi) \quad\forall{\phi\in\V_0}
+\end{equation}
+Using Greens formula it follows that
+\begin{align}
+  \label{eq:elasteq}
+  -\dj C_{ijkl}\epskl(u) &= f_i \quad\text{in $\Omega$ for $i=1,\ldots,d$} \\
+  \nu_j C_{ijkl}\epskl(u) &= t_i \quad\text{on $\Gamma_1$ for $i=1,\ldots,d$} \\
+  \sigma^\tau(u) &= 0 \quad\text{on $\Gamma_c$}
+\end{align}
+Multiplying the first equation with $\phi\in \K$ and using Greens formula result in
+\begin{equation}
+  A(u,\phi) = \intO f_i \phi_i\dx + \intG[1] t_i \phi_i \ds
+  + \intGc \sigma^\nu \phi^\nu \ds
+\end{equation}
+Subtracting ... result in 
+\begin{equation}
+  \intGc \sigma^\nu \phi^\nu \ds \ge 0 \qforall \phi\in\K
+\end{equation}
+Since $\phi^\nu\le 0$ on $\Gamma_c$, $\sigma^\nu \le 0$ on $\Gamma_c$. Note that this can
+also be written
+\begin{equation}
+  \intGc \sigma^\nu (v^\nu-l) \ds \ge 0 \qforall v-u_l\in\K
+\end{equation}
+Moreover
+\begin{equation}
+  \intGc \sigma^\nu (u^\nu - l) \ds = 0
+\end{equation}
+thus, on $\Gamma_c$ either $\sigma^\nu = 0$ or $u^\nu = l$.
+
+Introduce the Lagrangian $\Lagrange:\V\times \Lambda$ by
+\begin{equation}
+  \Lagrange(v,\eta) = \half A(v,v) - F(v) + \dualp{\eta}{v^\nu-l}_{\Gamma_c}
+\end{equation}
+where $\Lambda=\set{\eta\in L^2(\Gamma_c) | \eta \ge 0 \text{ a.e. on }\Gamma}$.
+
+The corresponding saddle point problem is: Find $(u,\lambda)$ such that
+\begin{equation}
+  \Lagrange(u,\eta) \le \Lagrange(u,\lambda) \le \Lagrange(v,\lambda)
+  \qforall (v,\lambda) \in \V\times\Lambda
+\end{equation}
+Take $\lambda = -\sigma^\nu(u)$, where $u$ us the solution of the variational inequality.
+Since $u^\nu -l \le 0$ on $\Gamma_c$ and $\lambda \ge 0$,
+\begin{equation}
+  \dualp{\eta}{u^\nu - l}_{\Gamma_c} \le 0 \qforall \eta\in \Lambda
+\end{equation}
+Therefore
+\begin{multline}
+  \Lagrange(u,\eta) = \half A(u,u) - F(u) + \dualp{\eta}{u^\nu - l}_{\Gamma_c}
+  \le \half A(u,u) - F(u) \\
+  = \half A(u,u) - F(u) + \dualp{\lambda}{u^\nu - l}_{\Gamma_c}
+  = \Lagrange(u,\lambda)
+\end{multline}
+The right hand side inequality follows from the observation that if $\lambda=-\sigma^\nu$
+is known the solution $u$ satisfies~(\ref{eq:varNormalStress}), and the corresponding
+minimization problem...
+
+The following Uzawa type algorithm can be used to solve the saddle point problem: Choose
+$\lambda^0 \in \Lambda$ and the real number $\rho > 0$, then for $k=1,2,\ldots$ compute
+$u^k\in\V$ satisfying
+\begin{equation}
+  \Lagrange(u^k, \lambda^{k-1}) \le \Lagrange(v, \lambda^{k-1})
+  \qforall v \in V
+\end{equation}
+and $\lambda^k\in \Lambda$ is given by
+\begin{equation}
+  \lambda^k = P_\Lambda \bigl(\lambda^{k-1} - \rho (\nu\cdot u^k - l) \bigr)
+\end{equation}
+where $P_\Lambda$ is the projection from $L^2(\Gamma_c)$ into $\Lambda$.
+
+The iteration converges if $0 < \rho < 2/\norm{\nu\cdot}$. Here the
+norm is the norm of the normal trace operator.
+
+The iteration is stopped when
+\begin{equation}
+  \nu\cdot u^k -l \le \epsilon_1 \quad\text{and}\quad
+  \abs{\dualp{\lambda^k}{\nu\cdot u^k -l}_{\Gamma_c}} \le \epsilon_2 
+\end{equation}
+Another alternative is to use
+\begin{equation}
+  \abs{A(u^k, u^k-u_l) - F(u^k - u_l)} \le \epsilon
+\end{equation}
+Note that the minimization problem in the first step is equivalent to the variational
+problem: Find $u^k\in \V$ satisfying
+\begin{equation}
+  A(u^k, v) = F(v) - \dualp{\lambda^{k-1}}{v^\nu}_{\Gamma_c}
+  \qforall v\in \V
+\end{equation}
+\subsection{Alternative method, II}
+
+Since \K\ is a convex cone with vertex at zero, it can be shown that $w\in \K$
+satisfies
+\begin{align}
+  &A(w,\phi) \ge F(\phi) - A(u_l,\phi) \quad\forall{\phi\in \K} \\
+  &A(u,u-u_l)  = F(u-u_l)
+\end{align}
+where $w=u-u_l$ and $\phi=v-u_l$.
+
+Let $\V_0 = \set{v\in \V | [v]^\nu = 0 \text{ on }\Gamma_c}$. Clearly
+\begin{equation}
+  A(w,\phi) = F(\phi) - A(u_l, \phi) \quad\forall{\phi\in\V_0}
+\end{equation}
+Using Greens formula it follows that
+\begin{align}
+  \label{eq:elasteqFixedPoint}
+  -\dj C_{ijkl}\epskl(u) &= f_i \quad\text{in $\Omega$ for $i=1,\ldots,d$} \\
+  \nu_j C_{ijkl}\epskl(u) &= t_i \quad\text{on $\Gamma_1$ for $i=1,\ldots,d$} \\
+  \sigma^\tau(u) &= 0 \quad\text{on $\Gamma_c$}
+\end{align}
+Multiplying the first equation with $\phi\in \K$ and using Greens formula result in
+\begin{equation}
+  A(u,\phi) = \intO f_i \phi_i\dx + \intG[1] t_i \phi_i \ds
+  + \intGc \sigma^\nu [\phi]^\nu \ds
+\end{equation}
+Subtracting ... result in 
+\begin{equation}
+  \intGc \sigma^\nu [\phi]^\nu \ds \ge 0 \qforall \phi\in\K
+\end{equation}
+Since $\phi^\nu\le 0$ on $\Gamma_c$, $\sigma^\nu \le 0$ on $\Gamma_c$. Note that this can
+also be written
+\begin{equation}
+  \intGc \sigma^\nu ([v]^\nu-l) \ds \ge 0 \qforall v-u_l\in\K
+\end{equation}
+Moreover
+\begin{equation}
+  \intGc \sigma^\nu ([u]^\nu - l) \ds = 0
+\end{equation}
+thus, on $\Gamma_c$ either $\sigma^\nu = 0$ or $u^\nu = l$.
+
+Introduce the Lagrangian $\Lagrange:\V\times \Lambda$ by
+\begin{equation}
+  \Lagrange(v,\eta) = \half A(v,v) - F(v) + \dualp{\eta}{[v]^\nu-l}_{\Gamma_c}
+\end{equation}
+where $\Lambda=\set{\eta\in L^2(\Gamma_c) | \eta \ge 0 \text{ a.e. on }\Gamma}$.
+
+The corresponding saddle point problem is: Find $(u,\lambda)$ such that
+\begin{equation}
+  \label{eq:SaddlePointII}  
+  \Lagrange(u,\eta) \le \Lagrange(u,\lambda) \le \Lagrange(v,\lambda)
+  \qforall (v,\lambda) \in \V\times\Lambda
+\end{equation}
+Take $\lambda = -\sigma^\nu(u)$, where $u$ us the solution of the variational inequality.
+Since $[u]^\nu -l \le 0$ on $\Gamma_c$ and $\lambda \ge 0$,
+\begin{equation}
+  \dualp{\eta}{[u]^\nu - l}_{\Gamma_c} \le 0 \qforall \eta\in \Lambda
+\end{equation}
+Therefore
+\begin{multline}
+  \Lagrange(u,\eta) = \half A(u,u) - F(u) + \dualp{\eta}{[u]^\nu - l}_{\Gamma_c}
+  \le \half A(u,u) - F(u) \\
+  = \half A(u,u) - F(u) + \dualp{\lambda}{[u]^\nu - l}_{\Gamma_c}
+  = \Lagrange(u,\lambda)
+\end{multline}
+The right hand side inequality follows from the observation that if $\lambda=-\sigma^\nu$
+is known the solution $u$ satisfies~(\ref{eq:varNormalStress}), and the corresponding
+minimization problem...
+
+The following Uzawa type algorithm can be used to solve the saddle point problem: Choose
+$\lambda^0 \in \Lambda$ and the real number $\rho > 0$, then for $k=1,2,\ldots$ compute
+$u^k\in\V$ satisfying
+\begin{equation}
+  \Lagrange(u^k, \lambda^{k-1}) \le \Lagrange(v, \lambda^{k-1})
+  \qforall v \in V
+\end{equation}
+and $\lambda^k\in \Lambda$ is given by
+\begin{equation}
+  \lambda^k = P_\Lambda \bigl(\lambda^{k-1} - \rho (\nu\cdot [u^k] - l) \bigr)
+\end{equation}
+where $P_\Lambda$ is the projection from $L^2(\Gamma_c)$ into $\Lambda$.
+
+The iteration converges if $0 < \rho < 2/\norm{\nu\cdot}$. Here the
+norm is the norm of the normal trace operator.
+
+The iteration is stopped when
+\begin{equation}
+  \nu\cdot [u^k] -l \le \epsilon_1 \quad\text{and}\quad
+  \abs{\dualp{\lambda^k}{\nu\cdot [u^k] -l}_{\Gamma_c}} \le \epsilon_2 
+\end{equation}
+Another alternative is to use
+\begin{equation}
+  \abs{A(u^k, u^k-u_l) - F(u^k - u_l)} \le \epsilon
+\end{equation}
+Note that the minimization problem in the first step is equivalent to the variational
+problem: Find $u^k\in \V$ satisfying
+\begin{equation}
+  A(u^k, v) = F(v) - \dualp{\lambda^{k-1}}{[v]^\nu}_{\Gamma_c}
+  \qforall v\in \V
+\end{equation}
+
+
+Let $\V_h$ be a finite element space, consisting of linear and/or bilinear polynomials if
+$d=2$ and linear and/or trilinear polynomials if $d=3$.  The nodes on the contact boundary
+is $a_i$, $i=1,\ldots,m$.  Let $\Lambda_h$ be a subspace of $\Lambda$ constructed using
+piecewise linear functions for $d=2$ and linear and/or bilinear functions for $d=3$.  In
+addition the nodal values are required to be nonnegative, i.e.~$\lambda_j\ge 0$ for
+$j=1,\ldots,m$. Then $\lambda_h\subset \lambda$.
+
+For $d=2$ and using the trapezoidal rule for integration we obtain
+\begin{multline}
+  \intGc \lambda([v]^\nu-l) \ds \\
+  = \sum_{j=1}^{m-1} \frac{h_j}{2}\Bigl(\lambda(a_j)\bigl([v(a_j)]^\nu-l_j\bigr)
+  + \lambda(a_{j+1})\bigl([v(a_{j+1})]^\nu-l_{j+1}\bigr)\Bigr) \\
+  = \frac{1}{2} \Bigl( h_1\lambda(a_1)\bigl([v(a_1)]^\nu - l_1 \bigr)
+  +  h_m\lambda(a_m)\bigl([v(a_m)]^\nu - l_m \bigr) \Bigr) \\
+  + \sum_{j=2}^{m-1} h_j \lambda(a_j)\bigl([v(a_j)]^\nu-l_j\bigr)
+  = \lambda\cdot(Bv - c)
+\end{multline}
+with appropriate definitions of the vectors $\lambda$ and $c$, and the matrix $B$.
+
+In matrix notation the first step in the Uzawa algorithm becomes
+\begin{equation}
+  A u^k = F - B^T \lambda^{k-1}
+\end{equation}
+and the new approximation to the Lagrange multiplier takes the form
+\begin{equation}
+  \lambda^k = P_{\Lambda_h}\bigl(\lambda^{k-1} - \rho(B u^k -c)\bigr) 
+\end{equation}
+Here the projection operator set negative elements in the vector to zero, the positive
+elements are not changed by the projection.
+
+For a given $\lambda$ let $\ulambda\in \V$ satisfy
+\begin{equation}
+  A(\ulambda, v) = F(v) - \dualp{\lambda}{[v]^\nu}_{\Gamma_c}
+  \qforall v\in \V
+\end{equation}
+Using this the left hand optimization problem in the Saddle point
+problem~\ref{eq:SaddlePoint} is an optimization problem involving only $\lambda$:
+\begin{equation}
+\half A(\ulambda,\ulambda) - F(\ulambda) + \dualp{\lambda}{[\ulambda]^\nu - l}_{\Gamma_c}  
+\end{equation}
+Note that
+\begin{align}
+  A(\ulambdah, v) &= F(v) - \dualp{\lambda+h}{[v]^\nu}_{\Gamma_c} \\
+  &= A(\ulambda, v) - \dualp{h}{[v]^\nu}_{\Gamma_c} \\
+  &= A(\ulambda, v) + A(\ulh,v)
+  \qforall v\in \V
+\end{align}
+Consequently
+\begin{multline}
+  A(\ulambdah, \ulambdah) = F(\ulambdah) - \dualp{\lambda+h}{[\ulambdah]^\nu}_{\Gamma_c} \\
+  = A(\ulambda, \ulambdah) - \dualp{h}{[\ulambdah]^\nu - l}_{\Gamma_c} \\
+  = A(\ulambda, \ulambdah) + A(\ulh,\ulambdah) - F(\ulambdah)
+\end{multline}
+and
+\begin{align}
+  A(\ulambdah, \ulambda) &= F(\ulambda) - \dualp{\lambda+h}{[\ulambda]^\nu - l}_{\Gamma_c} \\
+  &= A(\ulambda, \ulambda) - \dualp{h}{[\ulambda]^\nu - l}_{\Gamma_c} \\
+  &= A(\ulambda, \ulambda) + A(\ulh,\ulambda) - F(\ulambda)
+\end{align}
+and
+\begin{equation}
+  A(\ulambda, \ulambdah) = F(\ulambdah) - \dualp{\lambda}{[\ulambdah]^\nu - l}_{\Gamma_c} \\
+\end{equation}
+Now
+\begin{multline*}
+  \half A(\ulambdah,\ulambdah) - F(\ulambdah) + \dualp{\lambda+h}{[\ulambdah]^\nu -
+    l}_{\Gamma_c}  \\
+  = \half A(\ulambda,\ulambdah) + \half A(\ulh, \ulambdah) - A(\ulambda, \ulambdah)
+  + \dualp{h}{[\ulambdah]^\nu-l}_{\Gamma_c}  \\
+  = \half A(\ulambda, \ulambdah) - \half\dualp{h}{[\ulambdah]^\nu - l}_{\Gamma_c}
+  -  A(\ulambda, \ulambdah) + \dualp{h}{[\ulambdah]^\nu -
+    l}_{\Gamma_c}  \\
+  = \\
+  =   \half A(\ulambda,\ulambda) - F(\ulambda) + \dualp{\lambda}{[\ulambda]^\nu -
+    l}_{\Gamma_c} \\ + \dualp{h}{[\ulambda]^\nu-l} -\half A(\ulh,\ulh) \\
+\end{multline*}
+
+
+
+
+
+\section{A finite element method for the primal variational formulation}
+\label{sec:finite-elem-meth}
+
+The finite element method discussed here is found in~\cite{haslinger04:3dContact}.
+
+Assume that $\Omega$ is a polyhedral domain with a regular partition \Th\ into
+tetrahedrons or hexahedrons.  The decomposition is consistent with the decomposition of
+$\dOmega$ into $\Gamma_0$, $\Gamma_1$ and $\Gamma_c$.  The finite element subspace
+$\Vh\subset\V$ is constructed using the usual linear or bilinear basis functions.  The
+dimension of $\Vh$ is $d n$ where $n$ is the number of nodes from \Th\ in
+$\overline{\Omega} \setminus \overline{\Gamma}_0$.
+
+The nodes from \Th\ on $\overline{\Gamma}_c \setminus \overline{\Gamma}_0$ are denoted
+$\{a_j\}_{j=1}^{m}$ and called \emph{contact nodes}.  At the node $a_j$ the displacement
+vector is $v_j$, the outward normal vector of $\Gamma_c$ is $\nu^j$ and the unit tangent
+vectors are $\tau_1^j$ and $\tau_2^j$.  The vectors $\nu^j$, $\tau_1^j$ and $\tau_2^j$
+form an orthonormal basis for $\R^3$ for $j=1,\dots,m$.
+
+The linear mappings $N$ and $T_k$ from $\Vh$ into $\R^m$ are defined by
+\begin{equation}
+  \label{eq:11}
+  (Nv)_j = v^j\cdot\nu^j\quad\text{and}\quad (T_k v)_j = v^j\cdot \tau_k^j
+\end{equation}
+for $j=1,\dotsc,m$ and $k=1,2$.  Furthermore, the mapping $T$ is defined by $(Tv)_j =
+\bigl( (T_1 v)_j, (T_2 v)_j \bigr)$.  The space of kinematically admissible finite element
+functions is the space $\K_h$ where the normal component constraint is satisfied for all
+the nodes at the contact boundary, i.e.
+\begin{equation}
+  \label{eq:4}
+  \K_h = \{ v\in\Vh \colon (N v)_j \le d_j\}
+\end{equation}
+for all $j=1,\dotsc,m$.
+
+Using the finite element method we obtain a stiffness matrix $K$ and a load vector $f$.
+Representing the function $g$ using the sum of the Dirac distributions at the contact
+nodes, the friction work function can be represented as
+\begin{equation}
+  \label{eq:3}
+  \sum_{j=1}^m g_j \norm{(T v)_j}
+\end{equation}
+where $g_j \ge 0$ for $j=1,\dots,m$.  Using this the algebraic minimization problem is:
+Find $u\in\Kh$ such that
+\begin{equation}
+  \label{eq:5}
+  \J(u) \le \J(v) \qforall v\in\Kh
+\end{equation}
+where
+\begin{equation}
+  \label{eq:8}
+  \J(v) = \half A(v,v) - F(v) + \sum_{j=1}^m g_j \norm{(T v)_j}
+\end{equation}
+
+
+
+\section{Numerical solution of the primal formulation}
+\label{sec:numer-solut-prim}
+
+In this section we mainly consider contact problem. This is a quadratic minimization
+problem with inequality constraints.  The friction problem is more complicated since the
+functional to be minimized is nondifferentiable.
+
+The quadratic minimization problem~(\ref{eq:PrimalVar}) with the functional $J$ given
+by~(\ref{eq:PotentialEnergyContact}) can, in principle, be solved using an algorithm for
+the minimization of quadratic functional with inequality constraints.  In practice the
+number of unknowns in the finite element discretization is large and the minimization
+algorithms may not be sufficiently efficient.  Note that the constraints in the space $\Kh$
+involves only a small number of the degrees of freedom of the system.  Consequently, it
+should be possible to work only with the degrees of freedom on the contact boundary in the
+minimization problem.  We now show one possible strategy for the reduction of the
+primal minimization problem.
+
+Let
+\begin{equation}
+  \label{eq:31}
+  \Vh^0 = \{ v\in \V \colon v^\nu = 0\quad\text{on }\Gamma_c \}
+\end{equation}
+and 
+\begin{equation}
+  \label{eq:32}
+  \W = \{ (Nv)_j,j=1,\dotsc,m \colon v\in \Vh\} \subset \Rm
+\end{equation}
+Moreover, define the constraint space
+\begin{equation}
+  \label{eq:38}
+  \W_{-} = \{ w\in \W \colon w_j\le d_j \text{ for }j=1,\dotsc,m \}
+\end{equation}
+For $v\in\Vh$ define $v_P \in \Vh^0$ satisfying
+\begin{equation}
+  \label{eq:34}
+  A(v_P, \phi) = A(v, \phi) \qforall \phi\in\Vh^0
+\end{equation}
+and let $v_H=v-v_P$.  Note that $v_H^\nu = v^\nu$ and
+\begin{equation}
+  \label{eq:39}
+  A(v_H,\phi)=0 \qforall \phi\in\Vh^0
+\end{equation}
+Furthermore, note that $v_H$ is uniquely defined by $v^\nu\in \W$.
+
+Using the above decomposition of functions in $\Vh$ in the energy functional we obtain
+\begin{equation}
+  \label{eq:35}
+  \J(v) = \half A(v_H, v_H) - F(v_H)
+  + \half A(v_P, v_P) - F(v_P)
+\end{equation}
+Define the functional
+\begin{equation}
+  \label{eq:46}
+  \J_c(\gamma) = \half A(v_H(\gamma), v_H(\gamma)) - F(v_H(\gamma)) + C_P
+\end{equation}
+where $C_P = \half A(v_P, v_P) - F(v_P)$ is a constant term, and consider the minimization
+problem: Find $\eta\in\W_{-}$ satisfying
+\begin{equation}
+  \label{eq:36}
+  \J_c(\eta) \le \J_c(\gamma) \qforall \gamma\in\W_{-}
+\end{equation}
+This is a constrained minimization problem on the contact boundary, i.e. considerably
+smaller than~(\ref{eq:5}).
+
+In order to give a matrix formulation of the variational formulation above let $r$ be the
+vector of nodal degrees of freedom of $v$, and partition the nodal vector $r$ into $r_1$
+and $r_2$ where the first part corresponds to the degrees of freedom in $\Vh^0$ and the
+second part corresponds to the degrees of freedom in $\W$.  The stiffness matrix $K$ is
+partitioned accordingly
+\begin{equation}
+  \label{eq:37}
+  K = 
+  \begin{pmatrix}
+    K_{11} & K_{12} \\ K_{12}^T & K_{22}
+  \end{pmatrix}
+\end{equation}
+Now the matrix formulation of~(\ref{eq:34}) is
+\begin{equation}
+  \label{eq:33}
+  K_{11} r_P = K_{11} r_1 + K_{12} r_2
+\end{equation}
+Furthermore, the matrix formulation of~(\ref{eq:39}) is
+\begin{equation}
+  \label{eq:40}
+  K_{11} r_H + K_{12} r_2 = 0
+\end{equation}
+Using this in~(\ref{eq:35}) we obtain
+\begin{equation*}
+  \label{eq:41}
+  A(v_H(\gamma), v_H(\gamma)) = (r_H^T, r_2^T)
+  \begin{pmatrix}
+    K_{11} & K_{12} \\ K_{12}^T & K_{22}
+  \end{pmatrix}
+  \begin{pmatrix}
+    r_H \\ r_2
+  \end{pmatrix}
+  = r_2^T ( K_{22} - K_{12}^T K_{11}^{-1} K_{12} ) r_2^T
+\end{equation*}
+and
+\begin{equation*}
+  F(v_H(\gamma)) = R_1^T r_H + R_2^T r_2 = (R_2^T - R_1^T K_{11}^{-1} K_{12} ) r_2
+\end{equation*}
+Thus, (\ref{eq:36}) is a constrained quadratic minimization problem involving the Schur
+complement system.
+
+
+\section{A saddle point formulation of the algebraic minimization problem}
+\label{sec:saddle-point-form}
+
+In order to motivate the saddle point formulation, note that
+\begin{equation}
+  \label{eq:13}
+  g_j \norm{(Tv)_j}
+  = \max_{\substack{\mu^t_j\in\R^2 \\ \norm{\mu^\tau_j}^*\le g_j}} (\mu^\tau_j, (Tv)_j)
+\end{equation}
+Consequently
+\begin{equation}
+  \label{eq:14}
+  \sum_{j=1}^m (\mu^\tau_j, (Tv)_j) \le \sum_{j=1}^m g_j \norm{(Tv)_j}
+\end{equation}
+for all $\mu^\tau_j\in\R^2$ with $\norm{\mu^\tau_j}^*\le g_j$ for $j=1,\dotsc,m$, with equality
+for some $\mu^\tau_j$.
+
+Introduce the Lagrangian $\L \colon \Vh\times \Lambda(g)$ by
+\begin{equation}
+  \label{eq:15}
+  \L(v,\mu) = \half A(v,v) - F(v) + \sumjm \mu^\nu_j \bigl((Nv)_j-d_j\bigr)
+  + \sumjm \mu^t_j \cdot (Tv)_j
+\end{equation}
+where $\mu=(\mu^\nu, \mu^\tau_1, \mu^\tau_2)$ is a vector of Lagrange multipliers.  The space
+associated to the multipliers are
+\begin{equation}
+  \label{eq:16}
+  \Lambda(g) = \Lambda_\nu \times \Lambda_\tau(g)
+\end{equation}
+where
+\begin{equation}
+  \label{eq:17}
+  \Lambda_\nu = \{\mu^\nu \in\R^m \colon \mu^\nu_j \ge 0,\quad\text{for }j=1,\dotsc,m \}
+\end{equation}
+and
+\begin{equation}
+  \label{eq:18}
+  \Lambda_\tau = \{\mu^\tau_j \colon \norm{\mu^t_j}^* \le g_j \quad\text{for }j=1,\dotsc,m\}
+\end{equation}
+
+A saddle point formulation of the constrained minimization problem~(\ref{eq:5}) is: Find
+$(u,\lambda)\in \Vh\times\Lambda(g)$ such that
+\begin{equation}
+  \label{eq:SaddlePoint}
+  \L(u, \mu) \le \L(u,\lambda) \le \L(v,\lambda) \qforall (v,\mu) \in \Vh\times \Lambda(g)
+\end{equation}
+
+The solution of the saddle point problem~(\ref{eq:SaddlePoint}) is equivalent to:  Find
+$(u,\lambda)\in \Vh\times\Lambda(g)$ such that
+\begin{gather}
+  \label{eq:LinElast}
+  A(u,v) = F(v) - \sumjm \lambda^\nu_j (Nv)_j - \sumjm \lambda^\tau_j \cdot (Tv)_j
+  \qforall v\in\V \\
+  \begin{split}
+  \sumjm \bigl((Nu)_j - d_j\bigr)&(\lambda^\nu_j - \mu^\nu_j) \\ 
+  &+ \sumjm (Tu)_j \cdot (\lambda^\tau_j - \mu^\tau_j) \ge 0 \qforall \mu \in \Lambda(g)    
+  \end{split}
+  \label{eq:LagrangeMult}
+\end{gather}
+Note that~(\ref{eq:LinElast}) correspond to a linear elasticity problem with prescribed
+normal and tangential stress given by $\lambda^\nu$ and $\lambda^\tau$.  Also, using the
+Euclidean inner product the inequality (\ref{eq:LagrangeMult}) can be written
+\begin{equation}
+  \label{eq:LagrangeMultInner}
+  (N u - d, \lambda^\nu-\mu^\nu) + (T u, \lambda^\tau-\mu^\tau) \ge 0
+  \qforall \mu \in \Lambda(g)
+\end{equation}
+Alternatively, we also have
+\begin{equation}
+  \label{eq:20}
+  (
+  \begin{pmatrix}
+    N \\ T
+  \end{pmatrix}
+  u, \lambda - \mu) \ge (
+  \begin{pmatrix}
+    d \\ 0
+  \end{pmatrix}, \lambda - \mu) \qforall \mu\in\Lambda(g)
+\end{equation}
+
+It is possible to eliminate $u$ from the saddle point system~(\ref{eq:LinElast})
+and~(\ref{eq:LagrangeMult}), and obtain a problem in the Lagrange multipliers.  To do this
+define for $\mu\in\Lambda(g)$, $v(\mu)\in\Vh$ satisfying
+\begin{equation}
+  \label{eq:43}
+  A(v(\mu), \phi) = -(N\phi, \mu^\nu) - (T\phi, \mu^\tau)
+  \qforall \phi\in\Vh
+\end{equation}
+In addition, let
+\begin{equation}
+  \label{eq:42}
+  A(u_f, \phi) = F(\phi)\qforall \phi\in\Vh
+\end{equation}
+Then $u=u(\lambda)+u_f$.  Now, define
+\begin{equation}
+  \label{eq:45}
+  C(\eta, \mu) = -(Nv(\eta), \mu^\nu) - (Tv(\eta), \mu^\tau)
+\end{equation}
+Note that using~(\ref{eq:43})
+\begin{equation}
+  \label{eq:47}
+  C(\eta, \mu) = A(v(\mu), v(\eta))
+\end{equation}
+Hence the bilinear form $C$ is symmetric, it can also be shown that it is coercive and
+bounded.
+
+Using the definition of $C$ in~(\ref{eq:LagrangeMultInner}) it follows that
+\begin{equation}
+  \label{eq:48}
+    C(\lambda, \mu-\lambda) \ge (N u_f-d, \mu^\nu-\lambda^\nu)
+    + (T u_f, \mu^\tau-\lambda^\tau)
+  \qforall \mu \in \Lambda(g)
+\end{equation}
+Since $C$ is symmetric it is well known that this variational inequality problem is
+equivalent to the constrained minimization problem: Find $\lambda\in\Lambda(g)$ satisfying
+\begin{equation}
+  \label{eq:49}
+  \J_c (\lambda) \le \J_c(\mu)\qforall \mu\in\Lambda(g)
+\end{equation}
+where
+\begin{equation}
+  \label{eq:50}
+  \J_c(\mu) = \half C(\mu,\mu) - (N u_f-d, \mu^\nu) - (T u_f, \mu^\tau)
+\end{equation}
+
+The operator form of~(\ref{eq:LinElast}) is
+\begin{equation}
+  \label{eq:1}
+    A u = F - N^* \lambda^\nu - T^* \lambda^\tau \\
+\end{equation}
+where $N^*$ and $T^*$ from $\R^m$ into $\V^*$ are the dual operators of $N$ and
+$T$.  The corresponding matrix formulation is
+\begin{equation}
+  \label{eq:2}
+  K u = f - N^T \lambda^\nu - T^T \lambda^\tau.
+\end{equation}
+Clearly
+\begin{equation}
+  \label{eq:51}
+  u = u_f + u(\lambda) = K^{-1} F - K^{-1}(N^T \lambda^\nu - T^T \lambda^\tau)
+\end{equation}
+Using this in the definition of $C$
+\begin{equation}
+  \label{eq:52}
+  C(\lambda, \mu) = (
+  \begin{pmatrix}
+    N \\ T
+  \end{pmatrix}
+  K^{-1}
+  \begin{pmatrix}
+    N^T & T^T
+  \end{pmatrix}
+  \lambda, \mu)
+\end{equation}
+Moreover,
+\begin{equation}
+  \label{eq:53}
+    (\begin{pmatrix}
+    N u_f - d  \\ T u_f
+  \end{pmatrix}
+  , \mu) = 
+  (\begin{pmatrix}
+   N K^{-1} f - d \\
+   T K^{-1} f
+  \end{pmatrix}
+  , \mu)
+\end{equation}
+This is the matrix representation of the bilinear form $C$.  Introduce the matrix
+\begin{equation}
+  \label{eq:23}
+  Q = 
+  \begin{pmatrix}
+    N \\ T
+  \end{pmatrix}
+  \Kinv
+  \begin{pmatrix}
+    N^T & T^T
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    N \Kinv N^T & N \Kinv T_1^T & N \Kinv T_2^T \\
+    T_1 \Kinv N^T & T_1 \Kinv T_1^T & T_1 \Kinv T_2^T \\
+    T_2 \Kinv N^T & T_2 \Kinv T_1^T & T_2 \Kinv T_2^T
+  \end{pmatrix}
+\end{equation}
+and the vector
+\begin{equation}
+  \label{eq:24}
+  h = 
+  \begin{pmatrix}
+    N\Kinv f - d \\ T_1 \Kinv f \\ T_2 \Kinv f
+  \end{pmatrix}
+\end{equation}
+We have the matrix formulation
+\begin{equation}
+  \label{eq:22}
+  (Q\lambda, \mu-\lambda) \ge (h, \mu-\lambda)\qforall \mu\in\Lambda(g)
+\end{equation}
+
+Note that the matrix $Q$ is symmetric and positive definite, hence~(\ref{eq:22}) is
+equivalent to the dual minimization problem: Find $\lambda\in\Lambda(g)$
+such that
+\begin{equation}
+  \label{eq:25}
+  D(\lambda) \le D(\mu) \qforall \mu\in\Lambda(g)
+\end{equation}
+where the functional $D(\mu)$ is
+\begin{equation}
+  \label{eq:26}
+  D(\mu) = \half (Q\mu, \mu)-(h, \mu)
+\end{equation}
+This is a constrained quadratic optimization problem and the form of the constraints
+depend on the norm $\norm{\cdot}$.
+
+Note that the dual minimization problem determine approximations to the normal and
+tangential stress $\lambda^\nu$ and $\lambda^\tau$ for a given normal contact stress
+$g=-\beta\sigma^\nu(u(g))$.  Furthermore, recall the the normal contact stress satisfy
+$g=\Phi(g)$, cf.\ equation~(\ref{eq:12}).  Once $\lambda^\nu$ and $\lambda^\tau$ is found,
+the displacements are found from~(\ref{eq:2}).
+
+Also note that the matrix $Q$ may be computed at the cost of $m$ multiplications with $N^T$
+and $T^T$, $3m$ solves of linear systems with $K$ as a coefficient matrix and $m$
+multiplications with $N$ and $T$.
+
+
+\section{A saddle point formulation of the contact problem}
+\label{sec:saddle-point-contact}
+
+Here we consider the contact problem.  The Lagrangian $\L \colon \Vh\times \Lambda^\nu$ is
+\begin{equation}
+  \label{eq:LagrangianContact}
+  \L(v,\mu) = \half A(v,v) - F(v) + \sumjm \mu^\nu_j \bigl((Nv)_j-d_j\bigr)
+\end{equation}
+A saddle point formulation of the constrained minimization problem~(\ref{eq:5}) is: Find
+$(u,\lambda)\in \Vh\times\Lambda_\nu$ such that
+\begin{equation}
+  \label{eq:SaddlePointContact}
+  \L(u, \mu) \le \L(u,\lambda) \le \L(v,\lambda) \qforall (v,\mu) \in \Vh\times \Lambda_\nu
+\end{equation}
+
+The solution of the saddle point problem~(\ref{eq:SaddlePoint}) is equivalent to:  Find
+$(u,\lambda)\in \Vh\times\Lambda^\mu$ such that
+\begin{gather}
+  \label{eq:LinElastContact}
+  A(u,v) = F(v) - \sumjm \lambda^\nu_j (Nv)_j
+  \qforall v\in\V \\
+  \begin{split}
+  \sumjm \bigl((Nu)_j - d_j\bigr)&(\lambda^\nu_j - \mu^\nu_j) \ge 0
+  \qforall \mu \in \Lambda_\nu    
+  \end{split}
+  \label{eq:LagrangeMultContact}
+\end{gather}
+
+The matrix form of~(\ref{eq:LinElastContact}) is
+\begin{equation}
+  \label{eq:MatrixFormContact}
+  K u = f - N^T \lambda^\nu.
+\end{equation}
+Using the Euclidean inner product inequality (\ref{eq:LagrangeMult}) can be written
+\begin{equation}
+  \label{eq:LagrangeMultContactInner}
+  (N u - d, \lambda^\nu-\mu^\nu) \ge 0
+  \qforall \mu \in \Lambda_\nu
+\end{equation}
+Eliminating $u$ using~(\ref{eq:MatrixFormContact}) gives
+\begin{equation}
+  \label{eq:21}
+  (N \Kinv N^T \lambda^\nu, \mu^\nu-\lambda^\nu)
+  \ge (N \Kinv f - d, \mu^\nu-\lambda^\nu) \qforall \mu\in\Lambda_\nu
+\end{equation}
+Since $N$ has full rank the matrix $N\Kinv N^T$ is symmetric and positive definite.
+Consequently the variational inequality is equivalent to the quadratic minimization
+problem: Find $\lambda^\nu\in \Lambda_\nu$ such that
+\begin{equation}
+  \label{eq:27}
+  D(\lambda) \le D(\mu)\qforall \mu \in \Lambda_\nu
+\end{equation}
+where
+\begin{equation}
+  \label{eq:28}
+  D(\mu) = \half(N \Kinv N^T \mu, \mu) - (N \Kinv f -d, \mu) 
+\end{equation}
+Recall that the space $\Lambda_\nu$ is the set of $m$ vectors with nonnegative entries.
+Hence the minimization problem is a quadratic minimization problem with one sided
+inequality constraints.
+
+
+% \section{Multibody contact}
+
+% Let the domain $\Omega$ consist of two bodies, $\Omega^1$ and
+% $\Omega^2$. A contact zone is identified as $\Gamma^1_c$ and
+% $\Gamma^2_c$, possibly with an initial gap.  The unit normal $\nu$ of the
+% contact zone is taken to be the normal pointing from $\Omega^1$ into
+% $\Omega^2$.  The initial gap is $l=l(x)$, i.e. the distance from
+% $\Gamma^1_c$ to $\Gamma^2_c$ along the unit normal $\nu$. 
+
+% The contact condition is
+% \begin{equation}
+%   u^1\cdot\nu - u^2\cdot\nu \le l \quad\text{on $\Gamma_c$}
+% \end{equation}
+% where we have used $\Gamma_c$ to refer to the contact boundary.
+% Alternative notation
+% \begin{equation}
+%   [u]^\nu \le l \quad\text{on $\Gamma_c$}
+% \end{equation}
+
+% Let
+% \begin{equation}
+%   \K = \set{v\in \V \colon [v]^\nu \le 0 \quad\text{on }\Gamma_c }
+% \end{equation}
+% and let $u_l$ be a function in $\V$ such that $[u_l]^\nu = l$.
+% Furthermore let
+% \begin{equation}
+%   J(v) = \half A(v,v) - F(v)
+% \end{equation}
+
+% Find $u-u_l \in \K$ such that
+% \begin{equation}
+%   \label{eq:primalMin}
+%   J(u) \le J(v) \quad\text{for all $v-u_l \in \K$}
+% \end{equation}
+% or, equivalently, find $u-u_l \in \K$ such that such that
+% \begin{equation}
+%   A(u, v-u) \ge F(v-u) \quad\text{for all $v-u_l \in \K$}
+% \end{equation}
+
+% In order to derive the dual problem corresponding
+% to~\ref{eq:primalMin}, introduce the functionals $\F:\V \mapsto \R$
+% and $\G:\W \mapsto \R$, where $\W=\set{\mu\in L^2(\Omega)^{2,2} : \mu_{ij}=\mu_{ji}}$, by
+% \begin{equation}
+%   \F(v) =
+%   \begin{cases}
+%     -F(v) & \text{if $v-d\in\K$} \\
+%     \infty & \text{otherwise}
+%   \end{cases}
+% \end{equation}
+% and
+% \begin{equation}
+%   \G(\mu) = \half \int_\Omega \mu_{ij} C_{ijkl} \mu_{kl} \dx
+% \end{equation}
+
+
+
+
+\bibliography{bib/trustPapers,bib/trustBooks,bib/bookrefs}
+\bibliographystyle{amsplain}
+
+
+\end{document}
