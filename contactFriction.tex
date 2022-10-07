@@ -308,7 +308,7 @@ Introduce
 Clearly \K\ is a convex subspace of $\V$, and also a cone with vertex zero.
 We consider linearized elasticity together with the convex subspace \eqref{eq:contactSubspace}, i.e.\ the constriant minimization problem \eqref{ineq:potential_convex}
 
-Now, the inequality \eqref{ineq:varIneqSol} and equaltiy \eqref{eq:varIneqSol} is used to characterize the solution of the contact problem.
+Now, the inequality \eqref{ineq:varIneqSol} and equality \eqref{eq:varIneqSol} is used to characterize the solution of the contact problem.
 
 Let $\V_0$ be the subset of $\V$ of functions vanishing normal trace on $\Gamma_c$ in addition to $\Gamma_0$. Clearly $\V_0$ is a subset of $\K$ and also a linear space, i.e.\
 \begin{equation}
@@ -336,6 +336,126 @@ hence on a point on $\Gamma_c$ either $\sigma^\nu = 0$ or $u^\nu = 0$.
 
 To sum up, on the contact boundary either the normal displacement is zero or the normal stress is zero. At a point on the contact boundary where the normal displacement is zero the body is in contact with the rigid foundation. At a point where the normal displacement is negative it is not contact and the boundar is free.  Inside $\Omega$ the elastic body is in equilibrium and the on $\Gamma_1$ the stress is equal to the given traction.
 
+
+\subsection{Fenchel duality}
+
+We refer to the constraint minimization problem \eqref{ineq:potential_convex}with the convex subspace given by \eqref{eq:contactSubspace} as the primal problem. The purpose of this section is to introduce the corresponding dual problem corresponding.
+
+First, introduce the space
+\begin{equation}
+  \W = \set{\mu \in (L^2(\Omega))^{d,d} | \mu_{ij} = \mu_{ji}
+    \text{ for } i\ne j } 
+\end{equation}
+Here we can identify $\W^*$, the dual space of $\W$, by $\W$.  Let $\strain \in \L(\V,\W)$
+be given by
+\begin{equation}
+  \epsij(v) = \half (v_{i,j} + v_{j,i})
+\end{equation}
+The dual operator
+$\strain^*$ in $\L(\W,\V^*)$ is defined by
+\begin{equation}
+  \strain^* \mu(v) = \intO \mu_{ij} \epsij(v) \dx
+\end{equation}
+%where $\dualp{\cdot}{\cdot}$ is the duality pairing between $\V^*$ and $\V$.  
+
+Define the functional $F$ on \V\ and $G$ on \W\ by
+\begin{equation}
+  \F(v) =
+  \begin{cases}
+    -F(v) & \text{if } v \in \K \\
+    \infty & \text{else;}
+  \end{cases}
+\end{equation}
+and
+\begin{equation}
+  \G(\mu) = \half \intO \mu_{ij} C_{ijkl} \mu_{kl} \dx
+\end{equation}
+Then
+\begin{equation}
+  \label{ineq:primalFenchel}
+  \infvinV \F(v) + \G(\strain(v))
+\end{equation}
+is equivalent to~(\ref{eq:PrimalVar}).
+
+We introduced the functional
+\begin{equation}
+\varPhi(v,\mu) = \F(v) + \G(\epsilon(v) + \mu)
+\end{equation}
+The conjugate functional is
+\begin{equation}
+  \varPhi^*(v^*, \mu) = \F^*(v^* - \strain^*(\mu)) + \G^*(\mu)
+\end{equation}
+where we have used that the dual of $W$ can be identified with $W$ itself. It can be shown that
+\begin{equation}
+  \inf_{v\in \V} \F(v) + \G(\strain(v))
+  = \sup_{\mu\in \W} -\F^*(-\strain^*(\mu)) - \G^*(\mu)
+\end{equation}
+
+Here
+\begin{equation}
+  \F^*(-\strain^*(\mu)) = \sup_{v \in \V} \bigl(-\strain^* \mu(v)
+   - \F(v)\bigr)
+  = \sup_{v\in \V} \bigl(-\intO \mu_{ij}\epsij(v) \dx - \F(v) \bigr)
+\end{equation}
+If $v$ is not in $\K$, $-\F(v)$ is minius infinity, consequently $v$ must be in the convex subspace $\K$. If $v\in \K$
+\begin{equation}
+  \sup_{v\in\V} \bigl(-\intO \mu_{ij}\epsij(v) \dx + F(v) \bigr)
+\end{equation}
+Here
+\begin{equation}
+  \intO \mu_{ij} \epsij(v) \dx = \intO \mu_{ij} v_{i,j} \dx
+  = \int_\Gamma \nu_j \mu_{ij} v_i \ds - \intO \mu_{ij,j} v_i \dx
+\end{equation}
+and
+\begin{equation}
+  \intO \mu_{ij,j} v_i \dx - \intG[1] \nu_j \mu_{ij} v_i \ds 
+  - \intG[c] \nu_j \mu_{ij} v_i \ds + \intO f_i v_i \dx
+\end{equation}
+The supremum is infinit, unless $-\mu_{ij,j} = f_i$ in $\Omega$ and $\nu_j \mu_{ij} = g_i$ on $\Gamma_1$, for $i=1,\ldots,d$ and ???$\nu_j \mu_{ij} \le 0$ on $\Gamma_c$.
+Furthermore
+\begin{equation}
+  \G^*(\mu) = \sup_{\eta\in W} \bigl(\intO \mu_{ij} \eta_{ij} \dx
+   - \half \intO \eta_{ij} C_{ijkl} \eta_{kl} \dx \bigr)
+\end{equation}
+and the supremum is attained when
+\begin{equation}
+  C_{ijkl} \eta_{kl} = \mu_{ij} \quad\text{for all $i,j$}
+\end{equation}
+The tensor $C$ is invertible and the inverse is denoted $E$, hence
+\begin{equation}
+  \G^*(\mu) = \half \intO \mu_{ij} E_{ijkl} \mu_{kl} \dx
+\end{equation}
+
+We call
+\begin{equation}
+  \infvinV \varPhi(v, 0)
+\end{equation}
+the primal problem and
+\begin{equation}
+  \sup_{\mu\in \W} -\varPhi^*(0,\mu)
+\end{equation}
+is the dual problem with respect to $\varPhi$.  Here
+\begin{equation}
+  \varPhi^*(v^*,\mu) = \F^*(v^*-\epsilon^*(\mu)) + \G^*(\mu)
+\end{equation}
+where $\F^*$ and $\G^*$ are the conjugate functionals of $\F$ and $\G$.  Consequently
+\begin{equation}
+  \sup_{\mu\in \W} -\varPhi^*(0,\mu)
+  = \sup_{\mu\in \W} -\F^*(-\epsilon^*(\mu)) - \G^*(\mu)
+\end{equation}
+
+It is known that
+\begin{equation}
+  \label{eq:PrimalDualNoGap}
+  \infvinV \F(v) + \G(\strain(v))
+  = \sup_{\mu\in \W} \{ - \F^*(-\strain^* \mu) - \G^*(\mu) \}
+\end{equation}
+The solution to the primal problem is denoted $u$, as above, and the solution of the dual
+problem is denoted $\sigma$.  Recall that $u-u_l\in \K$. 
+
+
+\subsection{Lagrange multipliers}
+
 Since the constraint is only on the contact boundary in make sense to introduce the function $h : \V \mapsto H^{1/2}(\Gamma_c)$ as the normal trace function
 \begin{equation}
   h(\phi) = \nu_i\cdot\phi_i = \phi^\nu \quad \text{on $\Gamma_c$}
@@ -351,6 +471,21 @@ We now consider the minimization problem
     &\text{subject to $h(v) \in K$}
   \end{split}
 \end{equation}
+
+It can be shown that there exists a function $u\in\V$ and a Lagrange multiplier
+$\lambda^* \in \bigl(H^{\half}(\Gamma_c)\bigr)^*$ such that
+\begin{align}
+  &\dualp{J^\prime(u) + \lambda^* \circ \nu\cdot}{v} = 0 \quad\text{for all $v\in \V$} \\
+  &\dualp{\lambda^*}{\lambda}_{\Gamma_c} \le 0 \quad\text{for all $\lambda\in K$} \\
+  &\dualp{\lambda^*}{\nu\cdot u}_{\Gamma_c} = 0
+\end{align}
+Or, equivalently
+\begin{align}
+  & A(u,v) - F(v) + \dualp{\lambda^*}{\nu\cdot v}_{\Gamma_c} = 0
+  \quad\text{for all $v\in \V$} \\
+  &\dualp{\lambda^*}{\nu\cdot v}_{\Gamma_c} \le 0 \quad\text{for all $v\in \K$} \\
+  &\dualp{\lambda^*}{\nu\cdot u}_{\Gamma_c} = 0
+\end{align}
 
 
 
@@ -525,6 +660,7 @@ With $w=u-u_l\in \K$ and $\phi=v-u_l \in \K$ the variational inequality problem 
 \begin{equation}
   A(w, \phi-w) \ge F(\phi-w) - A(u_l, \phi-w) \quad\text{for all $\phi\in\K$}
 \end{equation}
+
 An alternative formulation is
 \begin{equation}
   \begin{split}
@@ -551,12 +687,17 @@ Or, equivalently
   &\dualp{\lambda^*}{\nu\cdot u - l}_{\Gamma_c} = 0
 \end{align}
 
-Introduce the space
+
+\section{Fenchel duality}
+
+The purpose of this section is to introduce the dual problem corresponding to \eqref{ineq:potential_convex}.
+
+First, introduce the space
 \begin{equation}
   \W = \set{\mu \in (L^2(\Omega))^{d,d} | \mu_{ij} = \mu_{ji}
     \text{ for } i\ne j } 
 \end{equation}
-Here we can identify $\W^*$, the dual space of $W$, by $W$.  Let $\strain \in \L(\V,\W)$
+Here we can identify $\W^*$, the dual space of $\W$, by $\W$.  Let $\strain \in \L(\V,\W)$
 be given by
 \begin{equation}
   \epsij(v) = \half (v_{i,j} + v_{j,i})
