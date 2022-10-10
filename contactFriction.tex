@@ -209,13 +209,13 @@ Using the Lam\'{e} coefficients $\lambda$ and $\mu$ we have
 \end{equation}
 
 On the boundary $\dOmega$ the normal stress $\stress^\nu$ is given by
-\[ \stress^\nu = \sigij \nu_in_j \]
+\[ \stress^\nu = \sigij \nu_i \nu_j \]
 and the tangential stress $\stress^\tau$ is given by
-\[ \stress[i]^\tau = \sigij n_j - \stress^n n_i, \]
+\[ \stress[i]^\tau = \sigij \nu_j - \stress^\nu \nu_i, \]
 for $i=1,\ldots,d$.  In a similar way, let the normal displacement be
-\[ u^n = u_i n_i \]
+\[ u^\nu = u_i \nu_i \]
 and the tangential displacement be
-\[ u^\tau_i = u_i - u^n n_i, \]
+\[ u^\tau_i = u_i - u^\nu \nu_i, \]
 for $i=1,\ldots,d$.
 
 The boundary $\dOmega$ consist of two disjoint parts $\Gamma_0$ and $\Gamma_1$.  On $\Gamma_0$ the displacement vanish and on $\Gamma_1$ the stress vector is $g$ is prescribed.
@@ -236,18 +236,6 @@ F(\phi) = & \intO f_i\phi_i\dx
         + \intG[1] g_i \phi_i\ds. \notag
 \end{align}
 
-For any displacement $\phi$, satisfying the displacement boundary
-condition, the \emph{total strain energy} is
-\begin{equation}
-  \label{eq:strainEnergy}
-  \frac{1}{2}A(\phi,\phi)
-\end{equation}
-and the potential energy of the external loads is
-\begin{equation}
-  \label{eq:potentialEnergyLoads}
-  \intO f_i\phi_i\dx +
-  \intG[1] g_i \phi_i\ds.
-\end{equation}
 The functional
 \begin{equation}
         J(\phi) = \frac{1}{2}A(\phi,\phi) - F(\phi).
@@ -297,13 +285,13 @@ For further discussion cf.\ Glowinski 1984 \cite{Glowinski1984:NonlinearVariatio
 
 In unilateral contact the displacement of the body is restricted by a rigid boundary, e.g.\ a elastic body is resting on a rigid foundation.  In this case the boundary of the domain $\Omega$ consists of three disjoint parts, $\Gamma_0$, $\Gamma_1$ and $\Gamma_c$. Here $\Gamma_3$ represent the part that may be in contact with the rigid foundation. In particular the the normal component of the displacement must be less or equal to zero, otherwise the body will penetrate the rigid foundation, so
 \begin{equation}
-  u^n \le 0 \quad\text{on $\Gamma_c$}
+  u^\nu \le 0 \quad\text{on $\Gamma_c$}
 \end{equation}
 
 Introduce
 \begin{equation}
   \label{eq:contactSubspace}
-  \K = \{ \phi\in \V \colon \phi^n \le 0 \text{ a.e.\ on $\Gamma_c$}\}
+  \K = \{ \phi\in \V \colon \phi^\nu \le 0 \text{ a.e.\ on $\Gamma_c$}\}
 \end{equation}
 Clearly \K\ is a convex subspace of $\V$, and also a cone with vertex zero.
 We consider linearized elasticity together with the convex subspace \eqref{eq:contactSubspace}, i.e.\ the constriant minimization problem \eqref{ineq:potential_convex}
@@ -409,10 +397,25 @@ Here
 and
 \begin{equation}
   \intO \mu_{ij,j} v_i \dx - \intG[1] \nu_j \mu_{ij} v_i \ds 
-  - \intG[c] \nu_j \mu_{ij} v_i \ds + \intO f_i v_i \dx
+  - \intG[c] \mu^\tau_i v^\tau_i + \mu^\nu v^\nu \ds + \intO f_i v_i \dx
+  +   \intG[1] g_i v_i\ds.
 \end{equation}
-The supremum is infinit, unless $-\mu_{ij,j} = f_i$ in $\Omega$ and $\nu_j \mu_{ij} = g_i$ on $\Gamma_1$, for $i=1,\ldots,d$ and ???$\nu_j \mu_{ij} \le 0$ on $\Gamma_c$.
-Furthermore
+The supremum is infinit, unless
+\begin{equation}
+  \label{eq:stressEq}
+  \begin{split}
+    -\mu_{ij,j} &= f_i \quad\text{in $\Omega$} \\
+    \nu_j \mu_{ij} &= g_i \quad\text{on $\Gamma_1$} \\
+    \mu_i^\tau &= 0 \quad\text{on $\Gamma_c$}      
+  \end{split}
+\end{equation} 
+for $i=1,\ldots,d$. If, in addtion, $\mu^\nu \le 0$ on $\Gamma_c$
+\begin{equation}
+  \F(-\strain^*(\mu)) = 0
+\end{equation}
+If the above conditions are not stisfied, $\F(-\strain^*(\mu)) = \infty$.
+
+Furthermore, evaluating the conjugate of $\G$
 \begin{equation}
   \G^*(\mu) = \sup_{\eta\in W} \bigl(\intO \mu_{ij} \eta_{ij} \dx
    - \half \intO \eta_{ij} C_{ijkl} \eta_{kl} \dx \bigr)
@@ -425,6 +428,14 @@ The tensor $C$ is invertible and the inverse is denoted $E$, hence
 \begin{equation}
   \G^*(\mu) = \half \intO \mu_{ij} E_{ijkl} \mu_{kl} \dx
 \end{equation}
+Using the above, the dual problem is
+\begin{equation}
+  \sup_{\substack{\mu\in\W \\ \mu^{\nu} \le 0, \text{ on $\Gamma_c$}, \\
+   \text{and \eqref{eq:stressEq} holds.}}}
+  \half \intO \mu_{ij} E_{ijkl} \mu_{kl} \dx
+\end{equation}
+
+The extremality condition $-\strain^*(\mu) \in \partial \F(u)$
 
 We call
 \begin{equation}
