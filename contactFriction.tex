@@ -375,58 +375,63 @@ The conjugate functional is
 \end{equation}
 where we have used that the dual of $W$ can be identified with $W$ itself. It can be shown that
 \begin{equation}
+	\label{eq:infsup}
   \inf_{v\in \V} \F(v) + \G(\strain(v))
   = \sup_{\mu\in \W} -\F^*(-\strain^*(\mu)) - \G^*(\mu)
+\end{equation}
+The optimal solutions of are denoted $u$ and $ \stress$.
+
+
+Consider the supremum of the right hand side of equation~\eqref{eq:infsup}, for the optimal solutions $\stress$
+\begin{equation}
+  \F^*(-\strain^*(\stress)) = \sup_{v \in \V} \bigl(-\strain^* \stress(v)
+   - \F(v)\bigr)
+  = \sup_{v\in \V} \bigl(-\intO \stress[ij]\epsij(v) \dx - \F(v) \bigr)
+\end{equation}
+If $v$ is not in $\K$, $-\F(v)$ is minius infinity, consequently $v$ must be in the convex subspace $\K$. If $v\in \K$
+\begin{equation}
+  \sup_{v\in\V} \bigl(-\intO \stress[ij]\epsij(v) \dx + F(v) \bigr)
 \end{equation}
 
 Here
 \begin{equation}
-  \F^*(-\strain^*(\mu)) = \sup_{v \in \V} \bigl(-\strain^* \mu(v)
-   - \F(v)\bigr)
-  = \sup_{v\in \V} \bigl(-\intO \mu_{ij}\epsij(v) \dx - \F(v) \bigr)
-\end{equation}
-If $v$ is not in $\K$, $-\F(v)$ is minius infinity, consequently $v$ must be in the convex subspace $\K$. If $v\in \K$
-\begin{equation}
-  \sup_{v\in\V} \bigl(-\intO \mu_{ij}\epsij(v) \dx + F(v) \bigr)
-\end{equation}
-Here
-\begin{equation}
-  \intO \mu_{ij} \epsij(v) \dx = \intO \mu_{ij} v_{i,j} \dx
-  = \int_\Gamma \nu_j \mu_{ij} v_i \ds - \intO \mu_{ij,j} v_i \dx
+  \intO \stress[ij] \epsij(v) \dx = \intO \stress[ij] v_{i,j} \dx
+  = \int_\Gamma \nu_j \stress[ij] v_i \ds - \intO \stress[ij,j] v_i \dx
 \end{equation}
 and
 \begin{equation}
-  \intO \mu_{ij,j} v_i \dx - \intG[1] \nu_j \mu_{ij} v_i \ds 
-  - \intG[c] \mu^\tau_i v^\tau_i + \mu^\nu v^\nu \ds + \intO f_i v_i \dx
+  \intO \stress[ij,j] v_i \dx - \intG[1] \nu_j \stress[ij] v_i \ds 
+  - \intG[c] \stress[i]^\tau v^\tau_i + \stress^\nu v^\nu \ds + \intO f_i v_i \dx
   +   \intG[1] g_i v_i\ds.
 \end{equation}
 The supremum is infinit, unless
 \begin{equation}
   \label{eq:stressEq}
   \begin{split}
-    -\mu_{ij,j} &= f_i \quad\text{in $\Omega$} \\
-    \nu_j \mu_{ij} &= g_i \quad\text{on $\Gamma_1$} \\
-    \mu_i^\tau &= 0 \quad\text{on $\Gamma_c$}      
+    -\stress[ij,j] &= f_i \quad\text{in $\Omega$} \\
+    \nu_j \stress[ij] &= g_i \quad\text{on $\Gamma_1$} \\
+    \stress[i]^\tau &= 0 \quad\text{on $\Gamma_c$}      
   \end{split}
+  \quad\text{for $i=1,\ldots,d$}
 \end{equation} 
-for $i=1,\ldots,d$. If, in addtion, $\mu^\nu \le 0$ on $\Gamma_c$
+If, in addtion, $\stress^\nu \le 0$ on $\Gamma_c$
 \begin{equation}
-  \F(-\strain^*(\mu)) = 0
+  \F(-\strain^*(\stress)) = 0
 \end{equation}
 If the above conditions are not stisfied, $\F(-\strain^*(\mu)) = \infty$.
 
-Furthermore, evaluating the conjugate of $\G$
+Furthermore, evaluating the conjugate of $\G$ at the optimal point $\stress$
 \begin{equation}
-  \G^*(\mu) = \sup_{\eta\in W} \bigl(\intO \mu_{ij} \eta_{ij} \dx
-   - \half \intO \eta_{ij} C_{ijkl} \eta_{kl} \dx \bigr)
+  \G^*(\stress) = \sup_{\mu\in W} \bigl(\intO \stress[ij] \mu_{ij} \dx
+   - \half \intO \mu_{ij} C_{ijkl} \mu_{kl} \dx \bigr)
 \end{equation}
 and the supremum is attained when
 \begin{equation}
-  C_{ijkl} \eta_{kl} = \mu_{ij} \quad\text{for all $i,j$}
+  C_{ijkl} \mu_{kl} = \stress[ij] \quad\text{for all $i,j$}
 \end{equation}
 The tensor $C$ is invertible and the inverse is denoted $E$, hence
 \begin{equation}
-  \G^*(\mu) = \half \intO \mu_{ij} E_{ijkl} \mu_{kl} \dx
+  \G^*(\stress) = \half \intO \stress[ij] E_{ijkl} \stress[kl] \dx
 \end{equation}
 Using the above, the dual problem is
 \begin{equation}
@@ -435,7 +440,15 @@ Using the above, the dual problem is
   \half \intO \mu_{ij} E_{ijkl} \mu_{kl} \dx
 \end{equation}
 
-The extremality condition $-\strain^*(\mu) \in \partial \F(u)$
+The extremity condition $-\strain^*(\stress) \in \partial \F(u)$, by def
+\begin{equation}
+	\F(v) - \F(u) \geq \dualp{-\strain^*(\stress)}{v-u} \quad\text{for all $v\in\V$}
+\end{equation}
+Provided $v\in\K$
+\begin{equation}
+	-F(v) + F(u) \geq -\dualp{\stress}{\strain(v-u)} \quad\text{for all $v\in\V$}
+\end{equation}
+
 
 We call
 \begin{equation}
