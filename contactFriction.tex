@@ -371,13 +371,13 @@ We introduced the functional
 \end{equation}
 The conjugate functional is
 \begin{equation}
-  \varPhi^*(v^*, \mu) = \F^*(v^* - \strain^*(\mu)) + \G^*(\mu)
+  \varPhi^*(v^*, \mu) = \F^*(v^* - \strain^* \mu) + \G^*(\mu)
 \end{equation}
 where we have used that the dual of $W$ can be identified with $W$ itself. It can be shown that
 \begin{equation}
 	\label{eq:infsup}
   \inf_{v\in \V} \F(v) + \G(\strain(v))
-  = \sup_{\mu\in \W} -\F^*(-\strain^*(\mu)) - \G^*(\mu)
+  = \sup_{\mu\in \W} -\F^*(-\strain^* \mu) - \G^*(\mu)
 \end{equation}
 The optimal solutions of are denoted $u$ and $ \stress$.
 
@@ -390,15 +390,14 @@ Consider the supremum of the right hand side of equation~\eqref{eq:infsup}, for 
 \end{equation}
 If $v$ is not in $\K$, $-\F(v)$ is minius infinity, consequently $v$ must be in the convex subspace $\K$. If $v\in \K$
 \begin{equation}
-  \sup_{v\in\V} \bigl(-\intO \stress[ij]\epsij(v) \dx + F(v) \bigr)
+  \sup_{v\in\K} \bigl(-\intO \stress[ij]\epsij(v) \dx + F(v) \bigr)
 \end{equation}
-
-Here
+The first term can be written
 \begin{equation}
   \intO \stress[ij] \epsij(v) \dx = \intO \stress[ij] v_{i,j} \dx
   = \int_\Gamma \nu_j \stress[ij] v_i \ds - \intO \stress[ij,j] v_i \dx
 \end{equation}
-and
+Combining this with the definition of $F$, we obtain
 \begin{equation}
   \intO \stress[ij,j] v_i \dx - \intG[1] \nu_j \stress[ij] v_i \ds 
   - \intG[c] \stress[i]^\tau v^\tau_i + \stress^\nu v^\nu \ds + \intO f_i v_i \dx
@@ -416,7 +415,8 @@ The supremum is infinit, unless
 \end{equation} 
 If, in addtion, $\stress^\nu \le 0$ on $\Gamma_c$
 \begin{equation}
-  \F(-\strain^*(\stress)) = 0
+  \sup_{v\in\K} \F(-\strain^*(\stress))
+  = \sup_{v\in K} \intG[c] \stress^\nu v^\nu \ds = 0
 \end{equation}
 If the above conditions are not stisfied, $\F(-\strain^*(\mu)) = \infty$.
 
@@ -427,7 +427,7 @@ Furthermore, evaluating the conjugate of $\G$ at the optimal point $\stress$
 \end{equation}
 and the supremum is attained when
 \begin{equation}
-  C_{ijkl} \mu_{kl} = \stress[ij] \quad\text{for all $i,j$}
+  C_{ijkl} \mu_{kl} = \stress[ij] \quad\text{in $\Omega$ and for all $i,j$}
 \end{equation}
 The tensor $C$ is invertible and the inverse is denoted $E$, hence
 \begin{equation}
@@ -437,18 +437,40 @@ Using the above, the dual problem is
 \begin{equation}
   \sup_{\substack{\mu\in\W \\ \mu^{\nu} \le 0, \text{ on $\Gamma_c$}, \\
    \text{and \eqref{eq:stressEq} holds.}}}
-  \half \intO \mu_{ij} E_{ijkl} \mu_{kl} \dx
+  -\half \intO \mu_{ij} E_{ijkl} \mu_{kl} \dx
 \end{equation}
+
+For a given $\lambda$ in $H^{-\half}(\Gamma_c)$ let $\ulambda$ satisfy
+\begin{equation}
+  A(\ulambda, \phi) = F(\phi) - \dualp{\lambda}{\phi^\nu} 
+  \quad\text{for all $\phi$ in $V$}
+\end{equation}
+Now
+\begin{equation}
+  \intO \mu_{ij} E_{ijkl} \mu_{kj} \dx
+  = \intO  \epsij(\ulambda) C_{ijkl} \epskl(\ulambda) \dx
+  = A(\ulambda, \ulambda)
+\end{equation}
+and the dual problem takes the form
+\begin{equation}
+  - \inf_{\substack{\lambda \in H^{-1/2}(\Gamma_c) \\ \lambda \ge 0}}
+  A(\ulambda, \ulambda)
+\end{equation}
+
+\section{TMP}
 
 The extremity condition $-\strain^*(\stress) \in \partial \F(u)$, by def
 \begin{equation}
 	\F(v) - \F(u) \geq \dualp{-\strain^*(\stress)}{v-u} \quad\text{for all $v\in\V$}
 \end{equation}
-Provided $v\in\K$
+Clearly $u$ and $v$ must be in $\K$, using definitions
 \begin{equation}
-	-F(v) + F(u) \geq -\dualp{\stress}{\strain(v-u)} \quad\text{for all $v\in\V$}
+	\dualp{\stress}{\strain(v-u)} \geq F(v) - F(u) \quad\text{for all $v\in\K$}
 \end{equation}
-
+In addition, $\strain^* \in \partial \G(\strain(u))$, i.e.\
+\begin{equation}
+  \stress[ij] = C_{ijkl} \strain[kl](u)
+\end{equation} 
 
 We call
 \begin{equation}
@@ -1164,21 +1186,20 @@ Now
 \begin{multline*}
   \half A(\ulambdah,\ulambdah) - F(\ulambdah) + \dualp{\lambda+h}{[\ulambdah]^\nu -
     l}_{\Gamma_c}  \\
-  = \half A(\ulambda,\ulambdah) + \half A(\ulh, \ulambdah) - A(\ulambda, \ulambdah)
+  = \half A(\ulambda,\ulambdah) + \half A(\ulh, \ulambdah) - A(\ulambda, \ulambdah) \\
   + \dualp{h}{[\ulambdah]^\nu-l}_{\Gamma_c}  \\
   = \half A(\ulambda, \ulambdah) - \half\dualp{h}{[\ulambdah]^\nu - l}_{\Gamma_c}
-  -  A(\ulambda, \ulambdah) + \dualp{h}{[\ulambdah]^\nu -
+  -  A(\ulambda, \ulambdah) \\+ \dualp{h}{[\ulambdah]^\nu -
     l}_{\Gamma_c}  \\
-  = \\
-  =   \half A(\ulambda,\ulambda) - F(\ulambda) + \dualp{\lambda}{[\ulambda]^\nu -
-    l}_{\Gamma_c} \\ + \dualp{h}{[\ulambda]^\nu-l} -\half A(\ulh,\ulh) \\
+  =   \half A(\ulambda,\ulambda) - F(\ulambda)  + \dualp{\lambda}{[\ulambda]^\nu -
+    l}_{\Gamma_c} + \dualp{h}{[\ulambda]^\nu-l} \\ -\half A(\ulh,\ulh)
 \end{multline*}
 
 
 
 
 
-\section{A finite element method for the primal variational formulation}
+\section{A finite element method for the primal\\ variational formulation}
 \label{sec:finite-elem-meth}
 
 The finite element method discussed here is found in~\cite{haslinger04:3dContact}.
